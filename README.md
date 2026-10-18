@@ -19,13 +19,25 @@
 - **指标**：质量（Hit@k、MRR、nDCG@k、覆盖率、风险率、时效率等，附置信区间）、时延（p50 / p90 / p99）、费用（每千次查询）。结论按场景给出，不做脱离场景的总排名。
 - **录制回放**：供应商响应可录制到本机，改打分逻辑后离线重跑不重复付费。
 
+## 使用
+
+Node.js 24 与 pnpm 12 的版本固定在 `package.json` 的 `devEngines` 里，装好 pnpm 后它会按需下载这两个版本。
+
+```bash
+pnpm install
+pnpm seekbench run --scenarios smoke --subjects mock   # 用假被测对象跑流程自检场景
+pnpm seekbench report                                   # 为最近一次运行生成 runs/<run-id>/report.md
+```
+
+被测对象、并发、超时与重复次数在 `seekbench.config.ts` 里配置；`pnpm seekbench --help` 列出全部参数。运行中断后用 `--resume <run-id>` 续跑。
+
 ## 结果
 
 公开的运行结果放在 `results/`，每次包含汇总指标与报告。
 
 ## 状态
 
-设计阶段。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
+M0 骨架：数据模型、URL 规范化、指标与置信区间、并发限速的 Runner、`run` 与 `report` 命令，目前只有假被测对象。下一步接入真实搜索服务与录制回放。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ---
 
@@ -48,10 +60,22 @@ A general-purpose benchmark for search scenarios, to help choose search provider
 - **Metrics**: quality (Hit@k, MRR, nDCG@k, coverage, risk rate, freshness, with confidence intervals), latency (p50 / p90 / p99) and cost per thousand queries. Conclusions are reported per scenario; there is no overall leaderboard without scenario context.
 - **Record and replay**: provider responses can be recorded locally so scoring changes can be re-run offline without paying again.
 
+**Usage**
+
+Node.js 24 and pnpm 12 are pinned in `devEngines` in `package.json`; once pnpm is installed, it downloads the pinned versions when needed.
+
+```bash
+pnpm install
+pnpm seekbench run --scenarios smoke --subjects mock   # pipeline self-check with the mock subject
+pnpm seekbench report                                   # writes runs/<run-id>/report.md for the latest run
+```
+
+Subjects, concurrency, timeouts and repetitions are configured in `seekbench.config.ts`; `pnpm seekbench --help` lists every option. Resume an interrupted run with `--resume <run-id>`.
+
 **Results**
 
 Published runs live in `results/`, each with summary metrics and a report.
 
 **Status**
 
-Design stage. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
+M0 skeleton: data model, URL normalization, metrics with confidence intervals, a rate-limited concurrent runner, and the `run` and `report` commands, with a mock subject only. Real providers and record/replay come next. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
