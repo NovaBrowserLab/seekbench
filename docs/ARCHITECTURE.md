@@ -1,6 +1,6 @@
 # seekbench 技术架构
 
-seekbench 是一个通用的搜索场景 Benchmark：用一个按场景组织、带标注的大规模查询集，对多家搜索服务与多种搜索策略做可复现的横向对比，输出质量、时延、费用三个维度的数据，为搜索选型提供依据。评测由维护者运行并把结果发布到仓库，不依赖持续集成自动跑分。
+seekbench 是一个通用的搜索场景 Benchmark：用一个按场景组织、带标注的大规模查询集，对多家搜索服务与多种搜索策略做可复现的横向对比，输出质量、时延、费用三个维度的数据，为搜索选型提供依据。评测由维护者自行运行，结果连同指标放进仓库公开；不做自动跑分，复现就是再跑一遍。
 
 本文描述第一版的边界、核心概念、数据模型、运行流程、技术选型与里程碑。文末列出未决问题。
 
@@ -61,8 +61,8 @@ seekbench 是一个通用的搜索场景 Benchmark：用一个按场景组织、
                             ▼
             ┌──────────────────────────────┐
             │    Aggregator + Reporter     │
-            │  runs/<run>/ 明细与汇总        │
-            │  results/ 正式发布的榜单       │
+            │  runs/<run>/ 明细与报告        │
+            │  results/ 公开的运行结果       │
             └──────────────────────────────┘
 ```
 
@@ -70,9 +70,9 @@ seekbench 是一个通用的搜索场景 Benchmark：用一个按场景组织、
 
 - **Datasets**：场景与用例，Benchmark 的「题库」，分层、带版本。
 - **Subjects**：被测对象。供应商适配器是最小单位，策略是供应商的组合；两者对 Runner 暴露同一个接口。
-- **Cassettes**：供应商原始响应的录制与回放，让质量评测可复现、离线可跑、不重复花钱。
+- **Cassettes**：供应商原始响应的录制与回放，本机离线重跑打分时不重复花钱。
 - **Scorer / Judge**：规则打分与 LLM 裁判打分，裁判结果缓存，每次正式评测附带人工抽样复核。
-- **Reporter**：运行记录、报告、两次运行对比，以及正式发布的榜单。
+- **Reporter**：运行记录、报告、两次运行对比。
 
 ## 3. 核心概念与数据模型
 
@@ -117,7 +117,7 @@ interface Case {
 | 层 | 标注 | 规模 | 来源 |
 | --- | --- | --- | --- |
 | A | 人工写的 gold（目标、权威域名、风险域名、含义） | 每场景 30 到 60 条 | 手写，含产品演示查询 |
-| B | 只有意图说明，全靠裁判打分 | 每场景 100 到 300 条 | 按场景模板用模型合成，人工抽 10% 复核；公开数据集的问题部分 |
+| B | 只有意图说明，全靠裁判打分 | 每场景 100 到 300 条 | 按场景模板用模型合成，人工抽样复核（比例可配，默认 10%）；公开数据集的问题部分 |
 | C | 带点击或人工相关性标注的公开数据 | 视数据集而定 | 公开的查询与 URL 点击对（如 ORCAS 一类），只取有网页级标注的部分，用前核对许可证 |
 
 A 层是锚：裁判的校准集从 A 层来，B 层的裁判结果用 A 层的一致率来背书。C 层给英文场景提供规模，中文公开数据里网页级标注很少，中文规模主要靠 B 层。
@@ -142,7 +142,7 @@ A 层是锚：裁判的校准集从 A 层来，B 层的裁判结果用 A 层的�
 
 **题库工具链**（`seekbench dataset:*` 子命令）：
 
-- `synth`：按场景模板与种子查询调用模型合成 B 层查询，去重（归一化后编辑距离与语义相似度双重去重），随机抽 10% 写入复核队列。
+- `synth`：按场景模板与种子查询调用模型合成 B 层查询，去重（归一化后编辑距离与语义相似度双重去重），按配置的比例随机抽样写入复核队列。
 - `import-log`：从私有查询日志文件（CSV 或 JSONL）导入，脱敏（去掉邮箱、手机号、身份证号等模式，丢弃过短与含个人姓名的查询），按语言与意图分类器粗分到场景，标 `source: log:<批次>`。导入结果写到 `datasets/private/`，该目录在 `.gitignore` 里，只在本机保存，不提交。
 - `import-public`：从公开数据集抽取问题与网页级标注到 C 层，附带许可证说明。
 - `validate`：校验 schema、id 唯一、跨场景重复、gold 域名格式。
@@ -269,9 +269,9 @@ LLM 裁判给每条结果打 0 到 3 的等级，每次正式评测附带人工�
 - **位置盲、来源盲**：裁判看不到结果在列表里的名次，也看不到来自哪家，只看 (查询, 意图说明, 标题, URL, 摘要, 发布时间)。同一次调用里把一条查询下各家的结果合并、去重、打乱后一起送，一条查询一次调用，减少费用也避免同一 URL 在不同家得到不同分。
 - **输入只有标题与摘要**，默认不抓网页正文。摘要质量会影响得分，这是有意的：用户在结果页看到的也只有标题与摘要。可选 `--judge-fetch` 模式抓取正文后再判，用来回答「摘要差但页面好」的服务是否被低估。
 - **结构化输出**：Zod schema 约束，temperature 为 0，解析失败重试一次，再失败记为未判定而不是 0。歧义场景额外输出每条结果所属的含义。
-- **缓存**：键为 (裁判模型, 场景 rubric 版本, 查询, 归一化 URL, 摘要哈希)，存 `judgments/` 下的 JSONL。回放模式下裁判也走缓存，整个质量评测可以不带任何密钥复现。
+- **缓存**：键为 (裁判模型, 场景 rubric 版本, 查询, 归一化 URL, 摘要哈希)，存本机 `judgments/` 下的 JSONL。回放模式下裁判也走缓存，改打分逻辑后重跑不再付裁判费用。
 - **校准**：A 层用例构成校准集，`seekbench judge:calibrate` 跑裁判并报告一致率与加权 Kappa。换裁判模型或改 rubric 都要先过校准，Kappa 低于 0.6 不采用。
-- **人工抽样复核**：每次正式评测，`seekbench judge:sample` 按被测对象与等级分层随机抽 200 条 (查询, 结果, 裁判等级) 生成复核文件，人工填入等级后 `judge:audit` 计算一致率并写入该次运行的报告。复核过的标注并入校准集，校准集随每次发布增长。一致率低于校准阈值的运行不发布。
+- **人工抽样复核**：每次正式评测，`seekbench judge:sample` 按被测对象与等级分层随机抽 200 条 (查询, 结果, 裁判等级) 生成复核文件，人工填入等级后 `judge:audit` 计算一致率并写入该次运行的报告。复核过的标注并入校准集，校准集随每次发布增长。一致率写进报告，供读者判断该次结果的可信度。
 
 裁判模型经 `ai` SDK 的 OpenAI 兼容端点接入，不绑定某一家。裁判与被测对象的模型互不影响：裁判是评测基础设施，被测的 `rewrite` 策略用什么模型是被测配置的一部分。
 
@@ -289,13 +289,13 @@ LLM 裁判给每条结果打 0 到 3 的等级，每次正式评测附带人工�
 
 录制保存归一化后的 `hits`、`raw` 原始响应与录制时间。原始响应保留的原因：归一化逻辑修正后（比如摘要清洗），可以不重新付费地重跑。
 
-**存储**：按 (被测对象, 场景) 分片，一片一个 gzip 压缩的 JSONL 文件，文件名含场景版本。一次全量录制约 3000 × 5 = 15000 条响应，压缩后约 50 到 100 MB，用 Git LFS 存放；`cassettes/manifest.json` 记录每片的键范围、条数、录制日期与哈希，不走 LFS，便于不拉数据也能看清有什么。
+**存储**：按 (被测对象, 场景) 分片，一片一个 gzip 压缩的 JSONL 文件，文件名含场景版本。录制与裁判缓存都只留在本机，目录在 `.gitignore` 里，不提交：它们是运行者的工作数据，复现靠重新运行 Benchmark，而不是靠拉别人的录制。
 
 **时效**：时效类场景的回放只能验证打分逻辑，不能作为该场景的选型依据；报告里对每个被测对象标注录制日期，超过 30 天的录制醒目提示。
 
 **搜索费用估算**：按各家 0.003 到 0.01 美元每次，一次全量 live 录制 15000 次调用约 50 到 150 美元。时延专项另算。
 
-### 3.7 运行记录与发布（Run、Results）
+### 3.7 运行记录与结果（Run、Results）
 
 一次运行写到 `runs/<run-id>/`，自包含，不依赖运行时配置：
 
@@ -316,7 +316,7 @@ interface Run {
 
 目录内容：`run.json`（上面的结构）、`cases.jsonl.gz`（逐条明细：被测对象、用例、第几次重复、耗时、费用、hits 与等级、错误）、`report.md`、`audit.jsonl`（人工抽样复核）。`runs/` 在 `.gitignore` 里，是工作目录。
 
-**正式发布**走 `results/`：`seekbench publish <run-id>` 把该次运行的 `run.json`、`report.md` 与 `audit.jsonl` 复制到 `results/<日期>-<题库版本>/`，并更新 `results/README.md` 里的榜单表格（按场景列出各被测对象的主要指标、置信区间、时延 p50/p90、每千次费用、录制日期、裁判一致率）。只有过了裁判一致率阈值的运行才允许发布。`results/` 提交进仓库，是对外可见的产出。
+**公开结果**放 `results/<日期>-<题库版本>/`：维护者决定公开某次运行时，把它的 `run.json`、`report.md` 与 `audit.jsonl` 复制进去提交。`report.md` 按场景列出各被测对象的主要指标、置信区间、时延 p50/p90、每千次费用、录制日期与裁判一致率，读者看这一个文件就够。没有发布流程，也没有门槛；公开的就是跑出来的结果。
 
 ## 4. 运行流程
 
@@ -330,7 +330,7 @@ seekbench run --scenarios nav-zh,howto-en --subjects brave,bocha,exa --mode repl
 4. 归一化：URL 规范化（去跟踪参数、统一大小写与尾部斜杠、移动端域名折叠）、按规范化 URL 去重、截断到 k 条。
 5. 打分：先走规则，再把未判定的结果送裁判（先查缓存）。
 6. 聚合并写运行记录，打印场景 × 被测对象的汇总表。
-7. `seekbench report <run>` 生成 Markdown 报告；`seekbench compare <run-a> <run-b>` 输出逐指标差值、是否显著与退步最多的用例；`seekbench publish <run>` 发布。
+7. `seekbench report <run>` 生成 Markdown 报告；`seekbench compare <run-a> <run-b>` 输出逐指标差值、是否显著与退步最多的用例。
 
 质量评测与时延评测分开跑：质量用 replay 保证可复现，时延用 live 多次重复。两者是不同的 run，榜单里分列。
 
@@ -346,15 +346,15 @@ seekbench/
     strategies/   route.ts、fusion.ts、rewrite.ts、http.ts
     judge/        rubric.ts、llm-judge.ts、cache.ts、calibrate.ts、sample.ts
     dataset/      synth.ts、import-log.ts、import-public.ts、validate.ts、stats.ts
-    cli/          index.ts：run、report、compare、publish、record、judge:*、dataset:*
+    cli/          index.ts：run、report、compare、record、judge:*、dataset:*
   datasets/
     scenarios/    <scenario>.json 与 <scenario>.cases.jsonl
     calibration/  labels.jsonl
     private/      导入的日志，不提交
-  cassettes/      <subject>/<scenario>@<version>.jsonl.gz（LFS）、manifest.json
-  judgments/      <judge-model>/<rubric-version>.jsonl（LFS）
+  cassettes/      <subject>/<scenario>@<version>.jsonl.gz，本机，不提交
+  judgments/      <judge-model>/<rubric-version>.jsonl，本机，不提交
   runs/           工作目录，不提交
-  results/        正式发布的运行与榜单 README
+  results/        公开的运行结果
   docs/           本文、adapters/、dataset.md（场景与标注规范）、judge.md（rubric 与复核流程）
   test/           metrics 用手算的期望值；adapters 用录制夹具；runner 用 mock 被测对象
   .github/workflows/  test.yml（PR 跑单测与 replay 冒烟）、bench.yml（仅手动触发）
@@ -369,7 +369,7 @@ seekbench/
 | `node:util` `parseArgs` | CLI 参数解析，子命令不多，不引入 commander |
 | 原生 `fetch` + `AbortSignal` | 所有适配器只用 `fetch`，形态一致、便于录制 |
 | `tldts` | 注册域名提取，域名多样性与 gold 域名匹配用 |
-| JSONL + gzip + Git LFS | 题库、录制、裁判缓存都是按行追加的数据，分片与流式读写友好；上规模后二进制走 LFS |
+| JSONL + gzip | 题库、录制、裁判缓存都是按行追加的数据，分片与流式读写友好 |
 | `vitest`、Biome、lefthook、commitlint | 测试与工程规范 |
 | GitHub Actions | PR 上跑单测与小规模 replay 冒烟；全量 Bench 的 workflow 只能手动触发，不定时、不随提交自动跑 |
 
@@ -383,24 +383,21 @@ seekbench/
 4. Runner：用 `mock` 被测对象跑一个微型场景，断言运行记录结构、错误与超时的记录方式、重复次数、中断续跑。
 5. 裁判：用脚本化模型（固定输出）测解析、重试、缓存命中、抽样分层。
 6. 题库工具：`validate` 对提交的题库全量校验；`synth` 的去重用构造的近似重复用例。
-7. 端到端：`replay` 模式对一个小规模切片跑全部场景，结果与上次提交的基线对比，差异超阈值即 CI 失败。守住的是打分逻辑，不是供应商。
+7. 端到端：用 `mock` 被测对象和一份提交进仓库的小规模录制跑全部场景，结果与基线对比，差异超阈值即 CI 失败。守住的是打分逻辑，不是供应商。
 
 ## 7. 里程碑
 
 | 阶段 | 内容 | 验收 |
 | --- | --- | --- |
 | M0 骨架 | 包结构、Zod 类型、metrics 与 normalize、bootstrap、mock 被测对象、`run` 与 `report` 命令 | mock 跑通一个手写场景，指标单测全绿 |
-| M1 供应商与回放 | 博查、Brave、Exa、Tavily、DeepSeek Search 适配器与规范；录制回放与 LFS；规则打分；`nav-zh`、`nav-en` 的 A 层 | replay 模式无密钥跑出五家导航对比表 |
+| M1 供应商与回放 | 博查、Brave、Exa、Tavily、DeepSeek Search 适配器与规范；录制回放；规则打分；`nav-zh`、`nav-en` 的 A 层 | replay 模式无密钥跑出五家导航对比表 |
 | M2 裁判与题库工具 | LLM 裁判、缓存、校准、抽样复核；`dataset:synth`、`validate`、`stats`、`import-log`；`howto-*`、`descriptive-*` 扩到 B 层规模 | 校准 Kappa 达标；一次正式评测含人工复核 |
-| M3 全量题库与发布 | 其余场景补齐到 3000 条；`compare`、`publish`、`results/` 榜单；手动触发的 bench workflow | 发布第一份榜单 |
+| M3 全量题库 | 其余场景补齐到 3000 条；`compare`；手动触发的 bench workflow | 公开第一份完整结果 |
 | M4 策略 | `route`、`fusion`、`rewrite`、`http` 策略 | 回答「分流 / 融合 / 改写各值多少」 |
-| M5 扩规模 | 题库到 10000 条，C 层公开数据接入，补充供应商 | 第二份榜单，附与第一份的对比 |
+| M5 扩规模 | 题库到 10000 条，视决定接入 C 层公开数据，补充供应商 | 第二份结果，附与第一份的对比 |
 
 ## 8. 未决问题
 
-1. **实现语言**。建议 TypeScript，理由见 §5。备选 Python：IR 评测与数据分析生态更成熟（ranx、pandas），但适配器与裁判接入要另写一套。
-2. **DeepSeek Search 的接口形态**。独立搜索 API 还是带联网的对话接口？决定它按普通适配器还是「回答型搜索」接入（§3.2）。
-3. **B 层合成查询的人工复核比例**。建议 10%，低于此比例题库质量没有保证，高于此比例 3000 条的复核量会超过 300 条。
-4. **C 层公开数据集的取舍**。英文可用的点击数据集需要逐个核对许可证是否允许用于此用途；中文如果找不到合适的，第一版中文只有 A、B 两层。
-5. **人工复核的一致率阈值**。建议一致率 0.8（等级完全一致）或加权 Kappa 0.6，低于阈值不发布。
-6. **录制与裁判缓存走 LFS**。确认仓库开 LFS 以及流量配额是否够（每次全量录制约 100 MB）。
+1. **C 层公开数据集的取舍**。候选数据集、许可证与可用性见 `docs/dataset.md`（待写）。英文候选需逐个核对许可证是否允许用于此用途；中文目前没有合适的网页级标注数据，第一版中文只有 A、B 两层。是否在第一版接入 C 层，待定。
+
+已定：实现语言为 TypeScript；DeepSeek Search 按独立搜索 API 接入，接口细节以其文档为准；B 层人工复核比例为配置项；录制与裁判缓存只留本机；结果公开不设流程与门槛。
