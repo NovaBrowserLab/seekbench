@@ -382,8 +382,6 @@ seekbench/
 | `vitest`、Biome、lefthook、commitlint | 测试与工程规范 |
 | GitHub Actions | PR 上跑单测与小规模 replay 冒烟；全量 Bench 的 workflow 只能手动触发，不定时、不随提交自动跑 |
 
-不引入的：评测框架（promptfoo、ragas 一类），它们面向回答质量而非检索排序，指标与数据模型对不上；Python 的 IR 评测库（ranx、pytrec_eval），引入第二门语言只为几个公式不划算，见 §8；图表库，报告先用 Markdown 表格，有需要再加 HTML 报告。
-
 ## 6. 测试与验证顺序
 
 1. `metrics.ts` 先于一切：每个指标有手算的期望值用例，包括等级全 0、全 3、k 大于结果数、结果为空等边界；nDCG 与公开实现（pytrec_eval 的已知输出）对几组数。
