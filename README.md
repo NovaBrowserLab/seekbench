@@ -39,6 +39,10 @@ pnpm seekbench report                                   # 为最近一次运行�
 
 M0 骨架：数据模型、URL 规范化、指标与置信区间、并发限速的 Runner、`run` 与 `report` 命令，目前只有假被测对象。下一步接入真实搜索服务与录制回放。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
+## 许可证
+
+Apache-2.0，见 [LICENSE](LICENSE)。
+
 ---
 
 ## English
@@ -79,3 +83,7 @@ Published runs live in `results/`, each with summary metrics and a report.
 **Status**
 
 M0 skeleton: data model, URL normalization, metrics with confidence intervals, a rate-limited concurrent runner, and the `run` and `report` commands, with a mock subject only. Real providers and record/replay come next. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
+
+**License**
+
+Apache-2.0, see [LICENSE](LICENSE).
