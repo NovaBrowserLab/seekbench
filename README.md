@@ -37,7 +37,7 @@ pnpm seekbench report                                   # 为最近一次运行�
 
 ## 状态
 
-M0 骨架：数据模型、URL 规范化、指标与置信区间、并发限速的 Runner、`run` 与 `report` 命令，目前只有假被测对象。下一步接入真实搜索服务与录制回放。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
+已有：数据模型、URL 规范化、按标注的规则打分、质量指标与置信区间、带全局并发上限与限速的 Runner（超时、续跑）、`run` 与 `report` 命令，以及用于流程自检的假被测对象。尚未接入真实搜索服务、录制回放与 LLM 裁判。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ## 许可证
 
@@ -82,7 +82,7 @@ Published runs live in `results/`, each with summary metrics and a report.
 
 **Status**
 
-M0 skeleton: data model, URL normalization, metrics with confidence intervals, a rate-limited concurrent runner, and the `run` and `report` commands, with a mock subject only. Real providers and record/replay come next. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
+Available: data model, URL normalization, rule-based grading from labels, quality metrics with confidence intervals, a runner with a global concurrency cap and per-subject rate limits (timeouts, resume), the `run` and `report` commands, and a mock subject for pipeline self-checks. Real search providers, record and replay, and the LLM judge are not in yet. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
 
 **License**
 
