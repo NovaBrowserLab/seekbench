@@ -21,7 +21,7 @@
 
 ## 结果
 
-评测由维护者运行，公开的运行结果放在 `results/`，每次包含汇总指标与报告。
+公开的运行结果放在 `results/`，每次包含汇总指标与报告。
 
 ## 状态
 
@@ -50,7 +50,7 @@ A general-purpose benchmark for search scenarios, to help choose search provider
 
 **Results**
 
-Runs are performed by the maintainers; published runs live in `results/`, each with summary metrics and a report.
+Published runs live in `results/`, each with summary metrics and a report.
 
 **Status**
 
