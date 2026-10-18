@@ -1,0 +1,142 @@
+{
+	"Steam 官网": [
+		{
+			"url": "https://store.steampowered.com/?l=schinese",
+			"title": "Steam 商店",
+			"snippet": "Steam 是玩游戏、讨论游戏和创造游戏的绝佳平台.",
+			"siteName": "Steam",
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://steam-login.example/",
+			"title": "Steam 登录",
+			"snippet": "登录领取免费游戏.",
+			"siteName": null,
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://zh.wikipedia.org/wiki/Steam",
+			"title": "Steam - 维基百科",
+			"snippet": "Steam 是 Valve 开发的数字发行平台.",
+			"siteName": "维基百科",
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://store.steampowered.com/?l=schinese&utm_source=bing",
+			"title": "Steam 商店",
+			"snippet": "",
+			"siteName": "Steam",
+			"favicon": null,
+			"publishedAt": null
+		}
+	],
+	"12306": [
+		{
+			"url": "https://baike.baidu.com/item/12306",
+			"title": "12306_百度百科",
+			"snippet": "中国铁路客户服务中心网站.",
+			"siteName": "百度百科",
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://www.12306.cn/index/",
+			"title": "中国铁路12306",
+			"snippet": "中国铁路客户服务中心.",
+			"siteName": "12306",
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://12306-ticket.example/buy",
+			"title": "12306 抢票",
+			"snippet": "极速抢票.",
+			"siteName": null,
+			"favicon": null,
+			"publishedAt": null
+		}
+	],
+	"github copilot pricing": [
+		{
+			"url": "https://docs.github.com/en/copilot/get-started/plans",
+			"title": "Plans for GitHub Copilot",
+			"snippet": "Copilot offers several plans.",
+			"siteName": "GitHub Docs",
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://github.com/features/copilot/plans",
+			"title": "GitHub Copilot plans and pricing",
+			"snippet": "Compare Copilot plans.",
+			"siteName": "GitHub",
+			"favicon": null,
+			"publishedAt": null
+		}
+	],
+	"rust async book": [
+		{
+			"url": "https://rust-lang.github.io/async-book/",
+			"title": "Asynchronous Programming in Rust",
+			"snippet": "Getting started with async in Rust.",
+			"siteName": null,
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://tokio.rs/tokio/tutorial",
+			"title": "Tutorial | Tokio",
+			"snippet": "Learn Tokio step by step.",
+			"siteName": "Tokio",
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://users.rust-lang.org/t/async-book/1234",
+			"title": "Async book discussion",
+			"snippet": "Is the async book up to date?",
+			"siteName": "Rust Users Forum",
+			"favicon": null,
+			"publishedAt": null
+		}
+	],
+	"latest node lts release notes": [
+		{
+			"url": "https://nodejs.org/en/blog/release/v24.11.0",
+			"title": "Node.js 24.11.0 (LTS)",
+			"snippet": "Node.js 24 enters LTS.",
+			"siteName": "Node.js",
+			"favicon": null,
+			"publishedAt": "2025-10-28T00:00:00Z"
+		},
+		{
+			"url": "https://github.com/nodejs/node/releases",
+			"title": "Releases · nodejs/node",
+			"snippet": "Node.js release history.",
+			"siteName": "GitHub",
+			"favicon": null,
+			"publishedAt": null
+		}
+	],
+	"苹果发布会": [
+		{
+			"url": "https://www.apple.com.cn/apple-events/",
+			"title": "Apple 活动",
+			"snippet": "观看 Apple 发布会回放.",
+			"siteName": "Apple (中国大陆)",
+			"favicon": null,
+			"publishedAt": null
+		},
+		{
+			"url": "https://www.ithome.com/tag/apple-event/",
+			"title": "苹果发布会专题",
+			"snippet": "苹果发布会最新消息.",
+			"siteName": "IT之家",
+			"favicon": null,
+			"publishedAt": null
+		}
+	]
+}

@@ -1,0 +1,51 @@
+name: bench
+
+# 全量评测花钱且耗时, 只允许手动触发, 不定时、不随提交运行.
+on:
+  workflow_dispatch:
+    inputs:
+      scenarios:
+        description: 场景 id, 逗号分隔
+        required: true
+        default: smoke
+      subjects:
+        description: 被测对象 id, 逗号分隔; 留空为配置里的全部
+        required: false
+        default: mock
+      reps:
+        description: 每条用例对每个被测对象的重复次数
+        required: true
+        default: "3"
+      region:
+        description: 写入运行记录的区域标注
+        required: false
+        default: github-actions
+
+permissions:
+  contents: read
+
+jobs:
+  bench:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install pnpm and Node.js
+        uses: pnpm/setup@a0881977cd8ea73b1ed212236c99ca10dcc80cf4 # v3.1.1
+        with:
+          cache: true
+      - name: Run benchmark
+        env:
+          SCENARIOS: ${{ inputs.scenarios }}
+          SUBJECTS: ${{ inputs.subjects }}
+          REPS: ${{ inputs.reps }}
+          REGION: ${{ inputs.region }}
+        run: pnpm seekbench run --scenarios "$SCENARIOS" --subjects "$SUBJECTS" --reps "$REPS" --region "$REGION"
+      - name: Render report
+        run: pnpm seekbench report
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: runs
+          path: runs/
+          if-no-files-found: ignore

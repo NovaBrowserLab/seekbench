@@ -1,0 +1,6 @@
+{"id":"steam-official","query":"Steam 官网","tier":"A","source":"handwritten","note":"找 Steam 商店官网, 避开仿冒登录页","gold":{"targets":["store.steampowered.com"],"badDomains":["steam-login.example"]}}
+{"id":"12306","query":"12306","tier":"A","source":"handwritten","note":"中国铁路购票官网","gold":{"targets":["12306.cn"],"badDomains":["12306-ticket.example"]}}
+{"id":"copilot-pricing","query":"github copilot pricing","tier":"A","source":"handwritten","note":"GitHub Copilot 的价格页","gold":{"targets":["github.com/features/copilot"]}}
+{"id":"rust-async-book","query":"rust async book","tier":"A","source":"handwritten","note":"Rust 官方的异步编程书","gold":{"targets":["rust-lang.github.io/async-book"],"mustDomains":["rust-lang.github.io","tokio.rs","doc.rust-lang.org"]}}
+{"id":"node-lts-release","query":"latest node lts release notes","tier":"A","source":"handwritten","note":"最近一个月的 Node.js LTS 发布说明","gold":{"mustDomains":["nodejs.org"],"freshWithinDays":30},"options":{"freshness":"month"}}
+{"id":"apple-event","query":"苹果发布会","tier":"A","source":"handwritten","note":"多数指 Apple 的新品发布会, 少数指苹果 (水果) 相关活动","gold":{"mustDomains":["apple.com.cn"],"meanings":["Apple 公司的新品发布会","苹果 (水果) 的产销或品种发布活动"]}}
