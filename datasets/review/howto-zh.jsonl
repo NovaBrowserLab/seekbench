@@ -1,0 +1,19 @@
+{"caseId":"programming-052","query":"Tailwind CSS 暗黑模式 配置","note":"想在 Tailwind 项目里开启 dark mode 并做手动切换，需要官方配置说明和 class 策略的示例。","status":"pending"}
+{"caseId":"programming-010","query":"Kotlin 协程 教程","note":"Kotlin 协程的用法讲解与代码示例","status":"pending"}
+{"caseId":"programming-021","query":"Kafka 快速入门","note":"Kafka 基本概念与本地启动使用的入门指南","status":"pending"}
+{"caseId":"programming-080","query":"Celery 定时任务 配置","note":"想找 celery beat 定时任务的配置方法和示例，包括 beat_schedule 写法以及与 worker 一起启动的方式","status":"pending"}
+{"caseId":"programming-054","query":"Blazor 入门 教程","note":"想了解 Blazor 的几种托管模型并跑起第一个页面，偏好微软官方文档或体系化的入门系列。","status":"pending"}
+{"caseId":"programming-034","query":"Postman 环境变量 设置","note":"找 Postman 中创建环境变量并在请求里引用的操作说明。","status":"pending"}
+{"caseId":"programming-025","query":"Rust 所有权 借用 讲解","note":"Rust 所有权与借用规则的中文讲解材料","status":"pending"}
+{"caseId":"programming-062","query":"Argo CD 部署 应用","note":"想用 GitOps 方式把应用同步到集群，需要从安装到创建 Application 的分步文档。","status":"pending"}
+{"caseId":"ops-034","query":"windows server 远程桌面 开启","note":"在 Windows Server 上启用远程桌面并允许防火墙放行，想了解系统设置和权限配置步骤。","status":"pending"}
+{"caseId":"ops-047","query":"docker compose 部署 mysql 8 持久化","note":"想用 docker-compose.yml 快速拉起 MySQL 8 容器，重点看数据卷挂载和 my.cnf 配置怎么写","status":"pending"}
+{"caseId":"ops-007","query":"docker 查看容器日志","note":"用户想查容器输出，需要docker logs用法，包括实时跟踪和只看最近若干行。","status":"pending"}
+{"caseId":"ops-032","query":"ansible 批量 执行 命令","note":"用 Ansible 对多台主机批量执行命令的入门用法，想看到 inventory 写法和 ad-hoc 命令示例。","status":"pending"}
+{"caseId":"ops-002","query":"腾讯云 域名解析 设置","note":"用户要把域名指到自己的服务器，需要腾讯云DNSPod添加A记录或CNAME记录的具体操作。","status":"pending"}
+{"caseId":"everyday-002","query":"洗衣机不排水怎么修","note":"想排查滚筒或波轮洗衣机不排水的原因，找到自己能动手检查的步骤和更换排水泵的方法","status":"pending"}
+{"caseId":"everyday-018","query":"护照办理需要什么材料","note":"想确认首次申领普通护照要带的证件、照片要求和办理地点","status":"pending"}
+{"caseId":"everyday-042","query":"崴脚 先冷敷还是热敷","note":"急性期冷敷时长以及何时改为热敷","status":"pending"}
+{"caseId":"everyday-011","query":"手机屏幕碎了 换屏大概多少钱","note":"想估算换屏费用，了解官方售后和第三方维修的价格差别与风险","status":"pending"}
+{"caseId":"everyday-027","query":"饺子馅出水怎么办","note":"调馅时防止出水、让馅料抱团的实用技巧","status":"pending"}
+{"caseId":"ops-050","query":"dockerfile 多阶段构建","note":"用户想写多阶段构建的 Dockerfile 来减小镜像体积，需要阶段命名、COPY --from 用法和构建命令示例，结果最好有可直接套用的模板。","status":"pending"}

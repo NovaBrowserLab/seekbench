@@ -38,3 +38,183 @@
 {"id":"oss-signed-url","query":"阿里云 OSS 签名 URL","tier":"A","source":"handwritten","note":"生成阿里云 OSS 的签名 URL 授权临时访问","gold":{"mustDomains":["help.aliyun.com"]}}
 {"id":"vite-proxy","query":"Vite 配置代理","tier":"A","source":"handwritten","note":"在 Vite 开发服务器里配置 server.proxy 解决跨域","gold":{"mustDomains":["cn.vitejs.dev"]}}
 {"id":"cpr-zh","query":"心肺复苏步骤","tier":"A","source":"handwritten","note":"成人心肺复苏的正确步骤, 权威急救机构的说明最好","gold":{"mustDomains":["redcross.org.cn"]}}
+{"id":"programming-001","query":"Go 语言入门教程","tier":"B","source":"synth:programming","note":"面向初学者的 Go 语言基础语法与入门学习材料"}
+{"id":"programming-002","query":"Django 中文文档","tier":"B","source":"synth:programming","note":"Django 框架的官方中文文档，用于查阅用法与配置"}
+{"id":"programming-003","query":"docker compose 使用教程","tier":"B","source":"synth:programming","note":"docker compose 编排多容器的写法与常用命令讲解"}
+{"id":"programming-004","query":"webpack 配置 entry output","tier":"B","source":"synth:programming","note":"webpack 入口与输出配置项的用法说明"}
+{"id":"programming-005","query":"SwiftUI 入门","tier":"B","source":"synth:programming","note":"SwiftUI 声明式界面的入门教程与示例"}
+{"id":"programming-006","query":"Tailwind CSS 怎么用","tier":"B","source":"synth:programming","note":"Tailwind CSS 的引入方式与基础类名使用方法"}
+{"id":"programming-007","query":"Node.js 读取文件 fs","tier":"B","source":"synth:programming","note":"Node.js 用 fs 模块读取文件的 API 与示例"}
+{"id":"programming-008","query":"MongoDB Windows 安装","tier":"B","source":"synth:programming","note":"在 Windows 上安装并启动 MongoDB 的步骤"}
+{"id":"programming-009","query":"GraphQL 入门教程","tier":"B","source":"synth:programming","note":"GraphQL 基本概念与搭建服务的入门材料"}
+{"id":"programming-010","query":"Kotlin 协程 教程","tier":"B","source":"synth:programming","note":"Kotlin 协程的用法讲解与代码示例"}
+{"id":"programming-011","query":"Electron 打包 exe","tier":"B","source":"synth:programming","note":"把 Electron 应用打包成 Windows exe 的配置方法"}
+{"id":"programming-012","query":"nginx 反向代理 配置","tier":"B","source":"synth:programming","note":"nginx 反向代理的配置写法与示例"}
+{"id":"programming-013","query":"Python venv 创建虚拟环境","tier":"B","source":"synth:programming","note":"用 venv 创建和激活 Python 虚拟环境的步骤"}
+{"id":"programming-014","query":"Redis 安装 windows","tier":"B","source":"synth:programming","note":"在 Windows 上安装运行 Redis 的方法"}
+{"id":"programming-015","query":"Svelte 入门","tier":"B","source":"synth:programming","note":"Svelte 框架的基础语法与入门示例"}
+{"id":"programming-016","query":"Taro 框架教程","tier":"B","source":"synth:programming","note":"用 Taro 做多端小程序的入门教程"}
+{"id":"programming-017","query":"git 分支合并冲突怎么解决","tier":"B","source":"synth:programming","note":"合并分支时冲突的处理步骤与命令"}
+{"id":"programming-018","query":"SQL 注入 防御 方法","tier":"B","source":"synth:programming","note":"防止 SQL 注入的常见手段与参数化查询写法"}
+{"id":"programming-019","query":"C++ 智能指针 unique_ptr 用法","tier":"B","source":"synth:programming","note":"unique_ptr 的创建、转移与释放用法"}
+{"id":"programming-020","query":"NestJS 入门教程","tier":"B","source":"synth:programming","note":"NestJS 项目搭建与模块控制器的入门讲解"}
+{"id":"programming-021","query":"Kafka 快速入门","tier":"B","source":"synth:programming","note":"Kafka 基本概念与本地启动使用的入门指南"}
+{"id":"programming-022","query":"Elasticsearch 查询语法","tier":"B","source":"synth:programming","note":"ES 常用查询 DSL 的语法与示例"}
+{"id":"programming-023","query":"Prometheus 监控配置","tier":"B","source":"synth:programming","note":"Prometheus 采集配置与告警规则的入门说明"}
+{"id":"programming-024","query":"Nuxt 3 教程","tier":"B","source":"synth:programming","note":"Nuxt 3 的路由、数据获取与项目结构入门"}
+{"id":"programming-025","query":"Rust 所有权 借用 讲解","tier":"B","source":"synth:programming","note":"Rust 所有权与借用规则的中文讲解材料"}
+{"id":"programming-026","query":"Django 入门教程","tier":"B","source":"synth:programming","note":"找 Django 官方教程或中文入门指南，从安装到创建第一个项目和模型视图。"}
+{"id":"programming-027","query":"FastAPI 依赖注入 用法","tier":"B","source":"synth:programming","note":"找 FastAPI 官方文档中 Depends 依赖注入的讲解与示例。"}
+{"id":"programming-028","query":"MyBatis 动态 SQL 标签","tier":"B","source":"synth:programming","note":"找 MyBatis 中 if、choose、foreach 等动态 SQL 标签的用法和示例。"}
+{"id":"programming-029","query":"RabbitMQ 延迟队列 配置","tier":"B","source":"synth:programming","note":"找通过 TTL 加死信队列或插件实现延迟队列的配置步骤。"}
+{"id":"programming-030","query":"Vite alias 配置","tier":"B","source":"synth:programming","note":"找 vite.config 中 resolve.alias 设置路径别名的写法。"}
+{"id":"programming-031","query":"ESLint flat config 迁移","tier":"B","source":"synth:programming","note":"找新版 eslint.config.js 扁平配置格式的迁移指南与示例。"}
+{"id":"programming-032","query":"Jest 测试 React 组件","tier":"B","source":"synth:programming","note":"找 Jest 配合 React Testing Library 测试组件的配置和示例。"}
+{"id":"programming-033","query":"Playwright 等待元素 超时","tier":"B","source":"synth:programming","note":"找 Playwright 中等待元素出现及设置超时时间的方法。"}
+{"id":"programming-034","query":"Postman 环境变量 设置","tier":"B","source":"synth:programming","note":"找 Postman 中创建环境变量并在请求里引用的操作说明。"}
+{"id":"programming-035","query":"gRPC proto 生成 Java 代码","tier":"B","source":"synth:programming","note":"找用 protoc 和 Java 插件从 proto 文件生成桩代码的命令与配置。"}
+{"id":"programming-036","query":"Terraform 创建 AWS EC2","tier":"B","source":"synth:programming","note":"找 Terraform 定义 provider 和 aws_instance 资源的示例配置。"}
+{"id":"programming-037","query":"GitHub Actions 部署 静态网站","tier":"B","source":"synth:programming","note":"找 workflow 文件配置自动构建并部署静态站点的方法。"}
+{"id":"programming-038","query":"Helm chart 编写教程","tier":"B","source":"synth:programming","note":"找 Helm chart 目录结构、模板和 values 配置的入门教程。"}
+{"id":"programming-039","query":"Grafana 接入 Prometheus","tier":"B","source":"synth:programming","note":"找在 Grafana 中添加 Prometheus 数据源并创建面板的步骤。"}
+{"id":"programming-040","query":"Flink 实时 WordCount 示例","tier":"B","source":"synth:programming","note":"找 Flink DataStream API 实现实时 WordCount 的代码示例。"}
+{"id":"programming-041","query":"PostgreSQL 窗口函数 教程","tier":"B","source":"synth:programming","note":"找 PostgreSQL 窗口函数的语法、分区和排序用法示例。"}
+{"id":"programming-042","query":"SQLite 命令行 使用","tier":"B","source":"synth:programming","note":"找 sqlite3 命令行常用命令，如打开数据库、查表和导出。"}
+{"id":"programming-043","query":"Neo4j Cypher 入门","tier":"B","source":"synth:programming","note":"找 Cypher 查询语言的基础语法和入门示例。"}
+{"id":"programming-044","query":"WebSocket 心跳 重连","tier":"B","source":"synth:programming","note":"找 WebSocket 心跳保活与断线自动重连的实现方案。"}
+{"id":"programming-045","query":"MQTT 遗嘱消息 配置","tier":"B","source":"synth:programming","note":"找 MQTT 遗嘱消息的设置方法和客户端配置示例。"}
+{"id":"programming-046","query":"Vim 插件管理","tier":"B","source":"synth:programming","note":"找 Vim 插件管理器的安装与常用配置方式。"}
+{"id":"programming-047","query":"CMake 添加 第三方库","tier":"B","source":"synth:programming","note":"找 CMake 中通过 find_package 或 add_subdirectory 引入第三方库的写法。"}
+{"id":"programming-048","query":"Scala 隐式转换 讲解","tier":"B","source":"synth:programming","note":"找 Scala 隐式转换和隐式参数的原理与示例讲解。"}
+{"id":"programming-049","query":"Phoenix 框架 入门","tier":"B","source":"synth:programming","note":"找 Elixir Phoenix 框架的入门教程，创建项目与路由。"}
+{"id":"programming-050","query":"Zig 语言 学习","tier":"B","source":"synth:programming","note":"找 Zig 语言的官方文档或入门学习资料，了解基本语法和构建。"}
+{"id":"programming-051","query":"React useEffect 依赖 死循环","tier":"B","source":"synth:programming","note":"用户写 useEffect 时陷入无限重渲染，想找到解释依赖数组机制并给出修复办法的文章或问答，能直接对照自己的代码改。"}
+{"id":"programming-052","query":"Tailwind CSS 暗黑模式 配置","tier":"B","source":"synth:programming","note":"想在 Tailwind 项目里开启 dark mode 并做手动切换，需要官方配置说明和 class 策略的示例。"}
+{"id":"programming-053","query":"Astro 搭建个人博客","tier":"B","source":"synth:programming","note":"想用 Astro 从模板开始做一个静态博客，需要含内容集合、部署步骤的实操指南。"}
+{"id":"programming-054","query":"Blazor 入门 教程","tier":"B","source":"synth:programming","note":"想了解 Blazor 的几种托管模型并跑起第一个页面，偏好微软官方文档或体系化的入门系列。"}
+{"id":"programming-055","query":"Laravel 队列 用法","tier":"B","source":"synth:programming","note":"想把耗时任务丢进队列异步执行，需要讲清驱动配置、任务类编写和队列监听的文档。"}
+{"id":"programming-056","query":"C++ 智能指针 用法","tier":"B","source":"synth:programming","note":"想弄清 unique_ptr、shared_ptr 的适用场景和常见坑，参考 cppreference 或高质量博客。"}
+{"id":"programming-057","query":"CMakeLists 怎么写","tier":"B","source":"synth:programming","note":"需要一份从零写 CMakeLists.txt 的入门说明，覆盖添加可执行文件、链接库和包含目录。"}
+{"id":"programming-058","query":"Python asyncio 协程 入门","tier":"B","source":"synth:programming","note":"想理解 async/await 与事件循环的基本用法，需要能跑起来的小例子而不是纯理论。"}
+{"id":"programming-059","query":"pytest fixture 用法","tier":"B","source":"synth:programming","note":"想学会用 fixture 做测试前置准备和参数化，官方文档里的 fixture 章节最合适。"}
+{"id":"programming-060","query":"Elasticsearch 自定义分词器","tier":"B","source":"synth:programming","note":"中文场景下要自定义 analyzer，想找 mapping 配置示例和分词器组合的说明。"}
+{"id":"programming-061","query":"ClickHouse 建表 教程","tier":"B","source":"synth:programming","note":"想了解建表语法、表引擎选择和分区设置，官方文档或实战文章均可。"}
+{"id":"programming-062","query":"Argo CD 部署 应用","tier":"B","source":"synth:programming","note":"想用 GitOps 方式把应用同步到集群，需要从安装到创建 Application 的分步文档。"}
+{"id":"programming-063","query":"Ansible playbook 入门","tier":"B","source":"synth:programming","note":"第一次写 playbook，想找包含 inventory、task、模块用法的入门示例。"}
+{"id":"programming-064","query":"Jenkins Pipeline 语法","tier":"B","source":"synth:programming","note":"想写 Jenkinsfile，需要声明式 pipeline 的语法参考和 stage、agent 的示例。"}
+{"id":"programming-065","query":"gRPC proto 文件 编写","tier":"B","source":"synth:programming","note":"想定义服务和消息类型并生成代码，需要 proto3 语法说明和编译命令示例。"}
+{"id":"programming-066","query":"OAuth2 授权码模式 流程","tier":"B","source":"synth:programming","note":"想理清授权码模式的交互步骤和参数，最好是带时序图的权威说明。"}
+{"id":"programming-067","query":"Three.js 加载 glb 模型","tier":"B","source":"synth:programming","note":"想在网页里用 GLTFLoader 显示 glb 模型，需要可运行的加载与相机灯光配置示例。"}
+{"id":"programming-068","query":"ECharts 折线图 配置项","tier":"B","source":"synth:programming","note":"要查折线图的 series、坐标轴等配置怎么写，官方配置项手册最合适。"}
+{"id":"programming-069","query":"ffmpeg 压缩视频 命令","tier":"B","source":"synth:programming","note":"想用一条命令行把视频体积压小，需要码率、crf 参数的具体写法示例。"}
+{"id":"programming-070","query":"Jetpack Compose 入门","tier":"B","source":"synth:programming","note":"Android 新 UI 工具包的起步，想找从布局到状态管理的官方入门教程。"}
+{"id":"programming-071","query":"Docker Compose 多容器 示例","tier":"B","source":"synth:programming","note":"需要一份能直接参考的 compose 文件，演示多个服务、网络和依赖关系的编排。"}
+{"id":"programming-072","query":"SpringBoot 配置文件 优先级","tier":"B","source":"synth:programming","note":"搞清楚 application.properties、yml、profile 等配置的加载顺序与覆盖规则。"}
+{"id":"programming-073","query":"Nextjs 动态路由 写法","tier":"B","source":"synth:programming","note":"想找 Next.js 动态路由段和参数获取的官方或分步示例。"}
+{"id":"programming-074","query":"Kotlin 协程 launch async 区别","tier":"B","source":"synth:programming","note":"想弄明白两个协程构建器的返回值、异常传播与适用场景。"}
+{"id":"programming-075","query":"pandas read_excel 指定sheet","tier":"B","source":"synth:programming","note":"查找 read_excel 如何按名称或索引读取指定工作表，最好有参数示例。"}
+{"id":"programming-076","query":"Rust 所有权 借用 生命周期","tier":"B","source":"synth:programming","note":"想系统理解 Rust 所有权、借用检查与生命周期标注的入门教程。"}
+{"id":"programming-077","query":"Kafka 消费者组 offset","tier":"B","source":"synth:programming","note":"想弄清楚消费者组如何分配分区、提交和重置 offset，最好有图或示例。"}
+{"id":"programming-078","query":"Elixir Phoenix 入门","tier":"B","source":"synth:programming","note":"想找从零搭建 Phoenix 项目的中文或英文教程，覆盖安装、目录结构和第一个页面，官方 getting started 或高质量系列文章都算好结果"}
+{"id":"programming-079","query":"PyTorch 自定义 Dataset DataLoader","tier":"B","source":"synth:programming","note":"想搞清楚怎么写自己的 Dataset 类并交给 DataLoader 批量加载，最好有可直接跑的代码示例和 __len__、__getitem__ 的说明"}
+{"id":"programming-080","query":"Celery 定时任务 配置","tier":"B","source":"synth:programming","note":"想找 celery beat 定时任务的配置方法和示例，包括 beat_schedule 写法以及与 worker 一起启动的方式"}
+{"id":"ops-001","query":"阿里云ecs 安全组 端口怎么开","tier":"B","source":"synth:ops","note":"用户要给ECS实例放行某个端口，需要安全组入方向规则的添加步骤和注意事项，官方文档或图文教程都算好结果。"}
+{"id":"ops-002","query":"腾讯云 域名解析 设置","tier":"B","source":"synth:ops","note":"用户要把域名指到自己的服务器，需要腾讯云DNSPod添加A记录或CNAME记录的具体操作。"}
+{"id":"ops-003","query":"let's encrypt 免费证书 申请","tier":"B","source":"synth:ops","note":"用户想给网站申请免费SSL证书，关注acme.sh或certbot的申请与自动续期流程。"}
+{"id":"ops-004","query":"centos7 防火墙 开放端口","tier":"B","source":"synth:ops","note":"用户在CentOS 7上放行端口，需要firewall-cmd命令或iptables相关说明。"}
+{"id":"ops-005","query":"mysql 主从复制 配置","tier":"B","source":"synth:ops","note":"用户要搭建MySQL主从同步，需要my.cnf参数、主库授权和从库change master的步骤。"}
+{"id":"ops-006","query":"redis 集群 搭建","tier":"B","source":"synth:ops","note":"用户想搭Redis Cluster，需要节点配置、cluster create命令和槽位分配。"}
+{"id":"ops-007","query":"docker 查看容器日志","tier":"B","source":"synth:ops","note":"用户想查容器输出，需要docker logs用法，包括实时跟踪和只看最近若干行。"}
+{"id":"ops-008","query":"k8s pod 日志 排查","tier":"B","source":"synth:ops","note":"用户排查Pod异常，需要kubectl logs、describe和events的用法。"}
+{"id":"ops-009","query":"grafana 仪表盘 配置","tier":"B","source":"synth:ops","note":"用户想在Grafana里建面板，需要数据源接入和Dashboard创建步骤。"}
+{"id":"ops-010","query":"阿里云 oss 挂载 本地","tier":"B","source":"synth:ops","note":"用户想把OSS当本地盘用，需要ossfs安装和挂载命令。"}
+{"id":"ops-011","query":"nginx 负载均衡 配置","tier":"B","source":"synth:ops","note":"用户要做反向代理负载均衡，需要upstream配置和proxy_pass写法。"}
+{"id":"ops-012","query":"systemd 服务 开机自启","tier":"B","source":"synth:ops","note":"用户希望自定义服务随系统启动，需要写unit文件并systemctl enable。"}
+{"id":"ops-013","query":"linux 磁盘扩容","tier":"B","source":"synth:ops","note":"用户磁盘满了想扩容，需要分区调整、文件系统resize和云盘扩容步骤。"}
+{"id":"ops-014","query":"云服务器 快照 备份","tier":"B","source":"synth:ops","note":"用户想备份云服务器数据，需要创建快照和回滚的操作说明。"}
+{"id":"ops-015","query":"gitlab ci 配置","tier":"B","source":"synth:ops","note":"用户要写gitlab-ci.yml，需要stages、script和runner配置示例。"}
+{"id":"ops-016","query":"github actions 工作流","tier":"B","source":"synth:ops","note":"用户想用GitHub Actions做CI，需要workflow文件示例和触发条件。"}
+{"id":"ops-017","query":"dockerfile 编写","tier":"B","source":"synth:ops","note":"用户要写Dockerfile，需要FROM/RUN/COPY/CMD等指令的用法和最佳实践。"}
+{"id":"ops-018","query":"mysqldump 备份 数据库","tier":"B","source":"synth:ops","note":"用户要备份MySQL数据库，需要mysqldump命令参数和恢复方法。"}
+{"id":"ops-019","query":"域名备案 流程","tier":"B","source":"synth:ops","note":"用户想了解网站备案，需要备案条件、材料以及提交给管局审核的步骤。"}
+{"id":"ops-020","query":"阿里云 证书 部署","tier":"B","source":"synth:ops","note":"用户想把SSL证书部署到阿里云产品，需要上传证书和绑定域名的步骤。"}
+{"id":"ops-021","query":"zabbix 安装 教程","tier":"B","source":"synth:ops","note":"用户要部署Zabbix监控，需要服务端和agent的安装与基本配置。"}
+{"id":"ops-022","query":"iptables 端口 转发","tier":"B","source":"synth:ops","note":"用户想做端口转发，需要iptables的DNAT规则和开启ip_forward。"}
+{"id":"ops-023","query":"宝塔面板 安装","tier":"B","source":"synth:ops","note":"用户想用宝塔面板管理服务器，需要安装命令和支持的系统版本。"}
+{"id":"ops-024","query":"端口被占用 怎么查","tier":"B","source":"synth:ops","note":"用户遇到端口冲突，需要netstat/ss/lsof等查找占用进程的方法。"}
+{"id":"ops-025","query":"阿里云 ecs 安全组 开放端口","tier":"B","source":"synth:ops","note":"想知道在阿里云控制台给 ECS 实例的安全组添加入方向规则、放行指定端口，步骤清晰并说明授权对象怎么填。"}
+{"id":"ops-026","query":"k8s pod pending 排查","tier":"B","source":"synth:ops","note":"Kubernetes Pod 长时间处于 Pending 状态时，想了解常见原因和逐项排查方法，如资源不足、节点选择器、污点等。"}
+{"id":"ops-027","query":"postgresql 备份 恢复 命令","tier":"B","source":"synth:ops","note":"PostgreSQL 逻辑备份与恢复的常用命令，包括 pg_dump 导出、pg_restore 或 psql 导入，希望有可直接套用的示例。"}
+{"id":"ops-028","query":"prometheus 监控 mysql","tier":"B","source":"synth:ops","note":"用 Prometheus 搭配 mysqld_exporter 监控 MySQL 的配置方法，包括 exporter 启动参数和 Prometheus 抓取配置。"}
+{"id":"ops-029","query":"nginx ssl 证书 配置","tier":"B","source":"synth:ops","note":"在 Nginx 里配置 HTTPS 证书，包括 ssl_certificate 指令、监听 443 和跳转 HTTP 到 HTTPS 的写法。"}
+{"id":"ops-030","query":"ssh 密钥登录 配置","tier":"B","source":"synth:ops","note":"配置 SSH 公钥免密登录的完整步骤：生成密钥、上传公钥到服务器、设置权限和禁用密码登录。"}
+{"id":"ops-031","query":"jenkins 安装 教程","tier":"B","source":"synth:ops","note":"在 Linux 服务器上安装 Jenkins 的官方或可靠教程，包含 Java 环境、仓库添加和初始解锁步骤。"}
+{"id":"ops-032","query":"ansible 批量 执行 命令","tier":"B","source":"synth:ops","note":"用 Ansible 对多台主机批量执行命令的入门用法，想看到 inventory 写法和 ad-hoc 命令示例。"}
+{"id":"ops-033","query":"域名 cname 解析 怎么设置","tier":"B","source":"synth:ops","note":"在域名解析后台添加 CNAME 记录的步骤，包括主机记录、记录值和 TTL 的填写说明。"}
+{"id":"ops-034","query":"windows server 远程桌面 开启","tier":"B","source":"synth:ops","note":"在 Windows Server 上启用远程桌面并允许防火墙放行，想了解系统设置和权限配置步骤。"}
+{"id":"ops-035","query":"mongodb 副本集 搭建","tier":"B","source":"synth:ops","note":"搭建 MongoDB 三节点副本集的步骤，包括配置文件、启动顺序和 rs.initiate 初始化。"}
+{"id":"ops-036","query":"kubectl 查看 pod 日志","tier":"B","source":"synth:ops","note":"用 kubectl 查看 Pod 内容器日志的常用命令，包括多容器、持续输出和查看历史日志。"}
+{"id":"ops-037","query":"阿里云 rds 白名单 设置","tier":"B","source":"synth:ops","note":"在阿里云 RDS 控制台设置 IP 白名单让应用能连接数据库，想了解入口位置和填写规则。"}
+{"id":"ops-038","query":"docker 容器 时区 设置","tier":"B","source":"synth:ops","note":"让 Docker 容器使用正确时区的方法，比如挂载 /etc/localtime、设置 TZ 环境变量或构建镜像时处理。"}
+{"id":"ops-039","query":"tcpdump 抓包 命令","tier":"B","source":"synth:ops","note":"tcpdump 常用抓包命令示例，按网卡、端口、主机过滤并保存为 pcap 文件。"}
+{"id":"ops-040","query":"ubuntu 静态 ip 配置","tier":"B","source":"synth:ops","note":"在 Ubuntu 上用 netplan 配置静态 IP 地址，需要 YAML 示例和生效命令。"}
+{"id":"ops-041","query":"阿里云 云监控 告警 设置","tier":"B","source":"synth:ops","note":"在阿里云云监控里为 ECS 等资源创建告警规则并配置通知方式，想了解操作入口和关键选项。"}
+{"id":"ops-042","query":"gitlab runner 注册","tier":"B","source":"synth:ops","note":"向 GitLab 项目或群组注册 Runner 的步骤，包括获取 token、执行 register 命令和选择执行器。"}
+{"id":"ops-043","query":"terraform 阿里云 创建 ecs","tier":"B","source":"synth:ops","note":"用 Terraform 编写配置在阿里云创建一台 ECS 实例，想看到 provider 配置、资源定义和初始化应用命令。"}
+{"id":"ops-044","query":"华为云 obs 上传 文件","tier":"B","source":"synth:ops","note":"在华为云 OBS 上传文件的操作方式，控制台或 SDK 均可，想知道桶选择、对象路径和权限设置。"}
+{"id":"ops-045","query":"阿里云 slb 负载均衡 配置","tier":"B","source":"synth:ops","note":"在阿里云负载均衡 SLB 上配置监听和后端服务器，让流量分发到多台 ECS，想了解健康检查设置。"}
+{"id":"ops-046","query":"zabbix 监控 配置","tier":"B","source":"synth:ops","note":"Zabbix 服务端安装、添加主机与监控项的配置教程"}
+{"id":"ops-047","query":"docker compose 部署 mysql 8 持久化","tier":"B","source":"synth:ops","note":"想用 docker-compose.yml 快速拉起 MySQL 8 容器，重点看数据卷挂载和 my.cnf 配置怎么写"}
+{"id":"ops-048","query":"jenkinsfile 声明式流水线 示例","tier":"B","source":"synth:ops","note":"找 Jenkins 声明式 Pipeline 的语法说明和可直接套用的 Jenkinsfile 示例"}
+{"id":"ops-049","query":"firewalld 开放端口 命令 centos","tier":"B","source":"synth:ops","note":"CentOS 7 上用 firewall-cmd 永久放行某个端口的完整命令和 reload 步骤"}
+{"id":"everyday-001","query":"糖醋排骨怎么做才好吃","tier":"B","source":"synth:everyday","note":"想要一份家常糖醋排骨的完整做法，重点是糖醋比例和火候，最好有分步图和用量"}
+{"id":"everyday-002","query":"洗衣机不排水怎么修","tier":"B","source":"synth:everyday","note":"想排查滚筒或波轮洗衣机不排水的原因，找到自己能动手检查的步骤和更换排水泵的方法"}
+{"id":"everyday-003","query":"绿萝叶子发黄怎么回事","tier":"B","source":"synth:everyday","note":"想弄明白室内绿萝黄叶的常见原因（浇水、光照、烂根）以及对应的补救办法"}
+{"id":"everyday-004","query":"基金定投入门 新手怎么买","tier":"B","source":"synth:everyday","note":"零基础想了解基金定投是什么、怎么选基金和设置扣款，要通俗的入门讲解而不是推销"}
+{"id":"everyday-005","query":"海姆立克急救法 成人","tier":"B","source":"synth:everyday","note":"想学成人气道异物梗阻时的正确施救手法和位置，最好有权威机构的分步图示或视频"}
+{"id":"everyday-006","query":"身份证丢了怎么补办","tier":"B","source":"synth:everyday","note":"想知道身份证丢失后挂失和补办的流程、需要带的材料以及能否异地办理"}
+{"id":"everyday-007","query":"微信聊天记录迁移到新手机","tier":"B","source":"synth:everyday","note":"想找微信官方换机迁移聊天记录的操作步骤，包括同系统与跨系统的情况"}
+{"id":"everyday-008","query":"空调不制冷 自己怎么检查","tier":"B","source":"synth:everyday","note":"想先自己判断空调不制冷是缺氟、滤网脏还是外机问题，看哪些检查可以自己做"}
+{"id":"everyday-009","query":"新手养多肉 浇水","tier":"B","source":"synth:everyday","note":"刚买多肉想搞清楚多久浇一次水、怎么判断该浇了，避免烂根"}
+{"id":"everyday-010","query":"电饭煲蒸米饭 水和米比例","tier":"B","source":"synth:everyday","note":"想知道不同米种的水米比例和蒸饭步骤，做出口感合适的米饭"}
+{"id":"everyday-011","query":"手机屏幕碎了 换屏大概多少钱","tier":"B","source":"synth:everyday","note":"想估算换屏费用，了解官方售后和第三方维修的价格差别与风险"}
+{"id":"everyday-012","query":"医保电子凭证怎么激活","tier":"B","source":"synth:everyday","note":"想找激活医保电子凭证的官方渠道和操作步骤，方便看病买药时使用"}
+{"id":"everyday-013","query":"家庭应急包 该准备什么","tier":"B","source":"synth:everyday","note":"想按权威建议列一份家庭应急物资清单，包括药品、工具和食品的储备量"}
+{"id":"everyday-014","query":"血压计 水银 电子 哪个准","tier":"B","source":"synth:everyday","note":"想比较家用血压计类型之间的测量准确性，为家里老人选购做参考"}
+{"id":"everyday-015","query":"银行卡限额怎么解除","tier":"B","source":"synth:everyday","note":"想知道银行卡被限额后怎么在手机银行或柜台调整，需要什么验证"}
+{"id":"everyday-016","query":"抽油烟机清洗 小妙招","tier":"B","source":"synth:everyday","note":"想找省力的油烟机清洗方法，包括滤网和内部油污的处理，最好用家里常见材料"}
+{"id":"everyday-017","query":"小孩发烧38度 物理降温","tier":"B","source":"synth:everyday","note":"想了解孩子发烧38度时正确的物理降温做法和何时该去医院，要可靠的育儿或医学来源"}
+{"id":"everyday-018","query":"护照办理需要什么材料","tier":"B","source":"synth:everyday","note":"想确认首次申领普通护照要带的证件、照片要求和办理地点"}
+{"id":"everyday-019","query":"公积金提取 租房","tier":"B","source":"synth:everyday","note":"想了解租房提取公积金的申请条件、额度以及线上办理入口"}
+{"id":"everyday-020","query":"微波炉不能用什么容器","tier":"B","source":"synth:everyday","note":"想确认哪些餐具和材料不能放进微波炉加热，避免安全和健康风险"}
+{"id":"everyday-021","query":"房贷提前还款 划算吗","tier":"B","source":"synth:everyday","note":"想判断提前还房贷是否值得，关注违约金、还款方式和利息节省的对比"}
+{"id":"everyday-022","query":"水龙头漏水 换阀芯","tier":"B","source":"synth:everyday","note":"想自己动手更换漏水水龙头的阀芯，需要知道怎么拆、怎么选型号"}
+{"id":"everyday-023","query":"红烧肉怎么上色好看","tier":"B","source":"synth:everyday","note":"找炒糖色或老抽上色的具体步骤和火候控制"}
+{"id":"everyday-024","query":"空气炸锅烤鸡翅 温度时间","tier":"B","source":"synth:everyday","note":"希望有分步做法、翻面时机和腌制建议"}
+{"id":"everyday-025","query":"发面没发起来怎么补救","tier":"B","source":"synth:everyday","note":"酵母失效或温度低导致面团不发时的补救办法"}
+{"id":"everyday-026","query":"煎牛排 几分熟 火候","tier":"B","source":"synth:everyday","note":"不同熟度对应的煎制时间、锅温和判断方法"}
+{"id":"everyday-027","query":"饺子馅出水怎么办","tier":"B","source":"synth:everyday","note":"调馅时防止出水、让馅料抱团的实用技巧"}
+{"id":"everyday-028","query":"马桶一直流水 怎么修","tier":"B","source":"synth:everyday","note":"判断是进水阀还是排水阀问题并更换配件"}
+{"id":"everyday-029","query":"墙面细小裂缝 补法","tier":"B","source":"synth:everyday","note":"家用腻子或嵌缝膏修补裂缝的步骤和打磨方法"}
+{"id":"everyday-030","query":"空调不制冷 自己先查什么","tier":"B","source":"synth:everyday","note":"排查滤网、外机散热、缺氟等常见原因的顺序"}
+{"id":"everyday-031","query":"洗衣机不排水 咋回事","tier":"B","source":"synth:everyday","note":"排水泵或排水管堵塞的排查与清理方法"}
+{"id":"everyday-032","query":"君子兰不开花 原因","tier":"B","source":"synth:everyday","note":"光照、温差、施肥等导致不开花的常见原因"}
+{"id":"everyday-033","query":"月季黑斑病 用什么药","tier":"B","source":"synth:everyday","note":"识别黑斑病并选择杀菌剂、修剪病叶的处理方法"}
+{"id":"everyday-034","query":"多肉徒长 怎么处理","tier":"B","source":"synth:everyday","note":"徒长后砍头、控水、增加光照的具体做法"}
+{"id":"everyday-035","query":"发财树烂根 怎么救","tier":"B","source":"synth:everyday","note":"脱盆修根、消毒换土的挽救步骤"}
+{"id":"everyday-036","query":"信用卡账单分期 划算吗","tier":"B","source":"synth:everyday","note":"比较分期手续费与实际年化利率的高低"}
+{"id":"everyday-037","query":"定期存款提前取 利息怎么算","tier":"B","source":"synth:everyday","note":"提前支取按活期计息的规则和利息损失"}
+{"id":"everyday-038","query":"公积金提取 需要什么材料","tier":"B","source":"synth:everyday","note":"租房或购房提取公积金所需材料与办理流程"}
+{"id":"everyday-039","query":"个人养老金账户 怎么开户","tier":"B","source":"synth:everyday","note":"在银行开立个人养老金资金账户的条件和步骤"}
+{"id":"everyday-040","query":"医保异地就医 备案 流程","tier":"B","source":"synth:everyday","note":"跨省异地就医备案的线上办理入口和操作步骤"}
+{"id":"everyday-041","query":"烫伤后第一时间怎么处理","tier":"B","source":"synth:everyday","note":"冲冷水、脱衣物、覆盖等正确急救步骤，避免乱涂东西"}
+{"id":"everyday-042","query":"崴脚 先冷敷还是热敷","tier":"B","source":"synth:everyday","note":"急性期冷敷时长以及何时改为热敷"}
+{"id":"everyday-043","query":"小孩发烧38度 要不要吃药","tier":"B","source":"synth:everyday","note":"儿童发热的家庭护理、用药时机和就医指征"}
+{"id":"everyday-044","query":"身份证丢了 异地补办","tier":"B","source":"synth:everyday","note":"异地补办身份证所需材料和办理地点"}
+{"id":"everyday-045","query":"红烧肉炒糖色发苦怎么办","tier":"B","source":"synth:everyday","note":"想弄清炒糖色时火候和油温怎么控制，糖色发苦后还能不能救，最好有分步操作和失败原因说明。"}
+{"id":"everyday-046","query":"洗衣机不排水 排查","tier":"B","source":"synth:everyday","note":"想自己检查排水泵、过滤网和排水管是否堵塞，判断哪些情况能自行处理、哪些需要报修。"}
+{"id":"everyday-047","query":"基金定投 新手怎么选","tier":"B","source":"synth:everyday","note":"想了解定投的基本原理、常见渠道和挑选基金时该看哪些指标，避免被高收益宣传误导。"}
+{"id":"everyday-048","query":"开水烫伤 冲冷水多久","tier":"B","source":"synth:everyday","note":"想找烫伤后的正确急救步骤，尤其是冲水时长、能不能涂牙膏或酱油，以及什么情况要就医。"}
+{"id":"everyday-049","query":"个税专项附加扣除怎么填报","tier":"B","source":"synth:everyday","note":"想在个人所得税 App 里完成专项附加扣除的填报，最想要的是官方操作指引和需要准备的材料清单"}
+{"id":"everyday-050","query":"卫生间地漏反味怎么解决","tier":"B","source":"synth:everyday","note":"想找出地漏返臭的常见原因，以及自己在家里能做的处理办法（换防臭芯、检查存水弯、密封处理），要有分步骤的排查与解决指南。"}
+{"id":"ops-050","query":"dockerfile 多阶段构建","tier":"B","source":"synth:ops","note":"用户想写多阶段构建的 Dockerfile 来减小镜像体积，需要阶段命名、COPY --from 用法和构建命令示例，结果最好有可直接套用的模板。"}

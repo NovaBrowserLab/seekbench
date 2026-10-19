@@ -29,3 +29,163 @@
 {"id":"illustrated-transformer-zh","query":"用大量图示一步步讲解 Transformer 自注意力机制的中文文章","tier":"A","source":"handwritten","note":"讲 Transformer 的图解文章, 如 The Illustrated Transformer 的中文翻译","gold":{"mustDomains":["jalammar.github.io"]}}
 {"id":"mdn-event-loop-zh","query":"MDN 上讲 JavaScript 执行模型、调用栈和任务队列的中文文档","tier":"A","source":"handwritten","note":"MDN 中文文档里 JavaScript 执行模型 / 事件循环的页面","gold":{"mustDomains":["developer.mozilla.org"]}}
 {"id":"cgroups-meituan","query":"介绍 Linux cgroups 资源限制原理和子系统的中文技术文章","tier":"A","source":"handwritten","note":"美团技术团队《Linux 资源管理之 cgroups 简介》","gold":{"targets":["tech.meituan.com/2015/03/31/cgroups.html"]}}
+{"id":"concept-001","query":"用动画演示 TCP 三次握手和四次挥手过程的视频","tier":"B","source":"synth:concept","note":"想找可视化讲解连接建立与释放每一步、状态变化的视频，动画清晰比文字堆砌更合适。"}
+{"id":"concept-002","query":"讲清楚数据库事务 ACID 和四种隔离级别区别的长文","tier":"B","source":"synth:concept","note":"期望系统对比各级别能防和不能防的并发问题，配例子说明。"}
+{"id":"concept-003","query":"图解 B+ 树为什么适合做数据库索引的文章","tier":"B","source":"synth:concept","note":"想找用图展示 B+ 树结构、磁盘 IO 优势和范围查询的文章。"}
+{"id":"concept-004","query":"从汇编角度解释函数调用栈和栈帧布局的教程","tier":"B","source":"synth:concept","note":"希望看到寄存器、参数、返回地址和局部变量在栈上的具体排布。"}
+{"id":"concept-005","query":"用生活例子讲 CAP 定理和 BASE 理论的中文博客","tier":"B","source":"synth:concept","note":"想找通俗类比解释三者取舍，并说明互联网系统为什么常选 BASE。"}
+{"id":"concept-006","query":"讲 Kubernetes 调度器怎么给 Pod 选节点的深度文章","tier":"B","source":"synth:concept","note":"关注过滤、打分、亲和性等调度流程和实际配置例子。"}
+{"id":"concept-007","query":"解释 HTTPS 握手过程中证书验证和密钥协商的长文","tier":"B","source":"synth:concept","note":"想弄清证书链校验、对称密钥协商和中间人防护细节。"}
+{"id":"concept-008","query":"用图说明 CSS Grid 和 Flex 布局适用场景的对比文章","tier":"B","source":"synth:concept","note":"希望有布局示意图和代码对照，判断一维/二维布局该选谁。"}
+{"id":"concept-009","query":"讲 Python GIL 是什么、为什么存在以及影响的文章","tier":"B","source":"synth:concept","note":"想理解 GIL 对多线程 CPU 密集任务的影响和绕开方式。"}
+{"id":"concept-010","query":"从数学推导讲 PageRank 算法原理的论文或长文","tier":"B","source":"synth:concept","note":"期望有随机游走、幂迭代和阻尼系数的推导，不只是概念介绍。"}
+{"id":"concept-011","query":"用视频讲解傅里叶变换直观含义的科普","tier":"B","source":"synth:concept","note":"想找把时域频域转换讲得直观、有动画演示的视频。"}
+{"id":"concept-012","query":"讲清楚量子纠缠实验验证和贝尔不等式的科普长文","tier":"B","source":"synth:concept","note":"希望解释贝尔实验如何排除定域隐变量，附实验设计示意。"}
+{"id":"concept-013","query":"解释 CRDT 如何实现最终一致性的技术文章","tier":"B","source":"synth:concept","note":"想找介绍常见 CRDT 类型、合并规则和冲突处理的文章。"}
+{"id":"concept-014","query":"讲 Raft 选举和日志复制过程的图解文章","tier":"B","source":"synth:concept","note":"期望用状态图和时序图讲清 leader 选举、日志匹配和提交。"}
+{"id":"concept-015","query":"用通俗语言解释相对论时间膨胀的科普视频","tier":"B","source":"synth:concept","note":"想找有例子和简单公式、能直观说明高速和引力时间膨胀的视频。"}
+{"id":"concept-016","query":"讲 LLM 位置编码从正弦到 RoPE 演变的论文解读","tier":"B","source":"synth:concept","note":"希望梳理不同位置编码的动机、公式和长度外推表现。"}
+{"id":"concept-017","query":"介绍 mRNA 疫苗原理和脂质纳米颗粒的科普长文","tier":"B","source":"synth:concept","note":"想了解 mRNA 递送、翻译抗原和免疫应答的完整链条。"}
+{"id":"concept-018","query":"讲清楚 CRISPR 基因编辑机制和脱靶问题的综述","tier":"B","source":"synth:concept","note":"期望有 Cas9 作用机制图，并讨论脱靶检测与改进。"}
+{"id":"concept-019","query":"用图示解释神经网络反向传播链式求导的教程","tier":"B","source":"synth:concept","note":"想找一步步展开计算图、手算梯度的入门教程。"}
+{"id":"concept-020","query":"讲分布式事务 Saga 和 TCC 模式区别的架构文章","tier":"B","source":"synth:concept","note":"希望对比补偿流程、隔离性和适用业务场景。"}
+{"id":"concept-021","query":"解释浏览器从输入 URL 到页面渲染全过程的文章","tier":"B","source":"synth:concept","note":"想系统了解 DNS、TCP、HTTP、解析、布局和绘制的完整链路。"}
+{"id":"concept-022","query":"讲 MySQL 索引失效场景和 explain 分析的实战长文","tier":"B","source":"synth:concept","note":"期望有具体 SQL 例子和 explain 输出解读，讲常见踩坑。"}
+{"id":"concept-023","query":"从零推导支持向量机 SVM 的数学教程","tier":"B","source":"synth:concept","note":"想找从间隔最大化、对偶问题到核技巧的详细推导。"}
+{"id":"concept-024","query":"用类比讲清楚区块链共识机制 PoW 和 PoS 的科普","tier":"B","source":"synth:concept","note":"希望用通俗比喻说明出块、算力和质押，比较安全性与能耗。"}
+{"id":"concept-025","query":"讲 WebAssembly 原理、内存模型和运行时的技术长文","tier":"B","source":"synth:concept","note":"想了解 WASM 字节码、线性内存、沙箱以及与 JS 互操作。"}
+{"id":"concept-026","query":"讲清楚量子计算里量子门和量子线路的图解长文","tier":"B","source":"synth:concept","note":"想找从量子门定义出发、配图讲解量子线路如何搭建的入门长文，最好带简单电路例子"}
+{"id":"concept-027","query":"从香农熵讲起解释霍夫曼编码怎么压缩数据的文章","tier":"B","source":"synth:concept","note":"想找从信息论角度推导霍夫曼树和编码效率的文章，而不是只给代码"}
+{"id":"concept-028","query":"用动画演示贪心算法和动态规划区别的视频","tier":"B","source":"synth:concept","note":"想找直观对比两种解题思路的讲解视频，有具体例题演示更好"}
+{"id":"concept-029","query":"讲 HTTP/3 为什么改用 QUIC 解决了什么问题的深度文章","tier":"B","source":"synth:concept","note":"想找 QUIC 与 TCP 对比、队头阻塞和 0-RTT 握手的长文"}
+{"id":"concept-030","query":"图解 DNS 递归查询和迭代查询过程的中文文章","tier":"B","source":"synth:concept","note":"想找画图讲清本地 resolver 与根、顶级、权威服务器交互过程的文章"}
+{"id":"concept-031","query":"解释垃圾回收里分代收集和三色标记法的技术长文","tier":"B","source":"synth:concept","note":"想找讲 GC 算法细节、写屏障和并发标记实现的长文"}
+{"id":"concept-032","query":"从零写一个简易编译器讲词法分析和语法分析的教程","tier":"B","source":"synth:concept","note":"想找动手实现小型编译器的系列教程，带代码和可运行例子"}
+{"id":"concept-033","query":"用图解释贝叶斯定理和先验后验概率的科普文章","tier":"B","source":"synth:concept","note":"想找配图或例子讲贝叶斯公式含义与概率更新的入门科普"}
+{"id":"concept-034","query":"讲 PageCache 和零拷贝原理的中文技术长文","tier":"B","source":"synth:concept","note":"想找讲内核页缓存、sendfile 与 mmap 机制的长文"}
+{"id":"concept-035","query":"从一个故事讲起解释 Paxos 协议的文章","tier":"B","source":"synth:concept","note":"想找通俗推导 Paxos 各阶段过程、而不是照搬论文符号的文章"}
+{"id":"concept-036","query":"讲 CPU 分支预测和流水线冒险的深度文章","tier":"B","source":"synth:concept","note":"想找体系结构层面讲预测器类型与流水线停顿代价的长文"}
+{"id":"concept-037","query":"用具体例子讲正则表达式回溯和性能陷阱的文章","tier":"B","source":"synth:concept","note":"想找讲灾难性回溯成因和写法优化的文章，有实测对比更好"}
+{"id":"concept-038","query":"图解 AES 加密的轮函数和密钥扩展过程","tier":"B","source":"synth:concept","note":"想找逐轮图示 AES-128 加解密流程与密钥扩展的教程"}
+{"id":"concept-039","query":"介绍 EUV 光刻机工作原理和光源的科普长文","tier":"B","source":"synth:concept","note":"想找讲光刻分辨率极限、EUV 光源如何产生的科普"}
+{"id":"concept-040","query":"讲清楚锂电池充放电原理和容量衰减机制的文章","tier":"B","source":"synth:concept","note":"想找从电化学角度解释循环衰减和析锂的科普"}
+{"id":"concept-041","query":"讲解 LIGO 怎么探测到引力波的科普文章","tier":"B","source":"synth:concept","note":"想找讲激光干涉测量、噪声控制和信号提取的科普长文"}
+{"id":"concept-042","query":"AlphaFold 怎么预测蛋白质结构的论文解读","tier":"B","source":"synth:concept","note":"想找讲模型架构和注意力机制、面向非生物专业读者的解读"}
+{"id":"concept-043","query":"讲扩散模型和 GAN 生成图像原理对比的长文","tier":"B","source":"synth:concept","note":"想找对比两类生成模型训练目标与采样过程的技术文章"}
+{"id":"concept-044","query":"讲 TCP 拥塞控制从慢启动到 BBR 演进的文章","tier":"B","source":"synth:concept","note":"想找梳理各代拥塞控制算法思路和适用场景的长文"}
+{"id":"concept-045","query":"图解 V8 里隐藏类和内联缓存怎么优化 JS 对象访问","tier":"B","source":"synth:concept","note":"想找讲 V8 对象模型、形状转换与内联缓存失效的文章"}
+{"id":"concept-046","query":"讲 Redis 持久化 RDB 和 AOF 区别以及怎么选的实战文章","tier":"B","source":"synth:concept","note":"想找对比两种持久化机制并给选型建议的文章"}
+{"id":"concept-047","query":"讲 GPU 和 CPU 架构差异以及 CUDA 执行模型的文章","tier":"B","source":"synth:concept","note":"想找讲 SIMT、warp 调度与 CPU 缓存体系对比的技术长文"}
+{"id":"concept-048","query":"解释 CDN 调度和边缘缓存原理的技术文章","tier":"B","source":"synth:concept","note":"想找讲 DNS 调度、回源策略和缓存命中优化的文章"}
+{"id":"concept-049","query":"用图示讲清楚 Git rebase 和 merge 区别的教程","tier":"B","source":"synth:concept","note":"想找画提交图对比两种合并方式、说明各自适用场景的中文教程"}
+{"id":"concept-050","query":"用通俗例子讲大模型幻觉成因和缓解办法的科普","tier":"B","source":"synth:concept","note":"想找讲幻觉来源以及检索增强、对齐等缓解手段的科普长文"}
+{"id":"concept-051","query":"讲清楚 eBPF 程序怎么挂到内核钩子做网络观测的长文","tier":"B","source":"synth:concept","note":"想找系统介绍 eBPF 附着点、验证器和网络观测实战的中文深度文章，能讲清挂载流程并带示例代码的优先。"}
+{"id":"concept-052","query":"用图解说明 TLS 1.3 握手和 0-RTT 风险的科普文章","tier":"B","source":"synth:concept","note":"希望用图示拆解 TLS 1.3 握手步骤，并说明 0-RTT 重放风险和安全取舍，适合入门读者理解。"}
+{"id":"concept-053","query":"讲 DNS 递归解析和 DNSSEC 签名验证过程的图解","tier":"B","source":"synth:concept","note":"想找把递归查询链路和 DNSSEC 签名链验证画清楚的文章，最好能配合报文示例。"}
+{"id":"concept-054","query":"从 MESI 协议讲 CPU 缓存一致性和伪共享的深度文章","tier":"B","source":"synth:concept","note":"想理解多核缓存一致性协议状态转换，以及伪共享为何拖慢性能，需要示意图和代码案例。"}
+{"id":"concept-055","query":"讲 io_uring 环形队列怎么减少系统调用开销的长文","tier":"B","source":"synth:concept","note":"想找深入解释提交队列、完成队列和内核轮询机制的 Linux 异步 IO 文章，最好有性能对比。"}
+{"id":"concept-056","query":"用动画演示红黑树插入删除旋转过程的视频","tier":"B","source":"synth:concept","note":"想通过动画直观看到红黑树变色和旋转步骤，适合准备面试或复习数据结构的人。"}
+{"id":"concept-057","query":"讲 LSM-Tree 写放大和 compaction 策略的技术长文","tier":"B","source":"synth:concept","note":"想了解 LSM-Tree 分层存储、写放大来源以及 leveled 和 tiered compaction 取舍的深度文章。"}
+{"id":"concept-058","query":"讲向量数据库 HNSW 图索引怎么构建和查询的图解文章","tier":"B","source":"synth:concept","note":"想找把 HNSW 多层图、邻居选择搜索过程画清楚的中文文章，最好有参数影响说明。"}
+{"id":"concept-059","query":"讲扩散模型 DDPM 加噪去噪过程的中文长文","tier":"B","source":"synth:concept","note":"希望从数学直觉和网络结构两方向解释扩散模型训练与采样，配图和公式推导更佳。"}
+{"id":"concept-060","query":"讲 FlashAttention 怎么分块计算减少显存访问的论文解读","tier":"B","source":"synth:concept","note":"想找把 tiling、在线 softmax 和 IO 复杂度讲明白的解读文章，适合已了解注意力机制的人。"}
+{"id":"concept-061","query":"讲 LoRA 低秩适配微调原理和秩选择的中文文章","tier":"B","source":"synth:concept","note":"想理解低秩矩阵分解如何降低微调成本，以及秩和 alpha 对效果的影响，需要实验经验。"}
+{"id":"concept-062","query":"讲投机解码 speculative decoding 加速大模型推理的科普","tier":"B","source":"synth:concept","note":"想找通俗解释草稿模型和验证阶段如何提升吞吐的文章，最好有接受率和加速比数据。"}
+{"id":"concept-063","query":"讲一致哈希和虚拟节点解决缓存倾斜的图解文章","tier":"B","source":"synth:concept","note":"想通过图示理解哈希环、节点增减和虚拟节点如何缓解数据倾斜，适合后端开发入门。"}
+{"id":"concept-064","query":"讲布隆过滤器误判率公式和位数组大小的推导文章","tier":"B","source":"synth:concept","note":"想找从概率推导误判率、并说明如何选位数组长度和哈希个数的中文技术文章。"}
+{"id":"concept-065","query":"讲 CRDT 无冲突数据类型怎么合并的科普长文","tier":"B","source":"synth:concept","note":"想了解 CRDT 在分布式系统里如何自动合并状态，最好用计数器、集合等例子说明。"}
+{"id":"concept-066","query":"讲 WebRTC ICE 打洞和 STUN TURN 区别的入门文章","tier":"B","source":"synth:concept","note":"想搞清楚 WebRTC 连接建立时 ICE 候选收集、NAT 打洞以及何时需要 TURN 中继。"}
+{"id":"concept-067","query":"讲 BGP 路由劫持和自治系统宣告的科普文章","tier":"B","source":"synth:concept","note":"想了解 BGP 宣告如何被恶意利用造成流量劫持，以及常见的路由安全防护手段。"}
+{"id":"concept-068","query":"用图解讲 PID 控制比例积分微分怎么整定的教程","tier":"B","source":"synth:concept","note":"想找用曲线图解释 P、I、D 各自作用和参数整定步骤的入门教程，适合做机器人或温控。"}
+{"id":"concept-069","query":"讲卡尔曼滤波预测更新两步和协方差推导的图解","tier":"B","source":"synth:concept","note":"希望用图示和简单公式讲清预测、更新两个步骤以及协方差矩阵如何传播，适合工程入门。"}
+{"id":"concept-070","query":"讲马尔可夫链蒙特卡洛 MCMC 采样直观含义的科普","tier":"B","source":"synth:concept","note":"想找用通俗例子解释 MCMC 为什么能采样复杂分布、平稳分布和 burn-in 含义的文章。"}
+{"id":"known-item-001","query":"国家未来五年发展目标和2035年远景的那份规划纲要全文，重点看科技创新和数字经济部分","tier":"B","source":"synth:known-item","note":"国家“十四五”规划和2035年远景目标纲要官方全文，关注科技创新、数字经济等章节。"}
+{"id":"known-item-002","query":"保护个人信息、处理个人信息要遵守的那部法律全文，重点看告知同意和敏感个人信息条款","tier":"B","source":"synth:known-item","note":"《中华人民共和国个人信息保护法》全文及核心条款。"}
+{"id":"known-item-003","query":"国家关于数据产权、数据流通交易和数据要素收益分配的基础制度意见全文","tier":"B","source":"synth:known-item","note":"“数据二十条”即关于构建数据基础制度更好发挥数据要素作用的意见。"}
+{"id":"known-item-004","query":"国家关于碳达峰碳中和总体部署、重点任务和路线图的官方意见全文","tier":"B","source":"synth:known-item","note":"《关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的意见》全文。"}
+{"id":"known-item-005","query":"今年中央关于三农工作的一号文件全文，讲粮食安全和乡村振兴","tier":"B","source":"synth:known-item","note":"当年中央一号文件全文，聚焦粮食安全、乡村振兴和“三农”工作部署。"}
+{"id":"known-item-006","query":"国家关于促进民营经济发展壮大的意见，讲破除市场准入壁垒和融资支持","tier":"B","source":"synth:known-item","note":"《关于促进民营经济发展壮大的意见》即“民营经济31条”。"}
+{"id":"known-item-007","query":"平台经济领域反垄断指南全文，讲二选一和大数据杀熟怎么认定","tier":"B","source":"synth:known-item","note":"国务院反垄断委员会《关于平台经济领域的反垄断指南》全文。"}
+{"id":"known-item-008","query":"讲缓存穿透、缓存击穿和缓存雪崩区别以及各自解决方案的技术文章","tier":"B","source":"synth:known-item","note":"区分缓存穿透、击穿、雪崩并给出工程解决方案的中文技术文章。"}
+{"id":"known-item-009","query":"讲分布式系统里生成全局唯一ID的几种方案对比和雪花算法实现","tier":"B","source":"synth:known-item","note":"分布式ID生成方案对比，包含雪花算法、号段模式等实现细节。"}
+{"id":"known-item-010","query":"讲微服务调用链路追踪怎么采集trace和span的团队实践文章","tier":"B","source":"synth:known-item","note":"微服务链路追踪原理与团队实践，涉及trace、span采集和展示。"}
+{"id":"known-item-011","query":"讲高并发系统里限流、熔断和降级分别怎么做以及常用中间件","tier":"B","source":"synth:known-item","note":"高并发稳定性治理文章，讲限流、熔断、降级策略与常用组件。"}
+{"id":"known-item-012","query":"讲JVM内存区域、GC日志分析和一次线上Full GC排查案例的文章","tier":"B","source":"synth:known-item","note":"JVM内存结构、GC日志解读及线上Full GC问题排查实践。"}
+{"id":"known-item-013","query":"讲Redis分布式锁实现、锁续期和Redlock争议的中文技术文章","tier":"B","source":"synth:known-item","note":"Redis分布式锁实现细节、续期机制及Redlock争议讨论。"}
+{"id":"known-item-014","query":"讲InnoDB的MVCC怎么通过undo log和read view实现事务隔离的文章","tier":"B","source":"synth:known-item","note":"InnoDB MVCC实现原理，涉及undo log、read view和隔离级别。"}
+{"id":"known-item-015","query":"讲消息队列如何保证消息不丢失、不重复消费和幂等的技术长文","tier":"B","source":"synth:known-item","note":"消息队列可靠性投递、消费幂等和不丢消息的工程方案。"}
+{"id":"known-item-016","query":"一本讲数据系统设计的中文开源书里，分布式数据复制和分区那一章","tier":"B","source":"synth:known-item","note":"《数据密集型应用系统设计》中文版中分布式数据复制与分区章节。"}
+{"id":"known-item-017","query":"经典教材里讲虚拟内存、地址翻译和TLB的那一章","tier":"B","source":"synth:known-item","note":"《深入理解计算机系统》中文版虚拟内存章节，含地址翻译和TLB。"}
+{"id":"known-item-018","query":"用对话和三个简单主题讲操作系统虚拟化、并发和持久化的开源教材","tier":"B","source":"synth:known-item","note":"开源教材《操作系统导论》即OSTEP中文版，围绕虚拟化、并发、持久化展开。"}
+{"id":"known-item-019","query":"用Scheme语言讲抽象、递归和元语言抽象的经典编程教材章节","tier":"B","source":"synth:known-item","note":"《计算机程序的构造和解释》SICP中关于抽象和元语言抽象的章节。"}
+{"id":"known-item-020","query":"讲Python数据模型、特殊方法和协议的书章节","tier":"B","source":"synth:known-item","note":"《流畅的Python》中Python数据模型与特殊方法章节。"}
+{"id":"known-item-021","query":"解释两个粒子无论隔多远测量一个另一个状态立即确定的现象的百科条目","tier":"B","source":"synth:known-item","note":"维基百科“量子纠缠”条目，解释非定域关联和测量坍缩。"}
+{"id":"known-item-022","query":"讲光通过两条狭缝后在屏幕上形成明暗条纹的实验的科普条目","tier":"B","source":"synth:known-item","note":"双缝干涉实验科普条目，解释干涉条纹和波动性。"}
+{"id":"known-item-023","query":"讲任何包含算术的形式系统都存在无法证明命题的定理的百科条目","tier":"B","source":"synth:known-item","note":"哥德尔不完备定理条目，说明第一、第二不完备定理。"}
+{"id":"known-item-024","query":"博弈论里讲每个参与者都不想单方面改变策略的均衡概念条目","tier":"B","source":"synth:known-item","note":"纳什均衡百科条目，解释策略组合与最佳回应。"}
+{"id":"known-item-025","query":"解释为什么只统计活下来的人或成功案例会产生错误结论的统计谬误","tier":"B","source":"synth:known-item","note":"幸存者偏差条目，说明样本选择偏差和经典案例。"}
+{"id":"known-item-026","query":"想找一篇把 SSH 免密登录和端口转发讲清楚的中文入门教程","tier":"B","source":"synth:known-item","note":"用户想找阮一峰《SSH 入门教程》，需要能按步骤生成密钥、配置 authorized_keys 并解释本地/远程端口转发的结果。"}
+{"id":"known-item-027","query":"Bash 脚本变量循环条件判断怎么写，中文入门教程","tier":"B","source":"synth:known-item","note":"目标为阮一峰《Bash 脚本教程》，好结果应覆盖变量、if、for/while 和常用测试语法，适合新手照做。"}
+{"id":"known-item-028","query":"Docker 镜像容器和 Dockerfile 怎么用 入门文章","tier":"B","source":"synth:known-item","note":"用户想找阮一峰《Docker 入门教程》，期望从概念到 docker build/run 的完整入门讲解。"}
+{"id":"known-item-029","query":"K8s 里 Pod Service Deployment 是干嘛的，通俗教程","tier":"B","source":"synth:known-item","note":"目标为阮一峰《Kubernetes 入门教程》，好结果用通俗语言解释核心对象及关系，而不是只给命令清单。"}
+{"id":"known-item-030","query":"Pro Git 中文版讲远程仓库那一章，怎么添加远程库和跟踪分支","tier":"B","source":"synth:known-item","note":"用户想找 Pro Git 中文版「远程仓库」章节，需要覆盖 git remote、push/pull 和远程跟踪分支。"}
+{"id":"known-item-031","query":"Rust 所有权规则 借用 生命周期 书里章节","tier":"B","source":"synth:known-item","note":"目标为《Rust 程序设计语言》中文版所有权相关章节，好结果能讲清所有权移动、借用检查和生命周期标注。"}
+{"id":"known-item-032","query":"Go 语言圣经里 goroutine 和 channel 并发那章","tier":"B","source":"synth:known-item","note":"用户想找《Go 语言圣经》中文版并发章节，期望包含 goroutine、channel 以及常见并发模式示例。"}
+{"id":"known-item-033","query":"鸟哥私房菜讲磁盘分区和文件系统挂载的章节","tier":"B","source":"synth:known-item","note":"目标为《鸟哥的 Linux 私房菜》磁盘与挂载相关章节，好结果应解释分区、格式化、mount 和 fstab。"}
+{"id":"known-item-034","query":"InnoDB 事务隔离级别和 MVCC 实现，书里哪章讲这个","tier":"B","source":"synth:known-item","note":"用户想找《MySQL 技术内幕 InnoDB 存储引擎》事务章节，需要讲清隔离级别、快照读和 MVCC 原理。"}
+{"id":"known-item-035","query":"深入理解JVM 类加载过程和双亲委派模型那一章","tier":"B","source":"synth:known-item","note":"目标为《深入理解 Java 虚拟机》类加载机制章节，好结果覆盖类加载各阶段和双亲委派及破坏案例。"}
+{"id":"known-item-036","query":"Spring Boot 应用内存泄漏排查实战文章","tier":"B","source":"synth:known-item","note":"用户想找美团技术团队关于 Spring Boot 内存泄漏排查的文章，期望有现场现象、工具命令和定位过程。"}
+{"id":"known-item-037","query":"Kafka 副本和 ISR 怎么保证消息不丢的技术文章","tier":"B","source":"synth:known-item","note":"目标为讲 Kafka 高可靠机制的中文团队文章，好结果应解释副本同步、ISR 收缩和 acks 配置的取舍。"}
+{"id":"known-item-038","query":"腾讯讲 Go runtime GMP 调度模型怎么调度 goroutine 的文章","tier":"B","source":"synth:known-item","note":"用户想找腾讯技术团队关于 Go GMP 调度器的文章，需要讲清 G、M、P 角色和工作窃取。"}
+{"id":"known-item-039","query":"字节讲 InnoDB 行锁间隙锁和死锁排查的文章","tier":"B","source":"synth:known-item","note":"目标为字节技术团队关于 MySQL 锁机制的文章，好结果应区分记录锁、间隙锁、临键锁并给出死锁分析思路。"}
+{"id":"known-item-040","query":"RocketMQ 事务消息两阶段提交和回查机制","tier":"B","source":"synth:known-item","note":"用户想找讲 RocketMQ 事务消息实现的中文文章，期望覆盖 half message、本地事务和回查流程。"}
+{"id":"known-item-041","query":"Google MapReduce 论文中文解读，讲 shuffle 过程的","tier":"B","source":"synth:known-item","note":"目标为 MapReduce 论文的中文解读，好结果应解释 map、shuffle、reduce 阶段和数据倾斜处理。"}
+{"id":"known-item-042","query":"Transformer 自注意力机制和位置编码的论文解读","tier":"B","source":"synth:known-item","note":"用户想找《Attention Is All You Need》的中文解读，期望讲清 self-attention、多头注意力和位置编码。"}
+{"id":"known-item-043","query":"乔布斯斯坦福毕业演讲中文全文，讲 connecting the dots 的","tier":"B","source":"synth:known-item","note":"目标为乔布斯 2005 年斯坦福毕业演讲中文稿，好结果包含全文并保留把生命中的点连起来等段落。"}
+{"id":"known-item-044","query":"国家破除地方保护建设统一大市场的意见全文，重点看市场分割和公平竞争审查","tier":"B","source":"synth:known-item","note":"用户想找《关于加快建设全国统一大市场的意见》全文，好结果应提供官方原文并突出破除地方保护相关条款。"}
+{"id":"known-item-045","query":"生成式AI服务管理办法 训练数据 备案 内容标识 要求","tier":"B","source":"synth:known-item","note":"目标为《生成式人工智能服务管理暂行办法》，用户想核对训练数据合规、备案和内容标识的具体规定。"}
+{"id":"known-item-046","query":"数据安全法律全文 数据分类分级 重要数据出境","tier":"B","source":"synth:known-item","note":"用户想找《数据安全法》全文，重点看数据分类分级、重要数据出境安全和法律责任条款。"}
+{"id":"known-item-047","query":"数字中国建设整体布局规划 数字基础设施 数据资源体系","tier":"B","source":"synth:known-item","note":"目标为《数字中国建设整体布局规划》官方全文，好结果包含数字基础设施和数据资源体系两大基础。"}
+{"id":"known-item-048","query":"瑞利散射解释天空为什么蓝 日落为什么红 科普","tier":"B","source":"synth:known-item","note":"用户想找用瑞利散射解释天空颜色和日落红色的科普文章，好结果有波长依赖的直观解释。"}
+{"id":"known-item-049","query":"拜占庭将军问题百科条目 和分布式共识的关系","tier":"B","source":"synth:known-item","note":"目标为维基百科「拜占庭将军问题」条目，需要讲清问题定义、口头/书面协议和与区块链共识的联系。"}
+{"id":"known-item-050","query":"零知识证明百科条目 三个性质 图论例子","tier":"B","source":"synth:known-item","note":"用户想找零知识证明的百科条目，好结果应覆盖完备性、可靠性和零知识性，并给出洞穴或图同构例子。"}
+{"id":"opinion-001","query":"论证远程办公反而降低团队效率的文章","tier":"B","source":"synth:opinion","note":"想找有数据或案例支撑“远程办公降低效率”这一立场的文章，而不是简单罗列利弊。"}
+{"id":"opinion-002","query":"从打工人角度批评996是福报的长文","tier":"B","source":"synth:opinion","note":"希望看到站在劳动者立场、有具体论证和案例批评996文化的长文。"}
+{"id":"opinion-003","query":"反驳学历贬值论的文章","tier":"B","source":"synth:opinion","note":"想找论证学历仍然有价值、反驳“学历无用或贬值”观点的分析文章。"}
+{"id":"opinion-004","query":"支持双减但批评执行走样的评论","tier":"B","source":"synth:opinion","note":"想找既认同双减方向、又指出地方执行偏差的评论文章。"}
+{"id":"opinion-005","query":"论证短视频让人变笨的科普","tier":"B","source":"synth:opinion","note":"想找从认知心理或注意力机制角度论证短视频负面影响的科普长文。"}
+{"id":"opinion-006","query":"从隐私角度批评人脸识别滥用的文章","tier":"B","source":"synth:opinion","note":"想找站在隐私权立场批评人脸识别技术滥用的评论或深度报道。"}
+{"id":"opinion-007","query":"为预制菜进校园辩护的评论","tier":"B","source":"synth:opinion","note":"想找理性为预制菜进校园辩护、回应食品安全质疑的评论文章。"}
+{"id":"opinion-008","query":"批评鸡娃教育制造焦虑的长文","tier":"B","source":"synth:opinion","note":"想找批判鸡娃现象、分析其如何制造教育焦虑的深度长文。"}
+{"id":"opinion-009","query":"论证考公热是年轻人理性选择的文章","tier":"B","source":"synth:opinion","note":"想找从就业环境角度论证考公热具有合理性的分析文章。"}
+{"id":"opinion-010","query":"从经济学角度分析房价不能跌的观点","tier":"B","source":"synth:opinion","note":"想找用经济学逻辑论证房价大幅下跌会带来系统性风险的观点文章。"}
+{"id":"opinion-011","query":"反驳消费主义洗脑的深度文章","tier":"B","source":"synth:opinion","note":"想找系统批判消费主义、论证其如何制造虚假需求的深度长文。"}
+{"id":"opinion-012","query":"论证AI不会取代程序员的长文","tier":"B","source":"synth:opinion","note":"想找论证AI是辅助工具而非取代程序员、有技术分析的长文。"}
+{"id":"opinion-013","query":"从劳动者角度批评外卖平台算法的文章","tier":"B","source":"synth:opinion","note":"想找批评外卖平台算法压榨骑手、站在劳动者立场的深度文章。"}
+{"id":"opinion-014","query":"支持开源但批评大公司白嫖的评论","tier":"B","source":"synth:opinion","note":"想找既支持开源又批评大公司利用开源却不回馈的评论文章。"}
+{"id":"opinion-015","query":"论证元宇宙是伪需求的文章","tier":"B","source":"synth:opinion","note":"想找从技术和社会需求角度论证元宇宙是炒作伪需求的长文。"}
+{"id":"opinion-016","query":"从教育公平角度批评学区房的评论","tier":"B","source":"synth:opinion","note":"想找批评学区房制度加剧教育不公平的评论文章。"}
+{"id":"opinion-017","query":"论证35岁危机是伪命题的文章","tier":"B","source":"synth:opinion","note":"想找用数据或案例反驳“35岁职场危机”普遍性的文章。"}
+{"id":"opinion-018","query":"批评大厂绩效强制分布的长文","tier":"B","source":"synth:opinion","note":"想找批评大厂强制绩效分布造成内卷和员工压力的长文。"}
+{"id":"opinion-019","query":"从女性视角批评职场母职惩罚的长文","tier":"B","source":"synth:opinion","note":"想找从女性视角分析生育如何影响职业发展、批评母职惩罚的长文。"}
+{"id":"opinion-020","query":"论证生育率下降主因是房价的文章","tier":"B","source":"synth:opinion","note":"想找把高房价视为生育率下降主要原因并加以论证的文章。"}
+{"id":"opinion-021","query":"反驳读书无用论的文章","tier":"B","source":"synth:opinion","note":"想找用数据和逻辑反驳“读书无用论”的评论或分析文章。"}
+{"id":"opinion-022","query":"从社会学角度批评短视频沉迷的文章","tier":"B","source":"synth:opinion","note":"想找用社会学视角分析短视频成瘾机制并加以批评的文章。"}
+{"id":"opinion-023","query":"论证自动驾驶伦理困境无法解决的文章","tier":"B","source":"synth:opinion","note":"想找讨论电车难题式自动驾驶伦理困境、论证其难以彻底解决的文章。"}
+{"id":"opinion-024","query":"支持远程办公但指出管理难点的文章","tier":"B","source":"synth:opinion","note":"想找既支持远程办公又客观分析管理挑战和应对方法的文章。"}
+{"id":"opinion-025","query":"批评在线教育加剧教育不平等的评论","tier":"B","source":"synth:opinion","note":"想找批评在线教育拉大数字鸿沟、加剧教育不平等的评论文章。"}
+{"id":"opinion-026","query":"为啥算法推荐总给我看一样的东西 批评信息茧房的长文","tier":"B","source":"synth:opinion","note":"想找批评推荐算法造成信息茧房、观点单一的文章，最好有论证和案例。"}
+{"id":"opinion-027","query":"AI写代码会不会让程序员失业 论证不会的文章","tier":"B","source":"synth:opinion","note":"想找论证AI辅助编程不会导致程序员大规模失业的分析文章。"}
+{"id":"opinion-028","query":"比特币挖矿到底多费电 从环保角度批评的评论","tier":"B","source":"synth:opinion","note":"想找批评加密货币挖矿耗电、从环保角度讨论的文章。"}
+{"id":"opinion-029","query":"开源软件真的比闭源安全吗 技术分析","tier":"B","source":"synth:opinion","note":"想找分析开源与闭源安全性的技术文章，立场偏向开源更安全。"}
+{"id":"opinion-030","query":"低代码平台能替代程序员吗 论证不能的长文","tier":"B","source":"synth:opinion","note":"想找论证低代码平台无法处理复杂业务、替代不了程序员的长文。"}
+{"id":"opinion-031","query":"996是福报？批评这种说法的文章","tier":"B","source":"synth:opinion","note":"想找批评“996是福报”说法、讨论工时制度的文章。"}
+{"id":"opinion-032","query":"远程办公效率更高还是更低 论证更高的分析","tier":"B","source":"synth:opinion","note":"想找论证远程办公效率不低于甚至高于坐班的文章。"}
+{"id":"opinion-033","query":"职场PUA和画大饼 批评的评论","tier":"B","source":"synth:opinion","note":"想找批评职场精神控制、画大饼现象的评论。"}
+{"id":"opinion-034","query":"应试教育扼杀创造力 论证的长文","tier":"B","source":"synth:opinion","note":"想找论证应试教育压抑创造力的长文。"}
+{"id":"opinion-035","query":"学区房加剧教育不公 批评的文章","tier":"B","source":"synth:opinion","note":"想找批评学区房制度加剧教育不公平的文章。"}
+{"id":"opinion-036","query":"职业教育低人一等？支持但批评歧视的评论","tier":"B","source":"synth:opinion","note":"想找支持职业教育但批评社会观念歧视的文章。"}
+{"id":"opinion-037","query":"消费主义是不是在制造虚假需求 批评的长文","tier":"B","source":"synth:opinion","note":"想找批评消费主义制造虚假需求、刺激过度消费的长文。"}
+{"id":"opinion-038","query":"生育率下降主要是经济问题 论证的文章","tier":"B","source":"synth:opinion","note":"想找把生育率下降归因于经济压力、住房教育成本的论证文章。"}
+{"id":"opinion-039","query":"城乡二元结构造成的不公 从社会学角度批评","tier":"B","source":"synth:opinion","note":"想找从社会学角度批评城乡二元结构造成不公的评论。"}
+{"id":"opinion-040","query":"垃圾分类搞形式主义 支持但批评的评论","tier":"B","source":"synth:opinion","note":"想找支持垃圾分类但批评执行中形式主义做法的评论。"}

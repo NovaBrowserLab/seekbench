@@ -1,0 +1,16 @@
+{"caseId":"concept-006","query":"讲 Kubernetes 调度器怎么给 Pod 选节点的深度文章","note":"关注过滤、打分、亲和性等调度流程和实际配置例子。","status":"pending"}
+{"caseId":"concept-022","query":"讲 MySQL 索引失效场景和 explain 分析的实战长文","note":"期望有具体 SQL 例子和 explain 输出解读，讲常见踩坑。","status":"pending"}
+{"caseId":"concept-033","query":"用图解释贝叶斯定理和先验后验概率的科普文章","note":"想找配图或例子讲贝叶斯公式含义与概率更新的入门科普","status":"pending"}
+{"caseId":"concept-059","query":"讲扩散模型 DDPM 加噪去噪过程的中文长文","note":"希望从数学直觉和网络结构两方向解释扩散模型训练与采样，配图和公式推导更佳。","status":"pending"}
+{"caseId":"concept-054","query":"从 MESI 协议讲 CPU 缓存一致性和伪共享的深度文章","note":"想理解多核缓存一致性协议状态转换，以及伪共享为何拖慢性能，需要示意图和代码案例。","status":"pending"}
+{"caseId":"concept-053","query":"讲 DNS 递归解析和 DNSSEC 签名验证过程的图解","note":"想找把递归查询链路和 DNSSEC 签名链验证画清楚的文章，最好能配合报文示例。","status":"pending"}
+{"caseId":"concept-026","query":"讲清楚量子计算里量子门和量子线路的图解长文","note":"想找从量子门定义出发、配图讲解量子线路如何搭建的入门长文，最好带简单电路例子","status":"pending"}
+{"caseId":"known-item-037","query":"Kafka 副本和 ISR 怎么保证消息不丢的技术文章","note":"目标为讲 Kafka 高可靠机制的中文团队文章，好结果应解释副本同步、ISR 收缩和 acks 配置的取舍。","status":"pending"}
+{"caseId":"known-item-023","query":"讲任何包含算术的形式系统都存在无法证明命题的定理的百科条目","note":"哥德尔不完备定理条目，说明第一、第二不完备定理。","status":"pending"}
+{"caseId":"known-item-047","query":"数字中国建设整体布局规划 数字基础设施 数据资源体系","note":"目标为《数字中国建设整体布局规划》官方全文，好结果包含数字基础设施和数据资源体系两大基础。","status":"pending"}
+{"caseId":"known-item-010","query":"讲微服务调用链路追踪怎么采集trace和span的团队实践文章","note":"微服务链路追踪原理与团队实践，涉及trace、span采集和展示。","status":"pending"}
+{"caseId":"known-item-021","query":"解释两个粒子无论隔多远测量一个另一个状态立即确定的现象的百科条目","note":"维基百科“量子纠缠”条目，解释非定域关联和测量坍缩。","status":"pending"}
+{"caseId":"opinion-034","query":"应试教育扼杀创造力 论证的长文","note":"想找论证应试教育压抑创造力的长文。","status":"pending"}
+{"caseId":"opinion-023","query":"论证自动驾驶伦理困境无法解决的文章","note":"想找讨论电车难题式自动驾驶伦理困境、论证其难以彻底解决的文章。","status":"pending"}
+{"caseId":"opinion-026","query":"为啥算法推荐总给我看一样的东西 批评信息茧房的长文","note":"想找批评推荐算法造成信息茧房、观点单一的文章，最好有论证和案例。","status":"pending"}
+{"caseId":"opinion-012","query":"论证AI不会取代程序员的长文","note":"想找论证AI是辅助工具而非取代程序员、有技术分析的长文。","status":"pending"}

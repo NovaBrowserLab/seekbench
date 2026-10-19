@@ -1,0 +1,19 @@
+{"caseId":"programming-056","query":"django rest framework serializer example","note":"Define serializers and validate data in DRF","status":"pending"}
+{"caseId":"programming-068","query":"nginx location regex match","note":"Match request paths with regex in location blocks","status":"pending"}
+{"caseId":"programming-010","query":"playwright wait for selector","note":"Wait for an element to appear or become actionable before interacting in Playwright.","status":"pending"}
+{"caseId":"programming-016","query":"rust ownership and borrowing","note":"Understand ownership, references and borrow checker rules with examples.","status":"pending"}
+{"caseId":"programming-008","query":"eslint flat config","note":"Set up or migrate to the eslint.config.js flat configuration format.","status":"pending"}
+{"caseId":"programming-075","query":"how to set up pre commit hooks python","note":"在 Python 项目中安装并配置 pre-commit（搭配 black、flake8 等钩子）的分步指南","status":"pending"}
+{"caseId":"programming-011","query":"supabase auth email password","note":"Implement email/password sign-up, sign-in and session handling with Supabase Auth.","status":"pending"}
+{"caseId":"programming-076","query":"bun test runner","note":"如何使用 Bun 内置测试运行器：编写测试、断言、覆盖率、watch 模式","status":"pending"}
+{"caseId":"ops-022","query":"dns a record vs cname","note":"The difference between A and CNAME records and when to use each","status":"pending"}
+{"caseId":"ops-023","query":"ssh key based auth disable password","note":"Setting up SSH key login and disabling password authentication on a server","status":"pending"}
+{"caseId":"ops-049","query":"prometheus alertmanager email alerts config","note":"用户想配置 Alertmanager 通过邮件发送告警，需要 alertmanager.yml 的 receiver 与 smtp 写法以及验证方式。","status":"pending"}
+{"caseId":"ops-036","query":"gitlab runner register docker","note":"Register a GitLab CI runner using the docker executor.","status":"pending"}
+{"caseId":"ops-048","query":"aws acm certificate nginx setup","note":"用户想给 Nginx 配置 AWS Certificate Manager 签发的证书，或者搞清楚如何把 ACM 证书用到 Nginx/EC2 上；需要能照着做的配置步骤和常见坑。","status":"pending"}
+{"caseId":"everyday-018","query":"file taxes free","note":"Options for free federal tax filing for simple returns.","status":"pending"}
+{"caseId":"everyday-030","query":"how to grow tomatoes in containers","note":"Container size, soil, watering, and support tips for growing tomatoes on a patio.","status":"pending"}
+{"caseId":"everyday-001","query":"how long to boil eggs","note":"Timing for soft, medium, and hard boiled eggs, plus tips for easy peeling.","status":"pending"}
+{"caseId":"everyday-028","query":"how to fix a running toilet","note":"Diagnose a constantly running toilet and replace the flapper or fill valve.","status":"pending"}
+{"caseId":"everyday-047","query":"when to prune hydrangeas","note":"Needs timing advice by hydrangea type and whether to cut back in fall or spring, with clear guidance to avoid losing blooms.","status":"pending"}
+{"caseId":"ops-050","query":"certbot renew cron job","note":"自动续期 Let's Encrypt 证书的配置方法, 包括 cron 任务或 systemd timer 的写法以及如何用 dry-run 验证。","status":"pending"}
