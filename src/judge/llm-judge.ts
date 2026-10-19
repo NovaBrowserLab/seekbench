@@ -29,7 +29,7 @@ export interface BatchResult {
 	usage: BatchUsage;
 }
 
-/** 鉴权失败、模型不存在一类错误, 继续调用也不会好, 中止整个裁判步骤. */
+/** 鉴权失败、余额不足、模型不存在一类错误, 继续调用也不会好, 中止整个裁判步骤. */
 export class JudgeFatalError extends Error {
 	constructor(message: string, options?: { cause?: unknown }) {
 		super(message, options);
@@ -148,9 +148,9 @@ export async function judgeBatch(
 				output = parseJson(error.text);
 			} else {
 				const status = apiStatus(error);
-				if (status === 401 || status === 403 || status === 404) {
+				if (status !== null && [401, 402, 403, 404].includes(status)) {
 					throw new JudgeFatalError(
-						`裁判接口返回 HTTP ${status}, 检查密钥与模型名`,
+						`裁判接口返回 HTTP ${status}, 检查密钥、余额与模型名`,
 						{ cause: error },
 					);
 				}

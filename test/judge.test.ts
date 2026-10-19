@@ -392,7 +392,7 @@ describe("judgeBatch", () => {
 		expect([...result.judgments.values()][0]?.meaning).toBe("1");
 	});
 
-	it("鉴权失败中止裁判", async () => {
+	it.each([401, 402])("HTTP %i 中止裁判", async (statusCode) => {
 		const { APICallError } = await import("ai");
 		const model = new MockLanguageModelV4({
 			doGenerate: async () => {
@@ -400,7 +400,7 @@ describe("judgeBatch", () => {
 					message: "unauthorized",
 					url: "https://example.com",
 					requestBodyValues: {},
-					statusCode: 401,
+					statusCode,
 					isRetryable: false,
 				});
 			},
