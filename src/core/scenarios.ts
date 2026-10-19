@@ -40,6 +40,11 @@ export async function loadScenario(
 	};
 }
 
+/** 场景刻度的最高等级: 默认 0 到 3, 场景自带刻度时取其长度减 1. */
+export function maxGradeOf(scenario: Scenario): 3 | 4 {
+	return scenario.scale?.length === 5 ? 4 : 3;
+}
+
 export interface CaseFilters {
 	tier?: Tier | undefined;
 	/** 按前缀匹配, 如 synth 匹配所有 synth:<模板>. */

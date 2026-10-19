@@ -48,6 +48,16 @@ const Target = z
 		"应为 URL 或域名 (可带路径)",
 	);
 
+/** 合成 B 层用例的一个模板: 生成哪一类查询. */
+export const SynthTemplate = z.strictObject({
+	id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
+	/** 交给模型的生成说明: 这一类查询长什么样、覆盖哪些主题、避免什么. */
+	instruction: z.string().min(1),
+	/** 目标条数, dataset:synth 补足到这个数为止. */
+	count: z.int().positive(),
+});
+export type SynthTemplate = z.infer<typeof SynthTemplate>;
+
 export const Scenario = z.strictObject({
 	id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
 	/** 题库版本, 用例变更即升版本; 不同版本的结果不可比. */
@@ -58,10 +68,14 @@ export const Scenario = z.strictObject({
 	description: z.string().min(1),
 	/** 交给裁判的打分说明. */
 	rubric: z.string().min(1),
+	/** 等级刻度, 下标即等级, 每一级写出可执行的定义. 省略时用默认的 0 到 3 刻度, 上限 0 到 4. */
+	scale: z.array(z.string().min(1)).min(4).max(5).optional(),
 	/** 评测深度. */
 	k: z.int().positive().default(10),
 	/** 用例 JSONL 的路径, 相对场景文件所在目录. */
 	casesFile: z.string().min(1),
+	/** 合成 B 层用例的模板. */
+	synth: z.array(SynthTemplate).min(1).optional(),
 });
 export type Scenario = z.infer<typeof Scenario>;
 
@@ -219,6 +233,14 @@ export const ScoredHit = Hit.extend({
 	gradeSource: GradeSource.nullable(),
 	/** 裁判标注的含义, 歧义场景用. */
 	meaning: Meaning.nullable(),
+	/** 裁判给出等级时的其余字段. */
+	judgment: z
+		.object({
+			reason: z.string(),
+			sourceTier: SourceTier,
+			stale: Staleness,
+		})
+		.optional(),
 });
 export type ScoredHit = z.infer<typeof ScoredHit>;
 
@@ -349,6 +371,8 @@ export const RunPlan = z.object({
 	/** record 模式下重新请求已有录制的条目. 默认复用, 只补录缺的. */
 	refresh: z.boolean().optional(),
 	region: z.string().optional(),
+	/** 用 --scenarios-dir 覆盖了场景目录时记录其绝对路径, 续跑与裁判沿用. */
+	scenariosDir: z.string().optional(),
 	settings: RunSettings,
 	scenarios: z.array(RunScenario.extend({ casesHash: z.string() })),
 	subjects: z.array(
@@ -369,6 +393,40 @@ export const Progress = z.object({
 });
 export type Progress = z.infer<typeof Progress>;
 
+/** 人工抽样复核与裁判的一致程度. */
+export const Agreement = z.object({
+	/** 参与比较的条数. */
+	n: z.int().nonnegative(),
+	/** 等级完全一致的比例. */
+	exact: z.number(),
+	/** 等级相差不超过 1 的比例. */
+	withinOne: z.number(),
+	/** 二次加权 Kappa; 样本里只有一种等级时无定义, 为 null. */
+	kappa: z.number().nullable(),
+});
+export type Agreement = z.infer<typeof Agreement>;
+
+export const RunJudge = z.object({
+	model: z.string(),
+	/** 裁判提示词模板的版本; 各场景的 rubric 另有哈希, 见裁判缓存的文件名. */
+	rubricVersion: z.string(),
+	fetch: z.boolean(),
+	/** 送裁判的结果条数, 其中命中缓存与未能判定的条数, 以及实际调用次数与 token 用量. */
+	usage: z
+		.object({
+			items: z.int().nonnegative(),
+			cached: z.int().nonnegative(),
+			failed: z.int().nonnegative(),
+			calls: z.int().nonnegative(),
+			inputTokens: z.int().nonnegative(),
+			outputTokens: z.int().nonnegative(),
+		})
+		.optional(),
+	/** 人工抽样复核的结果, judge:audit 写入. */
+	audit: Agreement.optional(),
+});
+export type RunJudge = z.infer<typeof RunJudge>;
+
 /** run.json: 一次运行的自包含记录. */
 export const Run = z.object({
 	id: z.string(),
@@ -379,14 +437,7 @@ export const Run = z.object({
 	settings: RunSettings,
 	scenarios: z.array(RunScenario),
 	subjects: z.array(RunSubject),
-	judge: z
-		.object({
-			model: z.string(),
-			rubricVersion: z.string(),
-			fetch: z.boolean(),
-			auditAgreement: z.number().optional(),
-		})
-		.nullable(),
+	judge: RunJudge.nullable(),
 	weights: z.record(z.string(), z.number()).optional(),
 	summary: z.array(ScenarioSummary),
 });

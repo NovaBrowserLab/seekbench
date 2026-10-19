@@ -231,7 +231,7 @@ export function summarize(
 	return summary;
 }
 
-function formatNumber(value: number): string {
+export function formatNumber(value: number): string {
 	return value.toFixed(2);
 }
 
@@ -240,7 +240,7 @@ function formatEstimate(estimate: Estimate | null): string {
 	return `${formatNumber(estimate.mean)} [${formatNumber(estimate.low)}, ${formatNumber(estimate.high)}]`;
 }
 
-function formatRate(value: number | null): string {
+export function formatRate(value: number | null): string {
 	return value === null ? "—" : `${(value * 100).toFixed(1)}%`;
 }
 
@@ -252,7 +252,7 @@ function formatCost(value: number): string {
 	return `$${value.toFixed(2)}`;
 }
 
-interface Table {
+export interface Table {
 	header: string[];
 	rows: string[][];
 }
@@ -320,7 +320,7 @@ function detailTable(
 	};
 }
 
-function markdownTable(table: Table): string {
+export function markdownTable(table: Table): string {
 	const line = (cells: readonly string[]) => `| ${cells.join(" | ")} |`;
 	return [
 		line(table.header),
@@ -338,7 +338,7 @@ function displayWidth(text: string): number {
 	return width;
 }
 
-function textTable(table: Table): string {
+export function textTable(table: Table): string {
 	const widths = table.header.map((cell, column) =>
 		Math.max(
 			displayWidth(cell),
@@ -383,8 +383,14 @@ function isStale(cassetteDate: string, runStartedAt: string): boolean {
 /** 一次运行的 Markdown 报告, 读者只看这一个文件就够. */
 export function renderReport(run: Run): string {
 	const judge = run.judge
-		? `${run.judge.model} (rubric ${run.judge.rubricVersion}${run.judge.fetch ? ", 抓取正文" : ""})`
+		? `${run.judge.model} (提示词 v${run.judge.rubricVersion}${run.judge.fetch ? ", 抓取正文" : ""})${run.judge.usage ? `, ${run.judge.usage.items} 条结果, 未能判定 ${run.judge.usage.failed}` : ""}`
 		: "未启用, 只有规则打分";
+	const audit = run.judge?.audit;
+	const auditText = audit
+		? `${audit.n} 条, 一致率 ${formatRate(audit.exact)}, 相差不超过 1 级 ${formatRate(audit.withinOne)}, 加权 Kappa ${audit.kappa === null ? "—" : formatNumber(audit.kappa)}`
+		: run.judge
+			? "未复核"
+			: "—";
 	const filters = [
 		run.settings.filters.tier ? `层 ${run.settings.filters.tier}` : null,
 		run.settings.filters.source ? `来源 ${run.settings.filters.source}*` : null,
@@ -404,6 +410,7 @@ export function renderReport(run: Run): string {
 			["全局并发", String(run.settings.concurrency)],
 			["用例过滤", filters.length > 0 ? filters.join(", ") : "无"],
 			["裁判", judge],
+			["人工复核", auditText],
 			[
 				"被测对象",
 				run.subjects

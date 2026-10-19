@@ -9,9 +9,6 @@ import type { Case, Meaning, QualityMetric, ScoredHit } from "./types.ts";
 /** 等级达到此值视为相关, MRR 与 P@5 用. */
 export const RELEVANT_GRADE = 2;
 
-/** 规则判定的满分等级. */
-const TARGET_GRADE = 3;
-
 const DAY_MS = 86_400_000;
 
 /** 未判定的等级按 0 计, 与 trec_eval 对未判文档的处理一致; 判定率在汇总里单独报告. */
@@ -149,13 +146,14 @@ function parsePatterns(patterns: readonly string[] | undefined): UrlPattern[] {
 }
 
 /**
- * 按 gold 标注给结果打规则分: 命中 badDomains 记 0, 命中 targets 记 3, 发布时间超出时效窗口记 0, 其余留给裁判.
+ * 按 gold 标注给结果打规则分: 命中 badDomains 记 0, 命中 targets 记满分 (默认 3), 发布时间超出时效窗口记 0, 其余留给裁判.
  * 风险优先于目标, 目标优先于时效. now 为执行时刻, 时效窗口相对它计算; 发布时间晚于 now 视为窗口内.
  */
 export function scoreHits(
 	hits: readonly NormalizedHit[],
 	kase: Case,
 	now: Date,
+	maxGrade = 3,
 ): ScoredHit[] {
 	const targets = parsePatterns(kase.gold?.targets);
 	const bad = parsePatterns(kase.gold?.badDomains);
@@ -178,7 +176,7 @@ export function scoreHits(
 		}
 		let grade: number | null = null;
 		if (isBad) grade = 0;
-		else if (isTarget) grade = TARGET_GRADE;
+		else if (isTarget) grade = maxGrade;
 		else if (fresh === "out") grade = 0;
 		return {
 			...hit,

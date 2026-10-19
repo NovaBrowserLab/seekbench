@@ -20,4 +20,18 @@ export default defineConfig({
 			latencyMs: 20,
 		},
 	},
+	/** LLM 裁判, 任何 OpenAI 兼容端点都可以. 换模型或改 rubric 后先跑 judge:calibrate. */
+	judge: {
+		baseUrl: "https://api.deepseek.com",
+		model: "deepseek-flash",
+		apiKeyEnv: "DEEPSEEK_API_KEY",
+		reasoningEffort: "low",
+	},
+	/** 合成 B 层用例的模型, dataset:synth 用. */
+	synth: {
+		baseUrl: "https://api.deepseek.com",
+		model: "deepseek-flash",
+		apiKeyEnv: "DEEPSEEK_API_KEY",
+		reasoningEffort: "low",
+	},
 });

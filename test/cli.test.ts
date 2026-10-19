@@ -1,5 +1,5 @@
 import { execFile } from "node:child_process";
-import { mkdtemp, readdir, readFile } from "node:fs/promises";
+import { mkdtemp, readdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,7 +7,14 @@ import { promisify } from "node:util";
 import { describe, expect, it } from "vitest";
 import { CassetteStore, cassetteKey } from "../src/core/cassette.ts";
 import { loadConfig, stableHash } from "../src/core/config.ts";
+import { parseJsonl, toJsonl } from "../src/core/jsonl.ts";
+import { readArchive } from "../src/core/runner.ts";
+import { loadScenario } from "../src/core/scenarios.ts";
 import { Run } from "../src/core/types.ts";
+import { AuditItem, Label } from "../src/judge/audit.ts";
+import { type CachedJudgment, JudgmentCache } from "../src/judge/cache.ts";
+import { judgeCaseOf } from "../src/judge/judge-run.ts";
+import { judgmentKey, rubricHash } from "../src/judge/rubric.ts";
 
 const execFileAsync = promisify(execFile);
 const root = fileURLToPath(new URL("..", import.meta.url));
@@ -76,6 +83,7 @@ describe("CLI", () => {
 			"2",
 			"--runs-dir",
 			runsDir,
+			"--no-judge",
 		]);
 		expect(stdout).toContain("smoke@1");
 
@@ -144,6 +152,7 @@ describe("CLI", () => {
 			runsDir,
 			"--cassettes-dir",
 			await fixtureCassettes(),
+			"--no-judge",
 		]);
 		expect(stderr).not.toContain("注意");
 		const [runId] = await readdir(runsDir);
@@ -224,5 +233,118 @@ describe("CLI", () => {
 	it("没有命令时打印帮助", async () => {
 		const { stdout } = await seekbench([]);
 		expect(stdout).toContain("seekbench run --scenarios");
+	});
+
+	it("裁判只用缓存时完成打分, 抽样复核与校准走通", async () => {
+		const dir = await mkdtemp(join(tmpdir(), "seekbench-judge-"));
+		const config = join(dir, "seekbench.config.ts");
+		await writeFile(
+			config,
+			`export default ${JSON.stringify({
+				scenariosDir: join(root, "datasets/scenarios"),
+				subjects: {
+					mock: {
+						use: "mock",
+						hitsFile: join(root, "test/fixtures/smoke.mock.json"),
+					},
+				},
+				judge: {
+					baseUrl: "https://judge.invalid",
+					model: "test-judge",
+					apiKeyEnv: "SEEKBENCH_TEST_JUDGE_KEY",
+				},
+			})};\n`,
+		);
+		await seekbench([
+			"run",
+			"--config",
+			config,
+			"--scenarios",
+			"smoke",
+			"--no-judge",
+		]);
+		const [runId] = await readdir(join(dir, "runs"));
+		if (runId === undefined) throw new Error("没有生成运行目录");
+		const runDir = join(dir, "runs", runId);
+
+		/** 预先写好裁判缓存: 等级取 URL 长度模 4, 歧义用例标含义 0. */
+		const { scenario, cases } = await loadScenario(
+			join(root, "datasets/scenarios"),
+			"smoke",
+		);
+		const cache = new JudgmentCache(join(dir, "judgments"), "test-judge");
+		const shard = { scenario: "smoke", rubric: rubricHash(scenario, false) };
+		const judgments = new Map<string, CachedJudgment>();
+		for (const record of await readArchive(runDir)) {
+			const kase = cases.find((item) => item.id === record.caseId);
+			if (!kase) continue;
+			for (const hit of record.hits) {
+				if (hit.grade !== null) continue;
+				judgments.set(judgmentKey(judgeCaseOf(kase), hit, false), {
+					reason: "r",
+					grade: hit.url.length % 4,
+					sourceTier: "reputable",
+					stale: "fresh",
+					...(kase.gold?.meanings && { meaning: "0" as const }),
+				});
+			}
+		}
+		await cache.put(shard, judgments);
+
+		const judged = await seekbench(["judge", "--config", config]);
+		expect(judged.stderr).toContain(`缓存命中 ${judgments.size}`);
+		const run = Run.parse(
+			JSON.parse(await readFile(join(runDir, "run.json"), "utf8")),
+		);
+		expect(run.judge).toMatchObject({
+			model: "test-judge",
+			usage: { cached: judgments.size, failed: 0 },
+		});
+		expect(run.summary[0]?.judgedRate).toBe(1);
+		expect(run.summary[0]?.quality.meaningCoverage).not.toBeNull();
+
+		await seekbench(["judge:sample", "--config", config, "--size", "4"]);
+		const auditPath = join(runDir, "audit.jsonl");
+		const items = parseJsonl(
+			await readFile(auditPath, "utf8"),
+			AuditItem,
+			auditPath,
+		);
+		expect(items).toHaveLength(4);
+		await writeFile(
+			auditPath,
+			toJsonl(
+				items.map((item) => ({
+					...item,
+					grade: judgments.get(item.id)?.grade ?? null,
+				})),
+			),
+		);
+		await expect(
+			seekbench(["judge:sample", "--config", config]),
+		).rejects.toMatchObject({ code: 2 });
+
+		const audited = await seekbench(["judge:audit", "--config", config]);
+		expect(audited.stdout).toContain("一致率 100.0%");
+		const after = Run.parse(
+			JSON.parse(await readFile(join(runDir, "run.json"), "utf8")),
+		);
+		expect(after.judge?.audit).toMatchObject({ n: 4, exact: 1 });
+		const labelsPath = join(dir, "datasets/calibration/labels.jsonl");
+		expect(
+			parseJsonl(await readFile(labelsPath, "utf8"), Label, labelsPath),
+		).toHaveLength(4);
+
+		const report = await seekbench(["report", "--config", config]);
+		expect(await readFile(report.stdout.trim(), "utf8")).toContain(
+			"| 人工复核 | 4 条, 一致率 100.0%",
+		);
+
+		const calibrated = await seekbench([
+			"judge:calibrate",
+			"--config",
+			config,
+		]).catch((error: { code: number; stdout: string }) => error);
+		expect(calibrated.stdout).toContain("test-judge: 4 条, 一致率 100.0%");
 	});
 });
