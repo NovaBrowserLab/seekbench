@@ -41,13 +41,15 @@ pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa
 
 被测对象、并发、超时与重复次数在 `seekbench.config.ts` 里配置，各家适配器的参数、计费与限速见 [docs/adapters/](docs/adapters/README.md)；`pnpm seekbench --help` 列出全部参数。运行中断后用 `--resume <run-id>` 续跑。
 
+跑完搜索后，`run` 用配置里的 `judge` 模型给规则判不了的结果打分（默认 DeepSeek，读 `DEEPSEEK_API_KEY`），裁判结果缓存在本机，回放重跑不再付费；`--no-judge` 只做规则打分。正式评测再用 `judge:sample` 抽样、人工填等级、`judge:audit` 算一致率，流程见 [docs/judge.md](docs/judge.md)。题库的标注规范与 `dataset:*` 工具见 [docs/dataset.md](docs/dataset.md)。
+
 ## 结果
 
 公开的运行结果放在 `results/`，每次包含汇总指标与报告。
 
 ## 状态
 
-已有：数据模型、URL 规范化、按标注的规则打分、质量指标与置信区间、带全局并发上限与限速的 Runner（超时、续跑）、`run` 与 `report` 命令；博查、Brave、DeepSeek、Exa、Tavily 五家适配器与录制回放；中英文官网导航场景（`nav-zh`、`nav-en`）的人工标注题库。尚未接入 LLM 裁判与其余场景。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
+已有：数据模型、URL 规范化、按标注的规则打分、质量指标与置信区间、带全局并发上限与限速的 Runner（超时、续跑）、`run` 与 `report` 命令；博查、Brave、DeepSeek、Exa、Tavily 五家适配器与录制回放；LLM 裁判与缓存、校准、人工抽样复核；题库的合成、校验、统计与日志导入工具；导航（`nav-*`）、教程类信息查找（`howto-*`）与描述性查询（`descriptive-*`）的中英文人工标注题库。其余场景尚未加入。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ## 许可证
 
@@ -96,13 +98,15 @@ pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa
 
 Subjects, concurrency, timeouts and repetitions are configured in `seekbench.config.ts`; adapter options, pricing and rate limits are in [docs/adapters/](docs/adapters/README.md) (Chinese). `pnpm seekbench --help` lists every option. Resume an interrupted run with `--resume <run-id>`.
 
+After searching, `run` grades the results that rules cannot decide with the `judge` model from the config (DeepSeek by default, reading `DEEPSEEK_API_KEY`). Judgments are cached locally, so replays do not pay again; `--no-judge` keeps rule grading only. For a formal run, `judge:sample` draws an audit sample, people fill in grades, and `judge:audit` computes agreement; see [docs/judge.md](docs/judge.md) (Chinese). Labeling guidelines and the `dataset:*` tools are in [docs/dataset.md](docs/dataset.md) (Chinese).
+
 **Results**
 
 Published runs live in `results/`, each with summary metrics and a report.
 
 **Status**
 
-Available: data model, URL normalization, rule-based grading from labels, quality metrics with confidence intervals, a runner with a global concurrency cap and per-subject rate limits (timeouts, resume), the `run` and `report` commands; adapters for Bocha, Brave, DeepSeek, Exa and Tavily with record and replay; hand-labeled datasets for Chinese and English site navigation (`nav-zh`, `nav-en`). The LLM judge and the remaining scenarios are not in yet. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
+Available: data model, URL normalization, rule-based grading from labels, quality metrics with confidence intervals, a runner with a global concurrency cap and per-subject rate limits (timeouts, resume), the `run` and `report` commands; adapters for Bocha, Brave, DeepSeek, Exa and Tavily with record and replay; the LLM judge with caching, calibration and human audit sampling; dataset tools for synthesis, validation, statistics and log import; hand-labeled Chinese and English datasets for navigation (`nav-*`), how-to lookups (`howto-*`) and descriptive queries (`descriptive-*`). The remaining scenarios are not in yet. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
 
 **License**
 

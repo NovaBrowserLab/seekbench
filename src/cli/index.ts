@@ -119,5 +119,7 @@ export async function main(argv: readonly string[]): Promise<number> {
 }
 
 if (import.meta.main) {
+	/** 裁判与合成默认用 json_object 模式, schema 已写进提示词, AI SDK 每次调用都会告警 responseFormat 不受支持. */
+	globalThis.AI_SDK_LOG_WARNINGS = false;
 	process.exitCode = await main(process.argv.slice(2));
 }
