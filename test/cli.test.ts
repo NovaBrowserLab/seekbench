@@ -330,6 +330,7 @@ describe("CLI", () => {
 			JSON.parse(await readFile(join(runDir, "run.json"), "utf8")),
 		);
 		expect(after.judge?.audit).toMatchObject({ n: 4, exact: 1 });
+		expect(after.judge?.audit?.applied).toBeGreaterThanOrEqual(4);
 		const labelsPath = join(dir, "datasets/calibration/labels.jsonl");
 		expect(
 			parseJsonl(await readFile(labelsPath, "utf8"), Label, labelsPath),

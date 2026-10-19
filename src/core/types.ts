@@ -165,7 +165,8 @@ export interface SearchSubject {
 /** 相关性等级. 默认刻度 0 到 3, 上限 0 到 4. */
 export const Grade = z.int().min(0).max(4);
 
-export const GradeSource = z.enum(["rule", "judge"]);
+/** 等级的来源: 按标注的规则、LLM 裁判, 或人工复核 (覆盖裁判等级). */
+export const GradeSource = z.enum(["rule", "judge", "human"]);
 
 /** 来源层级: 官方或一手 / 可靠媒体、文档、机构 / 论坛、问答、个人博客 / 内容农场、仿冒、广告页. */
 export const SourceTier = z.enum([
@@ -233,6 +234,8 @@ export const ScoredHit = Hit.extend({
 	gradeSource: GradeSource.nullable(),
 	/** 裁判标注的含义, 歧义场景用. */
 	meaning: Meaning.nullable(),
+	/** 人工复核覆盖前的裁判等级, 只在 gradeSource 为 human 时有. */
+	judgeGrade: Grade.optional(),
 	/** 裁判给出等级时的其余字段. */
 	judgment: z
 		.object({
@@ -422,8 +425,11 @@ export const RunJudge = z.object({
 			outputTokens: z.int().nonnegative(),
 		})
 		.optional(),
-	/** 人工抽样复核的结果, judge:audit 写入. */
-	audit: Agreement.optional(),
+	/** 人工抽样复核的结果, judge:audit 写入. 可选; 没有时成绩只按裁判等级计算. */
+	audit: Agreement.extend({
+		/** 等级被人工等级覆盖的结果条数 (同一内容在多个被测对象里各算一条). */
+		applied: z.int().nonnegative().optional(),
+	}).optional(),
 });
 export type RunJudge = z.infer<typeof RunJudge>;
 

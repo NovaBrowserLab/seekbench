@@ -86,13 +86,14 @@ export async function judgeStep(
 	};
 }
 
-/** 清掉明细里的裁判等级, 重新判定前用; 规则等级保留. */
+/** 清掉明细里的裁判等级与覆盖它的人工等级, 重新判定前用; 规则等级保留. */
 export function clearJudgments(records: readonly CaseRecord[]): CaseRecord[] {
 	return records.map((record) => ({
 		...record,
 		hits: record.hits.map((hit) => {
-			if (hit.gradeSource !== "judge") return hit;
-			const { judgment: _, ...rest } = hit;
+			if (hit.gradeSource !== "judge" && hit.gradeSource !== "human")
+				return hit;
+			const { judgment: _, judgeGrade: __, ...rest } = hit;
 			return { ...rest, grade: null, gradeSource: null, meaning: null };
 		}),
 	}));

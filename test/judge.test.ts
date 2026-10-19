@@ -18,7 +18,12 @@ import {
 	confusionMatrix,
 	weightedKappa,
 } from "../src/judge/agreement.ts";
-import { auditRun, labelKey, sampleAudit } from "../src/judge/audit.ts";
+import {
+	applyAudit,
+	auditRun,
+	labelKey,
+	sampleAudit,
+} from "../src/judge/audit.ts";
 import { JudgmentCache } from "../src/judge/cache.ts";
 import { calibrate, ruleLabels } from "../src/judge/calibrate.ts";
 import { htmlToText } from "../src/judge/fetch-page.ts";
@@ -652,6 +657,44 @@ describe("audit", () => {
 			scenario: "mini",
 		});
 		expect(new Set(result.labels.map(labelKey)).size).toBe(2);
+	});
+
+	it("人工等级覆盖裁判等级, 清空后恢复, 一致率仍与裁判等级比较", () => {
+		const items = sampleAudit(judged, loaded, {
+			size: 10,
+			seed: "s",
+			fetch: false,
+		});
+		const filled = items.map((item) => ({
+			...item,
+			grade: item.url === "https://a.com/1" ? 1 : null,
+		}));
+		const applied = applyAudit(filled, judged, loaded, { fetch: false });
+		expect(applied.applied).toBe(2);
+		const first = applied.records[0]?.hits[0];
+		expect(first).toMatchObject({
+			grade: 1,
+			gradeSource: "human",
+			judgeGrade: 3,
+		});
+		expect(applied.records[0]?.hits[1]).toMatchObject({
+			grade: 1,
+			gradeSource: "judge",
+		});
+		expect(applied.records[0]?.hits[2]?.gradeSource).toBe("rule");
+		expect(
+			auditRun(filled, applied.records, loaded, { fetch: false, runId: "r" })
+				.agreement,
+		).toMatchObject({ n: 1, exact: 0 });
+
+		const cleared = applyAudit(
+			filled.map((item) => ({ ...item, grade: null })),
+			applied.records,
+			loaded,
+			{ fetch: false },
+		);
+		expect(cleared.applied).toBe(0);
+		expect(cleared.records).toEqual(judged);
 	});
 });
 

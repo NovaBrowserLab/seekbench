@@ -3,7 +3,7 @@ import { mulberry32, seedFrom } from "../core/bootstrap.ts";
 import { normalizeUrl } from "../core/normalize.ts";
 import type { LoadedScenario } from "../core/scenarios.ts";
 import { maxGradeOf } from "../core/scenarios.ts";
-import type { Agreement, Case, CaseRecord } from "../core/types.ts";
+import type { Agreement, Case, CaseRecord, ScoredHit } from "../core/types.ts";
 import { Grade } from "../core/types.ts";
 import { agreement, type GradePair } from "./agreement.ts";
 import { judgeCaseOf } from "./judge-run.ts";
@@ -58,6 +58,13 @@ function casesById(
 	);
 }
 
+/** 裁判给这条结果的等级; 被人工等级覆盖过的取覆盖前的裁判等级, 没有裁判等级时为 null. */
+function judgeGradeOf(hit: ScoredHit): number | null {
+	if (hit.gradeSource === "judge") return hit.grade;
+	if (hit.gradeSource === "human") return hit.judgeGrade ?? null;
+	return null;
+}
+
 function shuffle<T>(items: readonly T[], random: () => number): T[] {
 	const out = [...items];
 	for (let index = out.length - 1; index > 0; index--) {
@@ -92,9 +99,10 @@ export function sampleAudit(
 		if (!kase || record.error !== null) continue;
 		const judgeCase = judgeCaseOf(kase);
 		for (const hit of record.hits) {
-			if (hit.gradeSource !== "judge" || hit.grade === null) continue;
+			const grade = judgeGradeOf(hit);
+			if (grade === null) continue;
 			const id = judgmentKey(judgeCase, hit, options.fetch);
-			const stratum = `${record.subject}|${hit.grade}`;
+			const stratum = `${record.subject}|${grade}`;
 			const members = strata.get(stratum) ?? [];
 			if (!members.includes(id)) members.push(id);
 			strata.set(stratum, members);
@@ -163,10 +171,11 @@ export function auditRun(
 		if (!kase) continue;
 		const judgeCase = judgeCaseOf(kase);
 		for (const hit of record.hits) {
-			if (hit.gradeSource !== "judge" || hit.grade === null) continue;
+			const grade = judgeGradeOf(hit);
+			if (grade === null) continue;
 			judged.set(
 				`${record.scenario}|${judgmentKey(judgeCase, hit, options.fetch)}`,
-				hit.grade,
+				grade,
 			);
 		}
 	}
@@ -196,6 +205,44 @@ export function auditRun(
 		...scenarios.map(({ scenario }) => maxGradeOf(scenario)),
 	);
 	return { agreement: agreement(pairs, maxGrade), unmatched, pending, labels };
+}
+
+/**
+ * 用复核人填的等级覆盖运行明细里对应结果的裁判等级, 覆盖前的裁判等级留在 judgeGrade.
+ * 复核文件里等级被清空的条目恢复为裁判等级, 所以可以反复执行. 返回新明细与被覆盖的结果条数.
+ */
+export function applyAudit(
+	items: readonly AuditItem[],
+	records: readonly CaseRecord[],
+	scenarios: readonly LoadedScenario[],
+	options: { fetch: boolean },
+): { records: CaseRecord[]; applied: number } {
+	const cases = casesById(scenarios);
+	const human = new Map(
+		items.map((item) => [`${item.scenario}|${item.id}`, item.grade]),
+	);
+	let applied = 0;
+	const out = records.map((record) => {
+		const kase = cases.get(record.scenario)?.get(record.caseId);
+		if (!kase) return record;
+		const judgeCase = judgeCaseOf(kase);
+		return {
+			...record,
+			hits: record.hits.map((hit): ScoredHit => {
+				const judge = judgeGradeOf(hit);
+				if (judge === null) return hit;
+				const grade = human.get(
+					`${record.scenario}|${judgmentKey(judgeCase, hit, options.fetch)}`,
+				);
+				const { judgeGrade: _, ...rest } = hit;
+				if (grade === undefined || grade === null)
+					return { ...rest, grade: judge, gradeSource: "judge" };
+				applied++;
+				return { ...rest, grade, gradeSource: "human", judgeGrade: judge };
+			}),
+		};
+	});
+	return { records: out, applied };
 }
 
 /** 标注的去重键: 同一场景下裁判看到的内容相同即为同一条. */

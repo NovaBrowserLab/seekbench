@@ -387,9 +387,9 @@ export function renderReport(run: Run): string {
 		: "未启用, 只有规则打分";
 	const audit = run.judge?.audit;
 	const auditText = audit
-		? `${audit.n} 条, 一致率 ${formatRate(audit.exact)}, 相差不超过 1 级 ${formatRate(audit.withinOne)}, 加权 Kappa ${audit.kappa === null ? "—" : formatNumber(audit.kappa)}`
+		? `${audit.n} 条, 一致率 ${formatRate(audit.exact)}, 相差不超过 1 级 ${formatRate(audit.withinOne)}, 加权 Kappa ${audit.kappa === null ? "—" : formatNumber(audit.kappa)}${audit.applied ? `; 成绩中 ${audit.applied} 条结果用人工等级` : ""}`
 		: run.judge
-			? "未复核"
+			? "未复核, 成绩只按裁判等级"
 			: "—";
 	const filters = [
 		run.settings.filters.tier ? `层 ${run.settings.filters.tier}` : null,

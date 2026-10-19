@@ -9,6 +9,7 @@ import { createModel } from "../core/model.ts";
 import {
 	formatNumber,
 	formatRate,
+	summarize,
 	type Table,
 	textTable,
 } from "../core/report.ts";
@@ -17,6 +18,7 @@ import { loadScenario } from "../core/scenarios.ts";
 import type { Agreement, Scenario } from "../core/types.ts";
 import {
 	AuditItem,
+	applyAudit,
 	auditRun,
 	Label,
 	labelKey,
@@ -125,7 +127,7 @@ export async function judgeCommand(
 		await writeRun(runDir, run);
 		if (previous?.judge?.audit)
 			process.stderr.write(
-				"重新打分后原有的人工复核结果已失效, 需要重新抽样复核\n",
+				`重新打分后人工等级已清除, 再执行 seekbench judge:audit ${runId} 重新应用\n`,
 			);
 		console.log(join(runDir, "run.json"));
 		return 0;
@@ -201,7 +203,10 @@ async function readLabels(path: string): Promise<Label[]> {
 		: [];
 }
 
-/** seekbench judge:audit <run-id>: 比较人工填写的等级与裁判等级, 写入 run.json, 并把复核结果并入校准集. */
+/**
+ * seekbench judge:audit <run-id>: 比较人工填写的等级与裁判等级, 并用人工等级覆盖对应结果的裁判等级后重算汇总,
+ * 写入 run.json; 复核结果同时并入校准集. 复核是可选的, 不做时成绩只按裁判等级计算.
+ */
 export async function auditCommand(
 	args: string[],
 	help: string,
@@ -244,9 +249,21 @@ export async function auditCommand(
 		process.stderr.write(
 			`${result.unmatched} 条在运行明细里找不到对应的裁判等级, 未计入一致率\n`,
 		);
+	const applied = applyAudit(items, records, scenarios, {
+		fetch: run.judge.fetch,
+	});
+	await writeArchive(runDir, applied.records);
 	await writeRun(runDir, {
 		...run,
-		judge: { ...run.judge, audit: result.agreement },
+		judge: {
+			...run.judge,
+			audit: { ...result.agreement, applied: applied.applied },
+		},
+		summary: summarize(
+			applied.records,
+			scenarios,
+			run.subjects.map((subject) => subject.id),
+		),
 	});
 
 	const labelsPath = resolve(root, config.calibrationFile);
@@ -257,6 +274,9 @@ export async function auditCommand(
 	await mkdir(dirname(labelsPath), { recursive: true });
 	await writeFile(labelsPath, toJsonl([...merged.values()]));
 	console.log(`人工复核: ${agreementLine(result.agreement)}`);
+	console.log(
+		`成绩已改用人工等级: ${applied.applied} 条结果的裁判等级被覆盖, 运行 ${runId} 的汇总已重算`,
+	);
 	console.log(`校准集: ${labelsPath} (${merged.size} 条)`);
 	return 0;
 }
