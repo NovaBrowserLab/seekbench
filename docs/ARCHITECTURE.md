@@ -186,6 +186,7 @@ interface SearchSubject {
   readonly kind: 'provider' | 'strategy';
   readonly langs: readonly ('zh' | 'en')[];
   search(query: string, options: SearchOptions): Promise<SubjectResponse>;
+  replay?(raw: unknown, query: string, options: SearchOptions): SubjectResponse; // 从录制的原始响应重新归一化
 }
 ```
 

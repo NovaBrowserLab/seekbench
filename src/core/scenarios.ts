@@ -44,15 +44,20 @@ export interface CaseFilters {
 	tier?: Tier | undefined;
 	/** 按前缀匹配, 如 synth 匹配所有 synth:<模板>. */
 	source?: string | undefined;
+	/** 只取过滤后的前若干条. */
+	limit?: number | undefined;
 }
 
 export function filterCases(
 	cases: readonly Case[],
 	filters: CaseFilters,
 ): Case[] {
-	return cases.filter(
+	const matched = cases.filter(
 		(kase) =>
 			(filters.tier === undefined || kase.tier === filters.tier) &&
 			(filters.source === undefined || kase.source.startsWith(filters.source)),
 	);
+	return filters.limit === undefined
+		? matched
+		: matched.slice(0, filters.limit);
 }

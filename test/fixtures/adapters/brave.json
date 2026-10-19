@@ -1,0 +1,387 @@
+{
+	"query": "Steam 官网",
+	"request": {
+		"lang": "zh",
+		"count": 10
+	},
+	"recordedAt": "2026-10-19T03:24:34.697Z",
+	"raw": {
+		"type": "search",
+		"query": {
+			"original": "Steam 官网",
+			"more_results_available": true
+		},
+		"web": {
+			"type": "search",
+			"results": [
+				{
+					"title": "Welcome to Steam",
+					"url": "https://store.steampowered.com/",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "Steam is the ultimate destination for playing, discussing, and creating games.",
+					"page_age": "2026-10-15T21:33:26",
+					"profile": {
+						"name": "Steam",
+						"url": "https://store.steampowered.com/",
+						"long_name": "store.steampowered.com",
+						"img": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw"
+					},
+					"language": "en",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "store.steampowered.com",
+						"hostname": "store.steampowered.com",
+						"favicon": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw",
+						"path": ""
+					},
+					"thumbnail": {
+						"src": "https://imgs.search.brave.com/D_wMwH2zCUSV4-hx_w1rpSz-ELN3y77W_OMeSnAI1Po/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/ZmFzdGx5LnN0ZWFt/c3RhdGljLmNvbS9z/dG9yZS9ob21lL3N0/b3JlX2hvbWVfc2hh/cmUuanBn",
+						"original": "https://cdn.fastly.steamstatic.com/store/home/store_home_share.jpg",
+						"logo": false
+					},
+					"age": "3 days ago",
+					"cluster_type": "generic",
+					"cluster": [
+						{
+							"title": "Steam, The Ultimate Online Game Platform",
+							"url": "https://store.steampowered.com/about/",
+							"is_source_local": false,
+							"is_source_both": false,
+							"description": "<strong>Steam</strong> is the ultimate destination for playing, discussing, and creating games.",
+							"family_friendly": true
+						},
+						{
+							"title": "Search",
+							"url": "https://store.steampowered.com/search/",
+							"is_source_local": false,
+							"is_source_both": false,
+							"description": "Sign in Store · Home Discovery Queue Wishlist Points Shop News Charts · Community · Home Discussions Workshop Market Broadcasts · About Support · Change language · Get the <strong>Steam</strong> Mobile App · View desktop website · © Valve Corporation. All rights reserved.",
+							"family_friendly": true
+						},
+						{
+							"title": "Steam Deck™",
+							"url": "https://store.steampowered.com/steamdeck/",
+							"is_source_local": false,
+							"is_source_both": false,
+							"description": "<strong>Steam</strong> Deck™ is the most powerful, full-featured gaming handheld in the world.",
+							"family_friendly": true
+						},
+						{
+							"title": "Steam Refunds",
+							"url": "https://store.steampowered.com/steam_refunds/",
+							"is_source_local": false,
+							"is_source_both": false,
+							"description": "It doesn&#x27;t matter. Valve will, upon request via help.steampowered.com, issue a refund for any reason, if the request is made within the required return period, and, in the case of games, if the title has been played for less than two hours.",
+							"family_friendly": true
+						}
+					],
+					"extra_snippets": [
+						"© Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries. Privacy Policy | Legal | Accessibility | Steam Subscriber Agreement | Refunds | Cookies"
+					]
+				},
+				{
+					"title": "欢迎来到蒸汽平台",
+					"url": "https://store.steamchina.com/",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "心渊梦境 - 官方美术设定集 · 动作, 冒险, 独立 · 发行于: 2023 年 6 月 9 日 · -80% ¥28.00 · ¥5.60立省 80%。原价为 ¥28.00，折后为 ¥5.60。 · -80% ¥28.00 · ¥5.60立省 80%。原价为 ¥28.00，折后为 ¥5.60。 · 《波西亚时光》原声音乐集 ·",
+					"profile": {
+						"name": "Steamchina",
+						"url": "https://store.steamchina.com/",
+						"long_name": "store.steamchina.com",
+						"img": "https://imgs.search.brave.com/6v8GAuJMVvmWfhe9a8jfAwWCeW0H_nAXCM6NArkbxpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZmMzN2Y2YmZj/NTRhOTk5ZGZjYWY5/MGU0NTY4NzI5MTQ5/YTdjZWQ5YzMwYjgy/NDczYTlkYWM5N2E2/ODgxZTI3NS9zdG9y/ZS5zdGVhbWNoaW5h/LmNvbS8"
+					},
+					"language": "zh",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "store.steamchina.com",
+						"hostname": "store.steamchina.com",
+						"favicon": "https://imgs.search.brave.com/6v8GAuJMVvmWfhe9a8jfAwWCeW0H_nAXCM6NArkbxpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZmMzN2Y2YmZj/NTRhOTk5ZGZjYWY5/MGU0NTY4NzI5MTQ5/YTdjZWQ5YzMwYjgy/NDczYTlkYWM5N2E2/ODgxZTI3NS9zdG9y/ZS5zdGVhbWNoaW5h/LmNvbS8",
+						"path": ""
+					},
+					"thumbnail": {
+						"src": "https://imgs.search.brave.com/Ixina6VpMnmVK9YZkfQe4tck3Okt_rFoNJpWPx6e8Uw/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/c3RlYW1jaGluYS5x/dWVuaXVhbS5jb20v/c3RvcmUvaG9tZS9z/dG9yZV9ob21lX3No/YXJlX3NjLmpwZw",
+						"original": "https://cdn.steamchina.queniuam.com/store/home/store_home_share_sc.jpg",
+						"logo": false
+					}
+				},
+				{
+					"title": "歡迎來到 Steam",
+					"url": "https://store.steampowered.com/?l=tchinese",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "Steam is the ultimate destination for playing, discussing, and creating games.",
+					"profile": {
+						"name": "Steam",
+						"url": "https://store.steampowered.com/?l=tchinese",
+						"long_name": "store.steampowered.com",
+						"img": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw"
+					},
+					"language": "zh",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "store.steampowered.com",
+						"hostname": "store.steampowered.com",
+						"favicon": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw",
+						"path": ""
+					},
+					"thumbnail": {
+						"src": "https://imgs.search.brave.com/D_wMwH2zCUSV4-hx_w1rpSz-ELN3y77W_OMeSnAI1Po/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/ZmFzdGx5LnN0ZWFt/c3RhdGljLmNvbS9z/dG9yZS9ob21lL3N0/b3JlX2hvbWVfc2hh/cmUuanBn",
+						"original": "https://cdn.fastly.steamstatic.com/store/home/store_home_share.jpg",
+						"logo": false
+					},
+					"extra_snippets": [
+						"© Valve Corporation. 版權所有。所有商標皆為個別所有權人在美國與其它國家（地區）之財產。 隱私權政策 | 法律聲明 | 輔助功能 | Steam 訂戶協議 | 退款 | Cookie"
+					]
+				},
+				{
+					"title": "Steam, The Ultimate Online Game Platform",
+					"url": "https://store.steampowered.com/about/",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "Steam is the ultimate destination for playing, discussing, and creating games.",
+					"page_age": "2026-10-17T02:27:03",
+					"profile": {
+						"name": "Steam",
+						"url": "https://store.steampowered.com/about/",
+						"long_name": "store.steampowered.com",
+						"img": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw"
+					},
+					"language": "en",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "store.steampowered.com",
+						"hostname": "store.steampowered.com",
+						"favicon": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw",
+						"path": "› about"
+					},
+					"thumbnail": {
+						"src": "https://imgs.search.brave.com/rlCLTaFI2GyhB2bAmLlA4M3QY21H5ly2NcwEKQEdyYQ/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/YWthbWFpLnN0ZWFt/c3RhdGljLmNvbS9z/dG9yZS9hYm91dC9z/b2NpYWwtb2cuanBn",
+						"original": "https://cdn.akamai.steamstatic.com/store/about/social-og.jpg",
+						"logo": false
+					},
+					"age": "2 days ago",
+					"extra_snippets": [
+						"We created the Steam Deck and the Valve Index headset to make gaming on the PC even better.",
+						"Steamworks is the set of tools and services that help game developers and publishers get the most out of distributing games on Steam.",
+						"Talk with friends or groups via text or voice without leaving Steam.",
+						"Access Steam anywhere from your iOS or Android device with the Steam mobile app."
+					]
+				},
+				{
+					"title": "欢迎来到 Steam",
+					"url": "https://store.steampowered.com/?l=schinese",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "Steam is the ultimate destination for playing, discussing, and creating games.",
+					"profile": {
+						"name": "Steam",
+						"url": "https://store.steampowered.com/?l=schinese",
+						"long_name": "store.steampowered.com",
+						"img": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw"
+					},
+					"language": "zh",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "store.steampowered.com",
+						"hostname": "store.steampowered.com",
+						"favicon": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw",
+						"path": ""
+					},
+					"thumbnail": {
+						"src": "https://imgs.search.brave.com/pa7prci8eQF6O6eGfPDt0h4dFv_WZgXEMp3qtnNZ3-k/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/YWthbWFpLnN0ZWFt/c3RhdGljLmNvbS9z/dG9yZS9ob21lL3N0/b3JlX2hvbWVfc2hh/cmUuanBn",
+						"original": "https://cdn.akamai.steamstatic.com/store/home/store_home_share.jpg",
+						"logo": false
+					},
+					"extra_snippets": [
+						"更改语言 获取 Steam 手机应用 · 查看桌面版网站 ·",
+						"© Valve Corporation。保留所有权利。所有商标均为其在美国及其它国家/地区的各自持有者所有。 隐私政策 | 法律信息 | 无障碍 | Steam 订户协议 | 退款 | Cookie"
+					]
+				},
+				{
+					"title": "Steam Support",
+					"url": "https://help.steampowered.com/en/",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "Sign in to your Steam account to review purchases, account status, and get personalized help.",
+					"profile": {
+						"name": "Steam",
+						"url": "https://help.steampowered.com/en/",
+						"long_name": "help.steampowered.com",
+						"img": "https://imgs.search.brave.com/8SQqouLPZ7l6CQ9ot2FfKBPIh4XD3C8FjAK3703nplE/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDQzYWQ5Njk4/OTUxYjUwMWRkOWFj/YjJkNDAzMjI3Mjll/MmViNTE4NWUzYmE3/YWQxYmEyNDQ1M2Iw/MDNmNTliOC9oZWxw/LnN0ZWFtcG93ZXJl/ZC5jb20v"
+					},
+					"language": "en",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "help.steampowered.com",
+						"hostname": "help.steampowered.com",
+						"favicon": "https://imgs.search.brave.com/8SQqouLPZ7l6CQ9ot2FfKBPIh4XD3C8FjAK3703nplE/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDQzYWQ5Njk4/OTUxYjUwMWRkOWFj/YjJkNDAzMjI3Mjll/MmViNTE4NWUzYmE3/YWQxYmEyNDQ1M2Iw/MDNmNTliOC9oZWxw/LnN0ZWFtcG93ZXJl/ZC5jb20v",
+						"path": "› en"
+					},
+					"thumbnail": {
+						"src": "https://imgs.search.brave.com/Kj7ZHWAp5bUDnAMiyFVVvjeuHc4Kf6rqdo5wOLKdwog/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9oZWxw/LnN0ZWFtcG93ZXJl/ZC5jb20vcHVibGlj/L3NoYXJlZC9pbWFn/ZXMvcmVzcG9uc2l2/ZS9zdGVhbV9zaGFy/ZV9pbWFnZS5qcGc",
+						"original": "https://help.steampowered.com/public/shared/images/responsive/steam_share_image.jpg",
+						"logo": false
+					},
+					"extra_snippets": [
+						"Sign in to your Steam account to review purchases, account status, and get personalized help.",
+						"Games, Software, etc. Purchases My Account Trading, Gifting, Market and Steam Points Steam Client Steam Community Steam Hardware",
+						"© Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries. Privacy Policy | Legal | Accessibility | Steam Subscriber Agreement | Refunds | Cookies"
+					]
+				},
+				{
+					"title": "适用于移动设备的 Steam 应用",
+					"url": "https://store.steampowered.com/mobile?l=schinese",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "更改语言 获取 Steam 手机应用 · 查看桌面版网站 ·",
+					"profile": {
+						"name": "Steam",
+						"url": "https://store.steampowered.com/mobile?l=schinese",
+						"long_name": "store.steampowered.com",
+						"img": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw"
+					},
+					"language": "zh",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "store.steampowered.com",
+						"hostname": "store.steampowered.com",
+						"favicon": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw",
+						"path": "› mobile"
+					},
+					"thumbnail": {
+						"src": "https://imgs.search.brave.com/wiDGTNLXXmatfHzlRNMh30FQlWG9d1BIcgA5U8IGwX8/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdG9y/ZS5mYXN0bHkuc3Rl/YW1zdGF0aWMuY29t/L3B1YmxpYy9pbWFn/ZXMvbW9iaWxlL2xv/Y2FsaXplZGltYWdl/cy93ZWJfaGVyby93/ZWJfaGVyb19zY2hp/bmVzZS5wbmc",
+						"original": "https://store.fastly.steamstatic.com/public/images/mobile/localizedimages/web_hero/web_hero_schinese.png",
+						"logo": false
+					},
+					"extra_snippets": [
+						"更改语言 获取 Steam 手机应用 · 查看桌面版网站 ·",
+						"© Valve Corporation。保留所有权利。所有商标均为其在美国及其它国家/地区的各自持有者所有。 隐私政策 | 法律信息 | 无障碍 | Steam 订户协议 | 退款 | Cookie",
+						"在您的手机上浏览 Steam 目录中的 Windows、Mac 和 Linux 作品。不再错过任何特卖。",
+						"您仍然可以将手机号码添加到 Steam 帐户作为额外的安全措施。这在您以后恢复帐户或重置密码时有所帮助。"
+					]
+				},
+				{
+					"title": "SteamPY(匹歪)_安全省钱的Steam游戏交易市场",
+					"url": "https://steampy.com/",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "We&#x27;re sorry but front doesn&#x27;t work properly without JavaScript enabled. Please enable it to continue · 请使用浏览器打开该页面",
+					"profile": {
+						"name": "Steampy",
+						"url": "https://steampy.com/",
+						"long_name": "steampy.com",
+						"img": "https://imgs.search.brave.com/6vCyLqMk19QBMMYrjaVNiU12JnVokahdEqqfGkKOHa4/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTNhN2NmYWNh/ODNjYjE1ZDUzNDY5/NWU5MDljMDM1YjZl/YTgwZTczNWU5NzQ3/NmZhZjYzNzRhNjRl/M2E4YWYwNC9zdGVh/bXB5LmNvbS8"
+					},
+					"language": "en",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "steampy.com",
+						"hostname": "steampy.com",
+						"favicon": "https://imgs.search.brave.com/6vCyLqMk19QBMMYrjaVNiU12JnVokahdEqqfGkKOHa4/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTNhN2NmYWNh/ODNjYjE1ZDUzNDY5/NWU5MDljMDM1YjZl/YTgwZTczNWU5NzQ3/NmZhZjYzNzRhNjRl/M2E4YWYwNC9zdGVh/bXB5LmNvbS8",
+						"path": ""
+					}
+				},
+				{
+					"title": "哪个才是steam？ - 知乎",
+					"url": "https://www.zhihu.com/question/603521723",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "steam官网地址：<strong>store.steampowered.com</strong> （一般不会出问题，但如果被恶意软件修改过的话，这个地址也会跳转到山寨网站，建议使用不同设备访问。）",
+					"profile": {
+						"name": "Zhihu",
+						"url": "https://www.zhihu.com/question/603521723",
+						"long_name": "zhihu.com",
+						"img": "https://imgs.search.brave.com/VNnFTqCrnlzNYtmpyFQSVg-K_dqzaMoUkffw57h8ZY0/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTIzNDAyMjM4/YzAwYzk2NDEwM2Fi/MzRlNmU3YjBkMTI1/Y2VkMTFlYmM2M2Jj/OGE1MGFiYTEzMWNh/NDcxMTkxYy93d3cu/emhpaHUuY29tLw"
+					},
+					"language": "zh",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "zhihu.com",
+						"hostname": "www.zhihu.com",
+						"favicon": "https://imgs.search.brave.com/VNnFTqCrnlzNYtmpyFQSVg-K_dqzaMoUkffw57h8ZY0/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTIzNDAyMjM4/YzAwYzk2NDEwM2Fi/MzRlNmU3YjBkMTI1/Y2VkMTFlYmM2M2Jj/OGE1MGFiYTEzMWNh/NDcxMTkxYy93d3cu/emhpaHUuY29tLw",
+						"path": "› question  › 603521723"
+					},
+					"extra_snippets": [
+						"steam官网地址：store.steampowered.com （一般不会出问题，但如果被恶意软件修改过的话，这个地址也会跳转到山寨网站，建议使用不同设备访问。）",
+						"store.steampowered.com是 Steam 国际版的官方链接，而store.steamchina.com是中国蒸汽平台的官方链接。"
+					]
+				},
+				{
+					"title": "登录",
+					"url": "https://store.steampowered.com/login/?l=schinese",
+					"is_source_local": false,
+					"is_source_both": false,
+					"description": "创建帐户既免费又简单。探索成千上万款游戏，与数百万新朋友一起畅玩吧！ 了解更多关于 Steam 的信息",
+					"profile": {
+						"name": "Steam",
+						"url": "https://store.steampowered.com/login/?l=schinese",
+						"long_name": "store.steampowered.com",
+						"img": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw"
+					},
+					"language": "zh",
+					"family_friendly": true,
+					"type": "search_result",
+					"subtype": "generic",
+					"is_live": false,
+					"meta_url": {
+						"scheme": "https",
+						"netloc": "store.steampowered.com",
+						"hostname": "store.steampowered.com",
+						"favicon": "https://imgs.search.brave.com/udqfPZIdcjqtV9VHGlOzWQULPk6u1T0IMZxf0pCLOpY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDIyMTA3YmY3/ODQ0Y2RiMzAzYTg1/MGVmNzcwNmQ5NWY3/YWJmYWIwMGNhNThk/YzBmMzNjM2ZjM2Qx/MTM3OWJjZC9zdG9y/ZS5zdGVhbXBvd2Vy/ZWQuY29tLw",
+						"path": "› login"
+					},
+					"thumbnail": {
+						"src": "https://imgs.search.brave.com/h4ABylxtrsAlnjqAT3vaNJJKwiYg8FzjYvHmImJmReA/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdG9y/ZS5ha2FtYWkuc3Rl/YW1zdGF0aWMuY29t/L3B1YmxpYy9zaGFy/ZWQvaW1hZ2VzL3Jl/c3BvbnNpdmUvc3Rl/YW1fc2hhcmVfaW1h/Z2UuanBn",
+						"original": "https://store.akamai.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg",
+						"logo": false
+					},
+					"extra_snippets": [
+						"更改语言 获取 Steam 手机应用 · 查看桌面版网站 ·",
+						"© Valve Corporation。保留所有权利。所有商标均为其在美国及其它国家/地区的各自持有者所有。 隐私政策 | 法律信息 | 无障碍 | Steam 订户协议 | 退款 | Cookie",
+						"创建帐户既免费又简单。探索成千上万款游戏，与数百万新朋友一起畅玩吧！ 了解更多关于 Steam 的信息",
+						"请联系 Steam 客服来获得我们工作人员的帮助。解决合法用户的帐户登录问题是我们的第一要务。"
+					]
+				}
+			],
+			"family_friendly": true
+		}
+	}
+}

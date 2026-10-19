@@ -7,9 +7,11 @@ import { z } from "zod";
 import { TokenBucket } from "../adapters/_shared.ts";
 import {
 	createSubject,
+	missingEnv,
 	rateLimitOf,
 	SubjectConfig,
 } from "../adapters/index.ts";
+import { CassetteStore } from "../core/cassette.ts";
 import { type Config, loadConfig, stableHash } from "../core/config.ts";
 import { renderReport, renderTable, summarize } from "../core/report.ts";
 import {
@@ -22,7 +24,13 @@ import {
 	type LoadedScenario,
 	loadScenario,
 } from "../core/scenarios.ts";
-import { Run, type RunPlan, Tier } from "../core/types.ts";
+import {
+	type CaseRecord,
+	Run,
+	RunMode,
+	type RunPlan,
+	Tier,
+} from "../core/types.ts";
 
 const HELP = `seekbench: 搜索场景 Benchmark
 
@@ -34,19 +42,23 @@ const HELP = `seekbench: 搜索场景 Benchmark
 run 选项:
   --scenarios <ids>     场景 id, 逗号分隔
   --subjects <ids>      被测对象 id, 逗号分隔; 省略时为配置里的全部
-  --reps <n>            每条用例对每个被测对象的重复次数
+  --mode <mode>         live 直连 (默认) / record 直连并录制 / replay 只读录制, 不需要密钥
+  --reps <n>            每条用例对每个被测对象的重复次数, 只用于 live
   --concurrency <n>     全局在途请求上限
   --timeout <ms>        单次调用超时
   --tier <A|B>          只跑某一层的用例
   --source <prefix>     只跑来源以此开头的用例, 如 handwritten、synth
+  --limit <n>           每个场景只跑过滤后的前 n 条用例
   --region <name>       标注机器所在区域, 写入运行记录
   --resume <run-id>     续跑中断的运行, 沿用它的计划
 
 通用选项:
   --config <path>       配置文件, 默认 seekbench.config.ts
   --runs-dir <dir>      运行记录目录, 覆盖配置里的 runsDir
+  --cassettes-dir <dir> 录制目录, 覆盖配置里的 cassettesDir
   -h, --help            显示帮助
 
+live 与 record 模式从环境变量读密钥, 缺密钥的被测对象跳过并告警.
 report 不带 run-id 时取最近一次完成的运行.`;
 
 const COMMON_OPTIONS = {
@@ -154,6 +166,9 @@ async function runCommand(args: string[]): Promise<number> {
 			timeout: { type: "string" },
 			tier: { type: "string" },
 			source: { type: "string" },
+			limit: { type: "string" },
+			mode: { type: "string" },
+			"cassettes-dir": { type: "string" },
 			region: { type: "string" },
 			resume: { type: "string" },
 		},
@@ -165,6 +180,12 @@ async function runCommand(args: string[]): Promise<number> {
 	const { config, root } = await loadConfig(values.config);
 	const runsDir = runsDirOf(config, root, values["runs-dir"]);
 	const scenariosDir = resolve(root, config.scenariosDir);
+	const cassettes = new CassetteStore(
+		values["cassettes-dir"] === undefined
+			? resolve(root, config.cassettesDir)
+			: resolve(values["cassettes-dir"]),
+	);
+	const env = process.env;
 
 	let runId: string;
 	let startedAt: string;
@@ -173,7 +194,13 @@ async function runCommand(args: string[]): Promise<number> {
 	const subjects = new Map<string, RunnerSubject>();
 
 	if (values.resume !== undefined) {
-		const { config: _, "runs-dir": __, resume, ...planOptions } = values;
+		const {
+			config: _,
+			"runs-dir": __,
+			"cassettes-dir": ___,
+			resume,
+			...planOptions
+		} = values;
 		const conflicts = Object.keys(planOptions).filter(
 			(name) => planOptions[name as keyof typeof planOptions] !== undefined,
 		);
@@ -196,7 +223,7 @@ async function runCommand(args: string[]): Promise<number> {
 		for (const entry of plan.subjects) {
 			const subjectConfig = SubjectConfig.parse(entry.config);
 			subjects.set(entry.id, {
-				subject: await createSubject(entry.id, subjectConfig, { root }),
+				subject: await createSubject(entry.id, subjectConfig, { root, env }),
 				limiter: new TokenBucket(rateLimitOf(subjectConfig)),
 			});
 		}
@@ -206,10 +233,18 @@ async function runCommand(args: string[]): Promise<number> {
 		const subjectIds = list(values.subjects);
 		const selected =
 			subjectIds.length > 0 ? subjectIds : Object.keys(config.subjects);
+		const mode = values.mode
+			? parseOption(RunMode, values.mode, "mode")
+			: "live";
+		if (mode !== "live" && values.reps !== undefined)
+			throw new UsageError("录制与回放每条只跑一次, 不能指定 --reps");
 		const settings = {
-			reps: values.reps
-				? parseOption(PositiveInt, values.reps, "reps")
-				: config.reps,
+			reps:
+				mode !== "live"
+					? 1
+					: values.reps
+						? parseOption(PositiveInt, values.reps, "reps")
+						: config.reps,
 			timeoutMs: values.timeout
 				? parseOption(PositiveInt, values.timeout, "timeout")
 				: config.timeoutMs,
@@ -221,6 +256,9 @@ async function runCommand(args: string[]): Promise<number> {
 					tier: parseOption(Tier, values.tier, "tier"),
 				}),
 				...(values.source !== undefined && { source: values.source }),
+				...(values.limit !== undefined && {
+					limit: parseOption(PositiveInt, values.limit, "limit"),
+				}),
 			},
 		};
 		scenarios = await loadScenarios(
@@ -232,7 +270,12 @@ async function runCommand(args: string[]): Promise<number> {
 		for (const id of selected) {
 			const subjectConfig = config.subjects[id];
 			if (!subjectConfig) throw new UsageError(`配置里没有被测对象 ${id}`);
-			const subject = await createSubject(id, subjectConfig, { root });
+			const missing = mode === "replay" ? null : missingEnv(subjectConfig, env);
+			if (missing !== null) {
+				process.stderr.write(`跳过 ${id}: 缺少环境变量 ${missing}\n`);
+				continue;
+			}
+			const subject = await createSubject(id, subjectConfig, { root, env });
 			subjects.set(id, {
 				subject,
 				limiter: new TokenBucket(rateLimitOf(subjectConfig)),
@@ -244,10 +287,11 @@ async function runCommand(args: string[]): Promise<number> {
 				config: subjectConfig,
 			});
 		}
+		if (subjects.size === 0) throw new UsageError("没有可运行的被测对象");
 		runId = newRunId();
 		startedAt = new Date().toISOString();
 		plan = {
-			mode: "live",
+			mode,
 			...(values.region ? { region: values.region } : {}),
 			settings,
 			scenarios: scenarios.map(({ scenario, cases, casesHash }) => ({
@@ -282,6 +326,7 @@ async function runCommand(args: string[]): Promise<number> {
 		plan,
 		scenarios,
 		subjects,
+		cassettes,
 		signal: controller.signal,
 		onProgress: (progress) => {
 			last = progress;
@@ -289,6 +334,11 @@ async function runCommand(args: string[]): Promise<number> {
 		},
 	}).finally(() => process.off("SIGINT", onInterrupt));
 	printer.end(last);
+	if (result.configMismatch.length > 0) {
+		process.stderr.write(
+			`注意: ${result.configMismatch.join(", ")} 的录制所用配置与当前配置不同, 回放结果按录制时的请求得出\n`,
+		);
+	}
 	if (result.interrupted) {
 		process.stderr.write(`已中断. 续跑: seekbench run --resume ${runId}\n`);
 		return 130;
@@ -302,7 +352,10 @@ async function runCommand(args: string[]): Promise<number> {
 		...(plan.region !== undefined && { region: plan.region }),
 		settings: plan.settings,
 		scenarios: plan.scenarios.map(({ casesHash: _, ...scenario }) => scenario),
-		subjects: plan.subjects.map(({ config: _, ...subject }) => subject),
+		subjects: plan.subjects.map(({ config: _, ...subject }) => {
+			const cassetteDate = oldestRecording(result.records, subject.id);
+			return cassetteDate ? { ...subject, cassetteDate } : subject;
+		}),
 		judge: null,
 		summary: summarize(
 			result.records,
@@ -318,6 +371,20 @@ async function runCommand(args: string[]): Promise<number> {
 	console.log(`运行记录: ${join(runDir, "run.json")}`);
 	console.log(`生成报告: seekbench report ${runId}`);
 	return 0;
+}
+
+/** 被测对象用到的最早录制日期, 没有录制时为 null. */
+function oldestRecording(
+	records: readonly CaseRecord[],
+	subject: string,
+): string | null {
+	let oldest: string | null = null;
+	for (const record of records) {
+		if (record.subject !== subject || record.recordedAt === undefined) continue;
+		if (oldest === null || record.recordedAt < oldest)
+			oldest = record.recordedAt;
+	}
+	return oldest?.slice(0, 10) ?? null;
 }
 
 /** runsDir 下最近一次完成 (有 run.json) 的运行. */

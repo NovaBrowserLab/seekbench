@@ -14,6 +14,8 @@ export const Config = z.strictObject({
 	scenariosDir: z.string().default("datasets/scenarios"),
 	/** 运行记录目录, 相对配置文件所在目录. */
 	runsDir: z.string().default("runs"),
+	/** 录制目录, 相对配置文件所在目录. */
+	cassettesDir: z.string().default("cassettes"),
 	/** 全局在途请求上限. */
 	concurrency: z.int().positive().default(32),
 	/** 单次调用的超时. */

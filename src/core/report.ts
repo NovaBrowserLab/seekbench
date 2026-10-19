@@ -370,6 +370,16 @@ export function renderTable(run: Run): string {
 		.join("\n\n");
 }
 
+/** 录制超过这么多天, 报告里醒目提示; 时效类场景尤其不能据此选型. */
+const STALE_CASSETTE_DAYS = 30;
+
+function isStale(cassetteDate: string, runStartedAt: string): boolean {
+	return (
+		Date.parse(runStartedAt) - Date.parse(cassetteDate) >
+		STALE_CASSETTE_DAYS * 86_400_000
+	);
+}
+
 /** 一次运行的 Markdown 报告, 读者只看这一个文件就够. */
 export function renderReport(run: Run): string {
 	const judge = run.judge
@@ -378,6 +388,9 @@ export function renderReport(run: Run): string {
 	const filters = [
 		run.settings.filters.tier ? `层 ${run.settings.filters.tier}` : null,
 		run.settings.filters.source ? `来源 ${run.settings.filters.source}*` : null,
+		run.settings.filters.limit
+			? `每场景前 ${run.settings.filters.limit} 条`
+			: null,
 	].filter((item) => item !== null);
 	const meta: Table = {
 		header: ["项目", "值"],
@@ -396,7 +409,7 @@ export function renderReport(run: Run): string {
 				run.subjects
 					.map(
 						(subject) =>
-							`${subject.id} (${subject.kind}, 配置 ${subject.configHash}${subject.cassetteDate ? `, 录制于 ${subject.cassetteDate}` : ""})`,
+							`${subject.id} (${subject.kind}, 配置 ${subject.configHash}${subject.cassetteDate ? `, 录制于 ${subject.cassetteDate}${isStale(subject.cassetteDate, run.startedAt) ? " **⚠ 已超过 30 天**" : ""}` : ""})`,
 					)
 					.join("<br>"),
 			],

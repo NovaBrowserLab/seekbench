@@ -1,0 +1,81 @@
+{
+	"query": "Steam 官网",
+	"request": {
+		"lang": "zh",
+		"count": 10
+	},
+	"recordedAt": "2026-10-19T03:24:35.410Z",
+	"raw": {
+		"query": "Steam 官网",
+		"follow_up_questions": null,
+		"answer": null,
+		"images": [],
+		"results": [
+			{
+				"url": "https://store.steamstatic.com?l=tchinese",
+				"title": "歡迎來到 Steam",
+				"content": "登入   商店 \n\n首頁   探索佇列   願望清單   點數商店   新聞   榜單\n\n 社群 \n\n首頁   討論區   工作坊   市集   實況直播\n\n 關於   客服 \n\n取得 Steam 行動應用程式\n\n© Valve Corporation. 版權所有。所有商標皆為個別所有權人在美國與其它國家（地區）之財產。  隱私權政策  |  法律聲明  |  輔助功能  |  Steam 訂戶協議  |  退款  |  Cookie\n\nSTEAM\n\nSteam 首頁連結\n\n商店 \n\n首頁   探索佇列   願望清單   點數商店   新聞   榜單\n\n 社群 \n\n首頁   討論區   工作坊   市集   實況直播\n\n 關於   客服中心\n\n安裝 Steam 登入  |  語言 [...] 簡體中文   日本語（日文）   한국어（韓文）   ไทย（泰文）   Bahasa Indonesia（印尼語）   Bahasa Melayu（馬來文） 測試版   Български（保加利亞文）   Čeština（捷克文）   Dansk（丹麥文）   Deutsch（德文）   English（英文）   Español - España（西班牙文 - 西班牙）   Español - Latinoamérica（西班牙文 - 拉丁美洲）   Ελληνικά（希臘文）   Français（法文）   Italiano（義大利文）   Magyar（匈牙利文）   Nederlands（荷蘭文）   Norsk（挪威文）   Polski（波蘭文）   Português（葡萄牙文 - 葡萄牙）   Português - Brasil（葡萄牙文 - 巴西）   Romnă（羅馬尼亞文）   Русский（俄文）   Suomi（芬蘭文）   Svenska（瑞典文）   Türkçe（土耳其文）   tiếng Việt（越南文） [...] 沉星之序\n\n解謎, 冒險, 倉庫番, 探索\n\n發行於: 2026 年 10 月 8 日\n\nMex$ 379.99\n\nMex$ 379.99 雨中冒险 2: 万象归衡\n\n雨中冒险 2: 万象归衡\n\n第三人稱射擊, 動作類 Rogue, 多人, 合作\n\n發行於: 2026 年 10 月 8 日\n\nMex$ 154.99\n\nMex$ 154.99 Clive Barker's Hellraiser: Revival\n\nClive Barker's Hellraiser: Revival\n\n鮮血, 色情內容, 動作, 恐怖\n\n發行於: 2026 年 10 月 8 日\n\nMex$ 529.99\n\nMex$ 529.99 Gears of War: E-Day\n\nGears of War: E-Day\n\n女主人翁, 動作, 鮮血, 第三人稱射擊\n\n發行於: 2026 年 10 月 6 日\n\nMex$ 1,399.00\n\nMex$ 1,399.00 星際大戰：銀河賽車手™\n\n星際大戰：銀河賽車手™\n\n競速, 多人, 類 Rogue, 冒險\n\n發行於: 2026 年 10 月 6 日",
+				"score": 0.63152665,
+				"raw_content": null,
+				"published_date": "Fri, 02 Oct 2026 04:00:00 GMT",
+				"favicon": "https://store.steamstatic.com/favicon.ico",
+				"id": "29e638-00"
+			},
+			{
+				"url": "https://store.steampowered.com",
+				"title": "Welcome to Steam",
+				"content": "Sign in   Store \n\nHome   Discovery Queue   Wishlist   Points Shop   News   Charts\n\n Community \n\nHome   Discussions   Workshop   Market   Broadcasts\n\n About   Support \n\nChange language\n\nGet the Steam Mobile App\n\nView desktop website\n\n© Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.  Privacy Policy  |  Legal  |  Accessibility  |  Steam Subscriber Agreement  |  Refunds  |  Cookies\n\nSTEAM\n\nLink to the Steam Homepage [...] STORE \n\nHome   Discovery Queue   Wishlist   Points Shop   News   Charts\n\n COMMUNITY \n\nHome   Discussions   Workshop   Market   Broadcasts\n\n About   SUPPORT\n\nInstall Steam sign in  |  language [...] 简体中文 (Simplified Chinese)   繁體中文 (Traditional Chinese)   日本語 (Japanese)   한국어 (Korean)   ไทย (Thai)   Bahasa Indonesia (Indonesian)   Bahasa Melayu (Malay) BETA   Български (Bulgarian)   Čeština (Czech)   Dansk (Danish)   Deutsch (German)   Español - España (Spanish - Spain)   Español - Latinoamérica (Spanish - Latin America)   Ελληνικά (Greek)   Français (French)   Italiano (Italian)   Magyar (Hungarian)   Nederlands (Dutch)   Norsk (Norwegian)   Polski (Polish)   Português (Portuguese -",
+				"score": 0.61057013,
+				"raw_content": null,
+				"published_date": "Mon, 31 Aug 2026 15:00:00 GMT",
+				"favicon": "https://store.steampowered.com/favicon.ico",
+				"id": "99c1fb-01"
+			},
+			{
+				"url": "https://store.steamchina.com",
+				"title": "欢迎来到蒸汽平台",
+				"content": "登录   商店 \n\n主页   愿望单   点数商店   新闻\n\n 关于   客服\n\n关于蒸汽平台  |   退款政策  |   软件许可服务协议  |    \n 个人信息保护政策  |   个人信息出境告知书  |    \n 不良内容举报投诉  |   侵权投诉  |   家长监护\n\n微博  微信\n\n多媒体科技有限公司 版权所有。   \n 增值电信业务经营许可证沪B2-20180406\n\n\n\n土豆兄弟(Brotato)\n\n类 Rogue, 单人, 弹幕射击, 动作类 Rogue 苍翼：混沌效应\n\n苍翼：混沌效应\n\n动作类 Rogue, 2D, 动作, 动作冒险\n\n发行于: 2024 年 4 月 1 日\n\n¥76.00\n\n¥76.00 拣爱\n\n拣爱\n\n爱情, 恋爱模拟, 选择取向, 剧情丰富\n\n发行于: 2021 年 9 月 20 日\n\n-20%\n\n¥10.00\n\n¥8.00\n\n立省 20%。原价为 ¥10.00，折后为 ¥8.00。\n\n-20%\n\n¥10.00\n\n¥8.00\n\n立省 20%。原价为 ¥10.00，折后为 ¥8.00。 失落城堡2\n\n失落城堡2 [...] 免费\n\n免费 英勇之地\n\n免费开玩, 开放世界, 生存, 大型多人在线角色扮演\n\n发行于: 2024 年 6 月 18 日\n\n免费\n\n免费 星之翼\n\n机甲, 动作, 女性主角, 第三人称射击\n\n发行于: 2024 年 4 月 24 日\n\n免费\n\n免费 弈仙牌\n\n弈仙牌\n\n免费开玩, 卡牌战斗, 策略, 回合制战术\n\n发行于: 2024 年 1 月 21 日\n\n免费\n\n免费 月圆之夜\n\n卡牌游戏, 免费开玩, 策略, 牌组构建\n\n发行于: 2022 年 7 月 14 日\n\n免费\n\n免费 生死狙击2\n\n生死狙击2\n\n第一人称射击, 免费开玩, 玩家对战, 射击\n\n发行于: 2022 年 6 月 27 日\n\n免费\n\n免费 Soundpad 音垫 演示\n\nSoundpad 音垫 演示\n\n实用工具, 音频制作\n\n免费\n\n免费 反恐精英：全球攻势\n\n反恐精英：全球攻势\n\n第一人称射击, 射击, 多人, 竞技\n\n发行于: 2017 年 9 月 15 日\n\n免费\n\n免费 Dota 2 刀塔\n\nDota 2 刀塔\n\n免费开玩, 多人在线战术竞技, 多人, 策略 [...] 失落城堡2\n\n多人, 在线合作, 本地合作, 类 Rogue\n\n发行于: 2026 年 6 月 10 日\n\n¥68.00\n\n¥68.00 战意\n\n战意\n\n剑术, 免费开玩, 玩家对战, 中世纪\n\n发行于: 2025 年 7 月 24 日\n\n免费\n\n免费 弈仙牌\n\n弈仙牌\n\n免费开玩, 卡牌战斗, 策略, 回合制战术\n\n发行于: 2024 年 1 月 21 日\n\n免费\n\n免费 Lossless Scaling\n\nLossless Scaling\n\n实用工具, 软件, 像素图形, 第一人称射击\n\n发行于: 2025 年 8 月 20 日\n\n¥29.00\n\n¥29.00 沙石镇时光\n\n沙石镇时光\n\n生活模拟, 建造, 农场模拟, 多人\n\n发行于: 2023 年 1 月 17 日\n\n-70%\n\n¥98.00\n\n¥29.40\n\n立省 70%。原价为 ¥98.00，折后为 ¥29.40。\n\n-70%\n\n¥98.00\n\n¥29.40\n\n立省 70%。原价为 ¥98.00，折后为 ¥29.40。 风暴突围队\n\n风暴突围队\n\n动作类 Rogue, 轻度 Rogue, 多人, 弹幕射击",
+				"score": 0.5310884,
+				"raw_content": null,
+				"published_date": null,
+				"favicon": "https://store.steamchina.com/favicon.ico",
+				"id": "a515b2-02"
+			},
+			{
+				"url": "https://www.steamgames.com/steamworks/ov_cloud.php?ref=stebet.net",
+				"title": "Steamworks",
+				"content": "[](\n\n Documentation\n Home\n Getting Started\n Store Presence\n Features\n Finance\n Sales & Marketing\n Steamworks SDK\n Café Licensing\n Steam VR\n\n Resources\n Steam VR\n Steam PC Café Program\n Steamworks Discussions\n Steamworks Video Tutorials\n X: @Steamworks |Bluesky: Steamworks\n Contact Support\n\n News & Updates\n Steamworks Blog\n Steam Blog\n Steam VR Blog\n Steam Deck Blog [...] Build excitement for your upcoming game by launching your store page as soon as you've got something to show your potential customers.   Automated build processes\n\nMake Steam an automated part of your normal build process to deploy your latest build to Steam servers for internal beta testing and easy public release.   Custom Store page Content\n\nPut your game in its best possible light with full control over the content and images on your product's store page.   Update whenever you want [...] The Steam client has been optimized to support 29 core languages, making it easier and more enjoyable for global users to purchase games on Steam.   Easy sign up and distribution\n\nSubmitting your game to Steam is easy. Fill out some digital paperwork, pay a small per-app fee, and you're ready to upload!\n\n# Manage Your Game's Business\n\n## Steamworks makes your launch and management processes as simple as possible, allowing you to focus on your game.\n\n  Real-time sales data",
+				"score": 0.32219586,
+				"raw_content": null,
+				"published_date": "Thu, 01 May 2008 00:00:00 GMT",
+				"favicon": "https://www.steamgames.com/favicon.ico",
+				"id": "0a7b3c-03"
+			},
+			{
+				"url": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community",
+				"title": "Steam - Apps on Google Play",
+				"content": "Thumbnail image\nThumbnail image\nThumbnail image\n\n## Similar apps\n\nThumbnail image\nThumbnail image\nThumbnail image\nThumbnail image\nThumbnail image\nThumbnail image\n\nPlay Pass\n\nPlay Points\n\nGift cards\n\nRedeem\n\nRefund policy\n\nParent Guide\n\nFamily sharing\n\nTerms of Service\n\nPrivacy\n\nAbout Google Play\n\nDevelopers\n\nGoogle Store [...] Icon image\n\nIcon image\n\n# Steam\n\nContent rating\nContent rating\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\nScreenshot image\n\n## About this app\n\n## Data safety\n\nIcon image\nIcon image\nIcon image\nIcon image\n\n## Ratings and reviews\n\n## What’s new\n\nContent rating\n\n## App support\n\n## More by Valve Corporation",
+				"score": 0.28780332,
+				"raw_content": null,
+				"published_date": "Tue, 06 May 2025 00:00:00 GMT",
+				"favicon": "https://www.gstatic.com/android/market_images/web/favicon_v3.ico",
+				"id": "1387ed-04"
+			},
+			{
+				"url": "https://help.steampowered.com",
+				"title": "Steam Support",
+				"content": "What do you need help with? Sign in to your Steam account to review purchases, account status, and get personalized help. Sign in to Steam.",
+				"score": 0.20041716,
+				"raw_content": null,
+				"published_date": null,
+				"favicon": "https://help.steampowered.com/favicon.ico",
+				"id": "a80e75-05"
+			}
+		],
+		"response_time": 1.27,
+		"usage": {
+			"credits": 1
+		},
+		"request_id": "2aad8097-b6e6-461b-8dec-646ffac3d453"
+	}
+}
