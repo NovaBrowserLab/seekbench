@@ -1,0 +1,27 @@
+{
+	"id": "descriptive-en",
+	"version": "1",
+	"lang": "en",
+	"intent": "descriptive",
+	"description": "英文描述性查询: 用户说不出标题或关键词, 只能描述想找的内容, 如「讲清楚某原理的长文」「提出某方法的论文」. 对应增强搜索的语义方向, 考验语义检索.",
+	"rubric": "A result whose content matches the description (topic, angle, depth and form such as essay, paper or talk) is 3; the right topic but a different angle, depth or form is 2; a page that only touches the topic, or a listing page that links to such content, is 1; unrelated pages, content farms and ads are 0. When unsure, pick the lower grade.",
+	"k": 10,
+	"casesFile": "descriptive-en.cases.jsonl",
+	"synth": [
+		{
+			"id": "concept",
+			"instruction": "Descriptive queries for in-depth explanations of technical or scientific concepts, where the user describes the content they want instead of naming it, e.g. 'long illustrated explanation of how ... works' or 'article comparing ... and ... with benchmarks'. State the angle, depth or form (essay, deep dive, paper, talk, visual explainer). 6 to 18 words.",
+			"count": 70
+		},
+		{
+			"id": "known-item",
+			"instruction": "Queries describing a specific well-known essay, paper, talk or blog post by its content, without its title or author, the way someone half-remembers it, e.g. 'essay about ...' or 'paper that introduced ...'. Cover software engineering, computer science, AI, science, economics and culture.",
+			"count": 50
+		},
+		{
+			"id": "opinion",
+			"instruction": "Queries looking for arguments or viewpoints described by their stance, e.g. 'essay arguing that ...' or 'critique of ... from the perspective of ...'. Topics across technology, work, education and society. 8 to 18 words.",
+			"count": 40
+		}
+	]
+}

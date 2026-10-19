@@ -63,12 +63,6 @@ export async function validateScenarios(
 						issue("error", kase.id, `${field} 无法解析: ${pattern}`);
 				}
 			}
-			if (gold?.meanings && scenario.intent !== "ambiguous")
-				issue(
-					"warning",
-					kase.id,
-					"非歧义场景的用例带了 meanings, 不会参与计算",
-				);
 			if (kase.tier === "A" && gold === undefined)
 				issue("warning", kase.id, "A 层用例没有 gold");
 			if (

@@ -1,0 +1,40 @@
+{"id":"python-tutorial-zh","query":"Python 官方中文教程","tier":"A","source":"handwritten","note":"Python 官方文档里的中文版教程","gold":{"targets":["docs.python.org/zh-cn/3/tutorial"],"mustDomains":["docs.python.org"]}}
+{"id":"vue3-start","query":"Vue 3 入门教程","tier":"A","source":"handwritten","note":"Vue 3 的入门教程, 官方中文文档最好","gold":{"mustDomains":["cn.vuejs.org"]}}
+{"id":"react-useeffect","query":"React 中文文档 useEffect","tier":"A","source":"handwritten","note":"React 官方中文文档里 useEffect 的说明","gold":{"mustDomains":["zh-hans.react.dev"]}}
+{"id":"git-undo-commit","query":"git 撤销 commit","tier":"A","source":"handwritten","note":"撤销最近一次或几次提交的方法, 区分 reset、revert","gold":{"mustDomains":["git-scm.com"]}}
+{"id":"pro-git-zh","query":"Pro Git 中文版","tier":"A","source":"handwritten","note":"Git 官网上的 Pro Git 中文版在线书","gold":{"targets":["git-scm.com/book/zh/v2"],"mustDomains":["git-scm.com"]}}
+{"id":"rust-book-zh","query":"Rust 程序设计语言 中文版","tier":"A","source":"handwritten","note":"The Rust Programming Language 的中文翻译在线版","gold":{"targets":["kaisery.github.io/trpl-zh-cn"],"mustDomains":["kaisery.github.io"]}}
+{"id":"java21-tutorial","query":"合适的 Java 21 教程","tier":"A","source":"handwritten","note":"适合入门或进阶、覆盖 Java 21 新特性的教程","gold":{"mustDomains":["liaoxuefeng.com"]}}
+{"id":"mysql-index","query":"MySQL 索引优化","tier":"A","source":"handwritten","note":"MySQL 索引的原理与优化方法","gold":{"mustDomains":["dev.mysql.com"]}}
+{"id":"redis-persistence","query":"Redis 持久化 RDB AOF 区别","tier":"A","source":"handwritten","note":"两种持久化方式的原理与取舍","gold":{"mustDomains":["redis.io"]}}
+{"id":"docker-ubuntu","query":"Ubuntu 安装 Docker","tier":"A","source":"handwritten","note":"在 Ubuntu 上安装 Docker Engine 的步骤","gold":{"mustDomains":["docs.docker.com"]}}
+{"id":"k8s-deployment-zh","query":"Kubernetes 中文文档 Deployment","tier":"A","source":"handwritten","note":"Kubernetes 官方中文文档里 Deployment 的说明","gold":{"targets":["kubernetes.io/zh-cn/docs"],"mustDomains":["kubernetes.io"]}}
+{"id":"nginx-https","query":"Nginx 配置 HTTPS 证书","tier":"A","source":"handwritten","note":"在 Nginx 上配置 SSL 证书启用 HTTPS","gold":{"mustDomains":["nginx.org"]}}
+{"id":"css-flex","query":"CSS flex 布局教程","tier":"A","source":"handwritten","note":"讲清楚 flex 容器与项目各属性的教程","gold":{"targets":["ruanyifeng.com/blog/2015/07/flex-grammar.html"],"mustDomains":["developer.mozilla.org"]}}
+{"id":"es6-tutorial","query":"ES6 入门教程","tier":"A","source":"handwritten","note":"阮一峰的《ECMAScript 6 入门》在线版","gold":{"targets":["es6.ruanyifeng.com"],"mustDomains":["ruanyifeng.com"]}}
+{"id":"ts-generics-zh","query":"TypeScript 泛型 中文","tier":"A","source":"handwritten","note":"TypeScript 泛型的中文讲解","gold":{"mustDomains":["typescriptlang.org"]}}
+{"id":"wechat-miniprogram","query":"微信小程序开发入门","tier":"A","source":"handwritten","note":"微信小程序的官方开发入门文档","gold":{"mustDomains":["developers.weixin.qq.com"]}}
+{"id":"alipay-miniprogram","query":"支付宝小程序开发文档","tier":"A","source":"handwritten","note":"支付宝开放平台的小程序开发文档","gold":{"mustDomains":["opendocs.alipay.com"]}}
+{"id":"harmonyos-arkts","query":"鸿蒙应用开发入门 ArkTS","tier":"A","source":"handwritten","note":"用 ArkTS 开发 HarmonyOS 应用的官方入门","gold":{"mustDomains":["developer.huawei.com"]}}
+{"id":"flutter-install","query":"Flutter 中文文档 安装","tier":"A","source":"handwritten","note":"Flutter 官方中文文档里的安装与环境配置","gold":{"mustDomains":["docs.flutter.cn"]}}
+{"id":"spring-boot","query":"Spring Boot 入门教程","tier":"A","source":"handwritten","note":"Spring Boot 的入门教程, 官方 guides 最好","gold":{"mustDomains":["spring.io"]}}
+{"id":"pytorch-classifier","query":"PyTorch 入门 训练一个分类器","tier":"A","source":"handwritten","note":"用 PyTorch 训练图像分类器的入门教程","gold":{"mustDomains":["pytorch.org"]}}
+{"id":"pandas-read-excel","query":"pandas 读取 excel","tier":"A","source":"handwritten","note":"用 pandas.read_excel 读取 Excel 文件的用法","gold":{"mustDomains":["pandas.pydata.org"]}}
+{"id":"excel-vlookup","query":"Excel VLOOKUP 函数怎么用","tier":"A","source":"handwritten","note":"VLOOKUP 的语法与示例","gold":{"mustDomains":["support.microsoft.com"]}}
+{"id":"wps-pdf-word","query":"WPS 怎么把 PDF 转成 Word","tier":"A","source":"handwritten","note":"用 WPS 把 PDF 转换为可编辑的 Word 文档","gold":{"mustDomains":["wps.cn"]}}
+{"id":"iphone-backup","query":"iPhone 怎么备份到电脑","tier":"A","source":"handwritten","note":"把 iPhone 备份到 Mac 或 Windows 电脑的方法","gold":{"mustDomains":["support.apple.com"]}}
+{"id":"iit-deduction","query":"个人所得税专项附加扣除怎么填","tier":"A","source":"handwritten","note":"在个人所得税 App 填报专项附加扣除的步骤与条件","gold":{"mustDomains":["chinatax.gov.cn"]}}
+{"id":"passport-apply","query":"护照办理流程","tier":"A","source":"handwritten","note":"在国内首次申请普通护照的流程与材料","gold":{"mustDomains":["nia.gov.cn"]}}
+{"id":"social-security-transfer","query":"社保转移怎么办理","tier":"A","source":"handwritten","note":"跨省转移养老保险关系的办理流程","gold":{"mustDomains":["mohrss.gov.cn"]}}
+{"id":"driving-license-renew","query":"驾驶证到期换证流程","tier":"A","source":"handwritten","note":"驾驶证有效期满换证的条件、材料与线上办理","gold":{"mustDomains":["122.gov.cn"]}}
+{"id":"vscode-chinese","query":"VS Code 设置中文","tier":"A","source":"handwritten","note":"把 VS Code 界面切换为中文的方法","gold":{"mustDomains":["code.visualstudio.com"]}}
+{"id":"latex-ctex","query":"LaTeX 中文排版 ctex","tier":"A","source":"handwritten","note":"用 ctex 宏集进行中文排版","gold":{"mustDomains":["ctan.org"]}}
+{"id":"hongshaorou","query":"红烧肉的做法","tier":"A","source":"handwritten","note":"家常红烧肉的做法与步骤","gold":{"mustDomains":["xiachufang.com"]}}
+{"id":"deepseek-api","query":"DeepSeek API 调用教程","tier":"A","source":"handwritten","note":"调用 DeepSeek API 的官方文档与示例","gold":{"mustDomains":["api-docs.deepseek.com"]}}
+{"id":"uniapp-start","query":"uni-app 入门教程","tier":"A","source":"handwritten","note":"uni-app 官方的入门文档","gold":{"mustDomains":["uniapp.dcloud.net.cn"]}}
+{"id":"element-plus-table","query":"Element Plus 表格组件用法","tier":"A","source":"handwritten","note":"Element Plus 中 Table 组件的用法与示例","gold":{"mustDomains":["element-plus.org"]}}
+{"id":"antd-form-validation","query":"Ant Design 表单校验","tier":"A","source":"handwritten","note":"Ant Design 中 Form 的校验规则写法","gold":{"mustDomains":["ant.design"]}}
+{"id":"cos-upload","query":"腾讯云 COS 上传文件","tier":"A","source":"handwritten","note":"用 SDK 或控制台上传文件到腾讯云对象存储","gold":{"mustDomains":["cloud.tencent.com"]}}
+{"id":"oss-signed-url","query":"阿里云 OSS 签名 URL","tier":"A","source":"handwritten","note":"生成阿里云 OSS 的签名 URL 授权临时访问","gold":{"mustDomains":["help.aliyun.com"]}}
+{"id":"vite-proxy","query":"Vite 配置代理","tier":"A","source":"handwritten","note":"在 Vite 开发服务器里配置 server.proxy 解决跨域","gold":{"mustDomains":["cn.vitejs.dev"]}}
+{"id":"cpr-zh","query":"心肺复苏步骤","tier":"A","source":"handwritten","note":"成人心肺复苏的正确步骤, 权威急救机构的说明最好","gold":{"mustDomains":["redcross.org.cn"]}}
