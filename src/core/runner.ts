@@ -13,6 +13,7 @@ import { promisify } from "node:util";
 import { gzip } from "node:zlib";
 import { z } from "zod";
 import { SubjectError, type TokenBucket } from "../adapters/_shared.ts";
+import { type CassetteStore, cassetteKey } from "./cassette.ts";
 import { parseJsonl, toJsonl } from "./jsonl.ts";
 import { scoreHits } from "./metrics.ts";
 import { normalizeHits } from "./normalize.ts";
@@ -51,6 +52,8 @@ export interface ExecuteOptions {
 	/** 已按计划的过滤条件筛过用例. */
 	scenarios: readonly LoadedScenario[];
 	subjects: ReadonlyMap<string, RunnerSubject>;
+	/** 录制存储, record 与 replay 模式必需. */
+	cassettes?: CassetteStore;
 	/** 中止后不再派发新请求, 在途请求的结果丢弃, 留待续跑. */
 	signal?: AbortSignal;
 	onProgress?: (progress: {
@@ -64,6 +67,10 @@ export interface ExecuteResult {
 	/** 按场景、用例、被测对象、重复序号排序的全部明细, 含续跑前已完成的部分. */
 	records: CaseRecord[];
 	interrupted: boolean;
+	/** 回放时录制所用配置与当前配置不同的被测对象. */
+	configMismatch: string[];
+	/** record 模式下复用已有录制、没有发请求的条数. */
+	reused: number;
 }
 
 interface WorkItem {
@@ -149,13 +156,74 @@ function untilAborted<T>(promise: Promise<T>, signal: AbortSignal): Promise<T> {
 	});
 }
 
-/** 执行一次搜索并生成明细. 运行被中止时返回 null. 超时与被测对象的错误记进明细, 不抛出. */
-async function executeItem(
+interface Outcome {
+	startedAt: Date;
+	latencyMs: number;
+	response: SubjectResponse | null;
+	error: ExecutionError | null;
+	failure: unknown;
+	recordedAt?: string;
+}
+
+function toRecord(item: WorkItem, outcome: Outcome): CaseRecord {
+	const { scenario, kase, runner, rep } = item;
+	const { response, failure } = outcome;
+	const normalized = normalizeHits(response?.hits ?? [], scenario.k);
+	const subjectError = failure instanceof SubjectError ? failure : null;
+	return {
+		scenario: scenario.id,
+		caseId: kase.id,
+		subject: runner.subject.id,
+		rep,
+		startedAt: outcome.startedAt.toISOString(),
+		latencyMs: outcome.latencyMs,
+		cost: response?.cost ?? 0,
+		calls: response?.calls ?? 1,
+		retries: response?.diagnostics?.retries ?? subjectError?.retries ?? 0,
+		requestId:
+			response?.diagnostics?.requestId ?? subjectError?.requestId ?? null,
+		totalEstimate: response?.totalEstimate ?? null,
+		rawCount: response?.hits.length ?? 0,
+		duplicates: normalized.duplicates,
+		invalid: normalized.invalid,
+		hits: scoreHits(normalized.hits, kase, outcome.startedAt),
+		error: outcome.error,
+		...(outcome.recordedAt !== undefined && {
+			recordedAt: outcome.recordedAt,
+		}),
+	};
+}
+
+function parseResponse(subject: string, raw: unknown): SubjectResponse {
+	const parsed = SubjectResponse.safeParse(raw);
+	if (!parsed.success) {
+		throw new SubjectError(
+			subject,
+			`返回结构不符:\n${z.prettifyError(parsed.error)}`,
+		);
+	}
+	return parsed.data;
+}
+
+function cassetteRequest(item: WorkItem) {
+	return { lang: item.lang, count: item.scenario.k, ...item.kase.options };
+}
+
+function shardOf(item: WorkItem) {
+	return {
+		subject: item.runner.subject.id,
+		scenario: item.scenario.id,
+		version: item.scenario.version,
+	};
+}
+
+/** 直连执行一次搜索. 运行被中止时返回 null. 超时与被测对象的错误记进结果, 不抛出. */
+async function liveItem(
 	item: WorkItem,
 	timeoutMs: number,
 	runSignal: AbortSignal,
-): Promise<CaseRecord | null> {
-	const { scenario, kase, runner, rep, lang } = item;
+): Promise<Outcome | null> {
+	const { kase, runner } = item;
 	const { subject } = runner;
 	const timeout = AbortSignal.timeout(timeoutMs);
 	const signal = AbortSignal.any([timeout, runSignal]);
@@ -166,22 +234,10 @@ async function executeItem(
 	let failure: unknown = null;
 	try {
 		const raw = await untilAborted(
-			subject.search(kase.query, {
-				lang,
-				count: scenario.k,
-				signal,
-				...kase.options,
-			}),
+			subject.search(kase.query, { ...cassetteRequest(item), signal }),
 			signal,
 		);
-		const parsed = SubjectResponse.safeParse(raw);
-		if (!parsed.success) {
-			throw new SubjectError(
-				subject.id,
-				`返回结构不符:\n${z.prettifyError(parsed.error)}`,
-			);
-		}
-		response = parsed.data;
+		response = parseResponse(subject.id, raw);
 	} catch (cause) {
 		if (runSignal.aborted) return null;
 		failure = cause;
@@ -193,28 +249,80 @@ async function executeItem(
 					status: cause instanceof SubjectError ? cause.status : null,
 				};
 	}
-	const latencyMs = performance.now() - started;
-	const normalized = normalizeHits(response?.hits ?? [], scenario.k);
-	const subjectError = failure instanceof SubjectError ? failure : null;
 	return {
-		scenario: scenario.id,
-		caseId: kase.id,
-		subject: subject.id,
-		rep,
-		startedAt: startedAt.toISOString(),
-		latencyMs,
-		cost: response?.cost ?? 0,
-		calls: response?.calls ?? 1,
-		retries: response?.diagnostics?.retries ?? subjectError?.retries ?? 0,
-		requestId:
-			response?.diagnostics?.requestId ?? subjectError?.requestId ?? null,
-		totalEstimate: response?.totalEstimate ?? null,
-		rawCount: response?.hits.length ?? 0,
-		duplicates: normalized.duplicates,
-		invalid: normalized.invalid,
-		hits: scoreHits(normalized.hits, kase, startedAt),
+		startedAt,
+		latencyMs: performance.now() - started,
+		response,
 		error,
+		failure,
 	};
+}
+
+/**
+ * 从录制取结果. 被测对象能从原始响应重新归一化时用它, 否则用录制的归一化结果;
+ * 耗时、重试与请求 id 沿用录制时的值. 没有录制或无法回放记为错误.
+ */
+async function replayItem(
+	item: WorkItem,
+	cassettes: CassetteStore,
+	configHash: string | undefined,
+	mismatch: Set<string>,
+): Promise<Outcome> {
+	const { kase, runner } = item;
+	const { subject } = runner;
+	const startedAt = new Date();
+	const request = cassetteRequest(item);
+	const entry = await cassettes.get(
+		shardOf(item),
+		cassetteKey(subject.id, kase.query, request),
+	);
+	if (entry === null) {
+		return {
+			startedAt,
+			latencyMs: 0,
+			response: null,
+			error: { kind: "error", message: "录制中没有这条请求", status: null },
+			failure: null,
+		};
+	}
+	if (configHash !== undefined && entry.configHash !== configHash)
+		mismatch.add(subject.id);
+	try {
+		const recorded = entry.response;
+		const response =
+			subject.replay && recorded.raw !== undefined
+				? {
+						...parseResponse(
+							subject.id,
+							subject.replay(recorded.raw, kase.query, request),
+						),
+						...(recorded.diagnostics && {
+							diagnostics: recorded.diagnostics,
+						}),
+					}
+				: recorded;
+		return {
+			startedAt,
+			latencyMs: entry.latencyMs,
+			response,
+			error: null,
+			failure: null,
+			recordedAt: entry.recordedAt,
+		};
+	} catch (cause) {
+		return {
+			startedAt,
+			latencyMs: 0,
+			response: null,
+			error: {
+				kind: "error",
+				message: cause instanceof Error ? cause.message : String(cause),
+				status: null,
+			},
+			failure: cause,
+			recordedAt: entry.recordedAt,
+		};
+	}
 }
 
 /** 读取已完成的明细. 进程中断可能留下半行, 截掉后再续写. */
@@ -272,7 +380,15 @@ class ProgressWriter {
 export async function executeRun(
 	options: ExecuteOptions,
 ): Promise<ExecuteResult> {
-	const { runDir, plan } = options;
+	const { runDir, plan, cassettes } = options;
+	if (plan.mode !== "live" && cassettes === undefined)
+		throw new Error(`${plan.mode} 模式需要录制存储`);
+	const player = plan.mode === "replay" ? cassettes : undefined;
+	const recorder = plan.mode === "record" ? cassettes : undefined;
+	const configHashes = new Map(
+		plan.subjects.map((subject) => [subject.id, subject.configHash]),
+	);
+	const mismatch = new Set<string>();
 	await mkdir(runDir, { recursive: true });
 	const casesPath = join(runDir, CASES_FILE);
 	const records = await readCompleted(casesPath);
@@ -323,13 +439,45 @@ export async function executeRun(
 	const writer = createWriteStream(casesPath, { flags: "a" });
 	let fatal: unknown = null;
 
-	const execute = async (item: WorkItem) => {
-		const record = await executeItem(item, plan.settings.timeoutMs, runSignal);
-		if (record === null) return;
-		records.push(record);
-		if (!writer.write(`${JSON.stringify(record)}\n`))
+	let reused = 0;
+	/** record 模式下已有同配置录制的请求直接复用, 除非计划要求刷新. */
+	const recorded = async (item: WorkItem): Promise<boolean> => {
+		if (!recorder || plan.refresh) return false;
+		const subjectId = item.runner.subject.id;
+		const entry = await recorder.get(
+			shardOf(item),
+			cassetteKey(subjectId, item.kase.query, cassetteRequest(item)),
+		);
+		return entry !== null && entry.configHash === configHashes.get(subjectId);
+	};
+
+	const execute = async (item: WorkItem, reuse: boolean) => {
+		const subjectId = item.runner.subject.id;
+		const source = player ?? (reuse ? recorder : undefined);
+		const outcome = source
+			? await replayItem(item, source, configHashes.get(subjectId), mismatch)
+			: await liveItem(item, plan.settings.timeoutMs, runSignal);
+		if (outcome === null) return;
+		if (reuse) reused++;
+		else if (recorder && outcome.response !== null) {
+			outcome.recordedAt = new Date().toISOString();
+			const request = cassetteRequest(item);
+			await recorder.put(shardOf(item), {
+				key: cassetteKey(subjectId, item.kase.query, request),
+				subject: subjectId,
+				query: item.kase.query,
+				request,
+				configHash: configHashes.get(subjectId) ?? "",
+				recordedAt: outcome.recordedAt,
+				latencyMs: outcome.latencyMs,
+				response: outcome.response,
+			});
+		}
+		const caseRecord = toRecord(item, outcome);
+		records.push(caseRecord);
+		if (!writer.write(`${JSON.stringify(caseRecord)}\n`))
 			await once(writer, "drain");
-		if (record.error !== null) errors++;
+		if (caseRecord.error !== null) errors++;
 		progress.update(records.length, errors);
 		options.onProgress?.({ done: records.length, total, errors });
 	};
@@ -337,13 +485,15 @@ export async function executeRun(
 	await Promise.all(
 		[...queues.values()].map(async (items) => {
 			for (const item of items) {
+				let reuse: boolean;
 				try {
-					await item.runner.limiter.take(runSignal);
+					reuse = await recorded(item);
+					if (!player && !reuse) await item.runner.limiter.take(runSignal);
 					await slots.acquire(runSignal);
 				} catch {
 					return;
 				}
-				const task: Promise<void> = execute(item)
+				const task: Promise<void> = execute(item, reuse)
 					.catch((error: unknown) => {
 						fatal ??= error;
 						internal.abort();
@@ -359,6 +509,7 @@ export async function executeRun(
 	await Promise.all([...inflight]);
 	writer.end();
 	await once(writer, "finish");
+	await recorder?.compact();
 	if (fatal !== null) throw fatal;
 
 	records.sort(
@@ -375,7 +526,12 @@ export async function executeRun(
 		await rm(casesPath);
 	}
 	await progress.finish(interrupted ? "interrupted" : "finished");
-	return { records, interrupted };
+	return {
+		records,
+		interrupted,
+		configMismatch: [...mismatch].sort(),
+		reused,
+	};
 }
 
 export async function readProgress(runDir: string): Promise<Progress> {

@@ -1,0 +1,111 @@
+{
+	"query": "Steam 官网",
+	"request": {
+		"lang": "zh",
+		"count": 10
+	},
+	"recordedAt": "2026-10-19T03:24:36.771Z",
+	"raw": {
+		"requestId": "8f885855af5e39debcbb333862ba1ae2",
+		"resolvedSearchType": "",
+		"results": [
+			{
+				"id": "https://store.steampowered.com/",
+				"title": "Welcome to Steam",
+				"url": "https://store.steampowered.com/",
+				"highlights": [
+					"Welcome to Steam\n\nBeyond These Stars Strategy, Simulation, City Builder, Base Building Released: Oct 16, 2026\n\n \n\nFlipping is Hard\n\nDifficult, Precision Platformer, Psychological Horror, Story Rich\n\nReleased: Oct 16, 2026"
+				],
+				"image": "https://cdn.fastly.steamstatic.com/store/home/store_home_share.jpg"
+			},
+			{
+				"id": "https://store.steampowered.com/?area=all&l=schinese",
+				"title": "欢迎来到 Steam",
+				"url": "https://store.steampowered.com/?area=all&l=schinese",
+				"highlights": [
+					"欢迎来到 Steam\n\n最近查看过\n\n您的标签\n\n推荐\n\n浏览分类\n\n硬件\n\nSteam Deck Steam Deck 基座 VR 硬件\n\n按类型浏览\n\n## 精选和推荐\n\n## 折扣与活动 浏览更多 更多\n\n周末特惠\n\n优惠截止时间：4 月 20 日 上午 10:00\n\n最高可省 -95%\n...\n。\n\n您今天的探索队列已浏览完毕，不过如果您很想查看更多内容，请点击下面的按钮再生成一组。\n\n## 浏览 Steam\n\n## 社区推荐\n\n本日推荐游戏\n\n## 社区推荐 更多"
+				],
+				"image": "https://cdn.fastly.steamstatic.com/store/home/store_home_share.jpg"
+			},
+			{
+				"id": "https://store.steamchina.com/",
+				"title": "欢迎来到蒸汽平台",
+				"url": "https://store.steamchina.com/",
+				"highlights": [
+					"欢迎来到蒸汽平台\n\n \n\nSoundpad 音垫 实用工具, 音频制作, 软件, 音乐 发行于: 2026 年 9 月 2 日\n\n¥22.00\n\n¥22.00\n\n \n\n失落城堡2 多人, 在线合作, 本地合作, 类 Rogue 发行于: 2026 年 6 月 10 日\n\n¥68.00\n\n \n\n墨境 动作类 Rogue, 轻度 Rogue, 风格化, 武术 发行于: 2026 年 5 月 26 日\n\n¥72.00\n\n¥72.00"
+				],
+				"image": "https://cdn.steamchina.queniuam.com/store/home/store_home_share_sc.jpg"
+			},
+			{
+				"id": "https://store.steampowered.com/?cc=tp&l=schinese",
+				"title": "欢迎来到 Steam",
+				"url": "https://store.steampowered.com/?cc=tp&l=schinese",
+				"highlights": [
+					"欢迎来到 Steam\n\nSteam 礼物卡 以游戏为赠礼\n\n最近查看过\n\n您的标签\n\n推荐\n\n由好友推荐由鉴赏家推荐标签\n\n浏览分类\n\n热销商品新品即将推出优惠 VR 作品支持控制器非常适合 Deck\n\n按类型浏览\n\n免费开玩抢先体验休闲体育冒险动作大型多人在线模拟独立竞速策略角色扮演\n\n--\n\n## 精选和推荐\n\n## 折扣与活动 浏览更多 更多\n\n周末特惠\n\n优惠截止时间：6 月 26 日 上午 10:00\n\n-80\n...\n## 浏览 Steam\n\n新品优惠免费游戏按用户标签\n\n## 社区推荐"
+				],
+				"image": "https://cdn.akamai.steamstatic.com/store/home/store_home_share.jpg"
+			},
+			{
+				"id": "https://store.steampowered.com/explore/new/?l=schinese",
+				"title": "Steam 新品",
+				"url": "https://store.steampowered.com/explore/new/?l=schinese",
+				"highlights": [
+					"Steam 新品\n\n 本月热门 \n\n$49.99\n\n直播\n\n 本月热门 \n\n$69.99\n\n## 您的新品队列 从最新发布向后探索全部新品 \n\n## 最新热销商品 本月已发行 \n\n直播\n\n免费开玩\n\n$59.99\n\n直播\n\n$39.99 $35.99\n\n立省 10%。原价为 $39.99，折后为 $35.99。\n\n$9.99 $8.99\n\n立省 10%。原价为 $9.99，折后为 $8.99。\n\n$24.99 $19.99\n\n立省 20%。原价为 $24.99，折后为 $19.99。"
+				],
+				"image": "https://store.fastly.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg"
+			},
+			{
+				"id": "https://store.steampowered.com/search/?l=schinese&sort_by=Released_DESC&os=win",
+				"title": "Steam 搜索",
+				"url": "https://store.steampowered.com/search/?l=schinese&sort_by=Released_DESC&os=win",
+				"highlights": [
+					"Steam 搜索\n\n 2026 年 10 月 16 日 \n\n立省 30%。原价为 $3.99，折后为 $2.79。\n\n 有猫有富贵 \n\n 2026 年 10 月 16 日 \n\n$2.99\n\n Where the Seeds Fall Demo \n\n 2026 年 10 月 16 日 \n\n Lotwick Hill \n\n 2026 年 10 月 16 日 \n\n$24.99 $19.99\n\n立省 20%。原价为 $24.99，折后为 $19.99。\n\n 午夜耀斑 试玩版 Demo"
+				],
+				"image": "https://store.fastly.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg"
+			},
+			{
+				"id": "https://my.steamchina.com/login/home",
+				"title": "登录",
+				"url": "https://my.steamchina.com/login/home",
+				"highlights": [
+					"登录\n\n 为了让此浏览器在已启用蒸汽平台令牌的设备列表中易于识别，给它起一个好记的名称——至少 6 个字符长。 \n\n 请联系蒸汽平台客服来获得我们工作人员的帮助。解决合法用户的帐户登录问题是我们的第一要务。"
+				],
+				"image": "https://my.steamchina.queniuam.com/public/shared/images/responsive/steam_share_image_china.jpg"
+			},
+			{
+				"id": "https://store.steampowered.com/mobile?l=japanese",
+				"title": "Steam - 究極のオンラインゲーミングプラットフォーム",
+				"url": "https://store.steampowered.com/mobile?l=japanese",
+				"highlights": [
+					"Steam - 究極のオンラインゲーミングプラットフォーム\n\nゲームの購入、Steamアカウントの保護、ゲームやコミュニティからの最新情報のチェックなどを行えます。\n\n Steamガード \n\n Steamアカウントを保護しながら、よりすばやくログインします。 \n\n- QRコードをスキャンしてSteamにサインイン\n- ワンタッチでサインインを確認\n- 携帯電話をパスワードとして使用\n\n...\n\n使い ... の ... 。\n\n...\n\n、 ... 、\n\n...\n\nSteam\n\n...\n\n携帯電話からSteamカタログにアクセスしてPC、Mac、Linux対応ゲームを探しましょう。セールを見逃すことはもうありません。"
+				],
+				"image": "https://store.fastly.steamstatic.com/public/images/mobile/localizedimages/web_hero/web_hero_japanese.png"
+			},
+			{
+				"id": "https://store.steamstatic.com/?l=tchinese",
+				"title": "歡迎來到Steam",
+				"url": "https://store.steamstatic.com/?l=tchinese",
+				"highlights": [
+					"歡迎來到 Steam\n\nSteam Deck 您的遊戲，隨走隨玩\n\nSteam 禮物卡 以遊戲為贈禮\n\n近期檢視\n\n您的標籤\n\n推薦\n\n好友鑑賞家標籤\n\n瀏覽分類\n\n暢銷商品新推出即將發行特惠 VR 相關產品支援控制器非常適合 Deck\n\n硬體\n\nSteam Deck Steam Deck 基座 VR 硬體\n\n依類型瀏覽\n\n免費遊玩搶先體驗休閒冒險動作大型多人模擬獨立競速策略角色扮演運動\n...\n## 精選與推薦\n\n## 折扣與活動 瀏覽更多 更多"
+				],
+				"image": "https://cdn.fastly.steamstatic.com/store/home/store_home_share.jpg"
+			},
+			{
+				"id": "https://help.steampowered.com/",
+				"title": "Steam Support",
+				"url": "https://help.steampowered.com/",
+				"highlights": [
+					"Steam Support\n\nAn error occurred trying to handle that request. Please give us a few minutes and try again."
+				],
+				"image": "https://help.steampowered.com/public/shared/images/responsive/steam_share_image.jpg"
+			}
+		],
+		"searchTime": 2496.7,
+		"costDollars": {
+			"total": 0.007,
+			"search": {
+				"neural": 0.007
+			}
+		}
+	}
+}

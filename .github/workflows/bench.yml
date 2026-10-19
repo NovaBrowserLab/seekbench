@@ -12,8 +12,14 @@ on:
         description: 被测对象 id, 逗号分隔; 留空为配置里的全部
         required: false
         default: mock
+      mode:
+        description: live 直连 / record 直连并录制
+        required: true
+        type: choice
+        options: [live, record]
+        default: live
       reps:
-        description: 每条用例对每个被测对象的重复次数
+        description: 每条用例对每个被测对象的重复次数, 只用于 live
         required: true
         default: "3"
       region:
@@ -38,9 +44,18 @@ jobs:
         env:
           SCENARIOS: ${{ inputs.scenarios }}
           SUBJECTS: ${{ inputs.subjects }}
+          MODE: ${{ inputs.mode }}
           REPS: ${{ inputs.reps }}
           REGION: ${{ inputs.region }}
-        run: pnpm seekbench run --scenarios "$SCENARIOS" --subjects "$SUBJECTS" --reps "$REPS" --region "$REGION"
+          BOCHA_API_KEY: ${{ secrets.BOCHA_API_KEY }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: |
+          args=(--scenarios "$SCENARIOS" --subjects "$SUBJECTS" --mode "$MODE" --region "$REGION")
+          if [ "$MODE" = live ]; then args+=(--reps "$REPS"); fi
+          pnpm seekbench run "${args[@]}"
       - name: Render report
         run: pnpm seekbench report
       - uses: actions/upload-artifact@v7

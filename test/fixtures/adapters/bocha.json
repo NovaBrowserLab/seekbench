@@ -1,0 +1,177 @@
+{
+	"query": "Steam 官网",
+	"request": {
+		"lang": "zh",
+		"count": 10
+	},
+	"recordedAt": "2026-10-19T03:24:35.634Z",
+	"raw": {
+		"code": 200,
+		"log_id": "a324ded487e0e7f4",
+		"msg": null,
+		"data": {
+			"_type": "SearchResponse",
+			"queryContext": {
+				"originalQuery": "Steam 官网"
+			},
+			"webPages": {
+				"webSearchUrl": "https://bochaai.com/search?q=Steam 官网",
+				"totalEstimatedMatches": 10000000,
+				"value": [
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.0",
+						"name": "steam官网(steam官网手机版下载安卓) - 哔哩哔哩",
+						"url": "https://www.bilibili.com/read/cv24840142",
+						"displayUrl": "https://www.bilibili.com/read/cv24840142",
+						"snippet": "Steam官网(https://store.steampowered.com/)是游戏爱好者的天堂。作为全球最大的数字发行平台,Steam汇聚了数以万计的游戏,包括独立游戏、主机游戏和PC游戏等。通过",
+						"siteName": "哔哩哔哩",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://www.bilibili.com/read/cv24840142",
+						"datePublished": "2023-07-07T01:30:00+08:00",
+						"dateLastCrawled": "2023-07-07T01:30:00Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.1",
+						"name": "Steam官网 - 全球最大游戏平台 - 大众源码网",
+						"url": "https://www.dzpc.net/resources/network-digest/57442.html",
+						"displayUrl": "https://www.dzpc.net/resources/network-digest/57442.html",
+						"snippet": "Steam是一个整合游戏下载平台,,由Valve公司聘请Bram·Cohen开发设计,玩家可以在这个平台上购买正版游戏,产于讨论,交流。 steam官网登录入口 :https://store.stea",
+						"siteName": "大众源码网",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://www.dzpc.net/resources/network-digest/57442.html",
+						"datePublished": "2023-01-16T04:31:26+08:00",
+						"dateLastCrawled": "2023-01-16T04:31:26Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.2",
+						"name": "steam官网",
+						"url": "https://app.3dmgame.com/android/216889.html",
+						"displayUrl": "https://app.3dmgame.com/android/216889.html",
+						"snippet": "版本:2.17 平台: 安卓 类型: 其它软件 更新:2025-02-02 17:13 厂商: 语言:中文 权限: 查看 隐私: 查看 备案号:暂无\n如果不会安装游戏,可以点这里: 安装教程 资源上传",
+						"siteName": "3DM手机频道",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://app.3dmgame.com/android/216889.html",
+						"datePublished": "2025-02-03T01:13:00+08:00",
+						"dateLastCrawled": "2025-02-03T01:13:00Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.3",
+						"name": "steam官网入口 steam游戏平台官方网址-懂得",
+						"url": "https://www.udongde.com/info/432401",
+						"displayUrl": "https://www.udongde.com/info/432401",
+						"snippet": "Steam是Valve公司推出的电子游戏数字发行平台,是全球最大的综合性数字发行平台之一。玩家可以在该平台购买、下载、讨论、上传和分享游戏和软件。以下是Steam官网入口的相关信息:\nSteam官网网",
+						"siteName": "www.udongde.com",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://www.udongde.com/info/432401",
+						"datePublished": "2025-01-18T06:48:01+08:00",
+						"dateLastCrawled": "2025-01-18T06:48:01Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.4",
+						"name": "Steam在游戏行业的地位如何",
+						"url": "https://m.blog.csdn.net/boonya/article/details/145368729",
+						"displayUrl": "https://m.blog.csdn.net/boonya/article/details/145368729",
+						"snippet": "官网地址: Welcome to Steam\n 中国官网: 欢迎来到蒸汽平台\nSteam商店\nSteam Store 是一个由 Valve Corporation 运营的数字发行平台,主要提供以下服务",
+						"siteName": "CSDN",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://m.blog.csdn.net/boonya/article/details/145368729",
+						"datePublished": "2025-01-26T23:35:22+08:00",
+						"dateLastCrawled": "2025-01-26T23:35:22Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.5",
+						"name": "Steam官网",
+						"url": "http://www.mhwz.cn/m/siteinfo/store.steampowered.com.html",
+						"displayUrl": "http://www.mhwz.cn/m/siteinfo/store.steampowered.com.html",
+						"snippet": "网站域名\nstore.steampowered.com  [访问该网站]\nSEO信息\n时间\n收录:2020-07-25 更新:2024-12-29\n网站直达\n 百度直达  -   360直达  -  ",
+						"siteName": "www.mhwz.cn",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=http://www.mhwz.cn/m/siteinfo/store.steampowered.com.html",
+						"datePublished": "2020-07-25T08:00:00+08:00",
+						"dateLastCrawled": "2020-07-25T08:00:00Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.6",
+						"name": "steam官网-加入到Steam社区中吧!-天天线报手游网",
+						"url": "https://www.398k.com/app/11007.html",
+						"displayUrl": "https://www.398k.com/app/11007.html",
+						"snippet": "类型: 其他软件 大小: 18.83MB 点评: 加入到Steam社区中吧! 《steam官网》是一款很实用的游戏社区app!本作是专为安卓手机用户打造的,用户们可以在平台上查看不同游戏的攻略资讯、游",
+						"siteName": "天天线报手游网",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://www.398k.com/app/11007.html",
+						"datePublished": "2023-09-11T15:20:13+08:00",
+						"dateLastCrawled": "2023-09-11T15:20:13Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.7",
+						"name": "Steam官网登录入口_Steam电脑版客户端下载及游戏领取教程-游戏攻略-PHP中文网",
+						"url": "https://www.php.cn/faq/2469664.html",
+						"displayUrl": "https://www.php.cn/faq/2469664.html",
+						"snippet": "Steam官网登录入口是https://store.steampowered.com/,平台按发行时间等动态排序游戏,详情页提供系统要求等信息,支持多维筛选、愿望单追踪;客户端经数字签名认证、内存占用",
+						"siteName": "php中文网",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://www.php.cn/faq/2469664.html",
+						"datePublished": "2026-05-13T13:18:26+08:00",
+						"dateLastCrawled": "2026-05-13T13:18:26Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.8",
+						"name": "Steam网页版官方登录 Steam官网首页链接-游戏攻略-PHP中文网",
+						"url": "https://www.php.cn/faq/3102470.html",
+						"displayUrl": "https://www.php.cn/faq/3102470.html",
+						"snippet": "Steam官网首页链接是https://store.steampowered.com,平台具备丰富游戏库、多语言支持、安全账户体系、深度社区互动、个性化服务及完善技术支持。\nSteam网页版官方登录入",
+						"siteName": "php中文网",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://www.php.cn/faq/3102470.html",
+						"datePublished": "2026-09-07T23:48:15+08:00",
+						"dateLastCrawled": "2026-09-07T23:48:15Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					},
+					{
+						"id": "https://api.bochaai.com/v1/#WebPages.9",
+						"name": "Steam 官网那些事儿_游戏_访问_网络",
+						"url": "https://www.sohu.com/a/824448091_121958128/",
+						"displayUrl": "https://www.sohu.com/a/824448091_121958128/",
+						"snippet": "宝子们,今天咱们来聊聊 Steam 官网。 Steam 官网可是咱们游戏玩家的宝藏之地呢。它的网址是store.steampowered.com,这个一定要记好哦,可别被一些假冒的网站给骗啦。在官网上",
+						"siteName": "搜狐",
+						"siteIcon": "https://th.bochaai.com/favicon?domain_url=https://www.sohu.com/a/824448091_121958128/",
+						"datePublished": "2024-11-07T11:13:00+08:00",
+						"dateLastCrawled": "2024-11-07T11:13:00Z",
+						"cachedPageUrl": null,
+						"language": null,
+						"isFamilyFriendly": null,
+						"isNavigational": null
+					}
+				],
+				"someResultsRemoved": true
+			},
+			"videos": null
+		}
+	}
+}

@@ -144,6 +144,8 @@ export interface SearchSubject {
 	readonly kind: SubjectKind;
 	readonly langs: readonly SearchLang[];
 	search(query: string, options: SearchOptions): Promise<SubjectResponse>;
+	/** 从录制的原始响应重新归一化, 归一化逻辑修正后回放不必重新请求. 没有原始响应的被测对象不实现. */
+	replay?(raw: unknown, query: string, options: SearchOptions): SubjectResponse;
 }
 
 /** 相关性等级. 默认刻度 0 到 3, 上限 0 到 4. */
@@ -249,6 +251,8 @@ export const CaseRecord = z.object({
 	invalid: z.int().nonnegative(),
 	hits: z.array(ScoredHit),
 	error: ExecutionError.nullable(),
+	/** 结果的录制时间, 只在 record 与 replay 模式有. */
+	recordedAt: z.iso.datetime().optional(),
 });
 export type CaseRecord = z.infer<typeof CaseRecord>;
 
@@ -312,7 +316,12 @@ export const RunSettings = z.object({
 	reps: z.int().positive(),
 	timeoutMs: z.int().positive(),
 	concurrency: z.int().positive(),
-	filters: z.object({ tier: Tier.optional(), source: z.string().optional() }),
+	filters: z.object({
+		tier: Tier.optional(),
+		source: z.string().optional(),
+		/** 每个场景只取过滤后的前若干条用例. */
+		limit: z.int().positive().optional(),
+	}),
 });
 export type RunSettings = z.infer<typeof RunSettings>;
 
@@ -337,6 +346,8 @@ export const RunSubject = z.object({
 /** 一次运行的计划快照, 写入 progress.json, 续跑时不依赖当前配置文件. */
 export const RunPlan = z.object({
 	mode: RunMode,
+	/** record 模式下重新请求已有录制的条目. 默认复用, 只补录缺的. */
+	refresh: z.boolean().optional(),
 	region: z.string().optional(),
 	settings: RunSettings,
 	scenarios: z.array(RunScenario.extend({ casesHash: z.string() })),

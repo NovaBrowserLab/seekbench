@@ -29,7 +29,17 @@ pnpm seekbench run --scenarios smoke --subjects mock   # 用假被测对象跑�
 pnpm seekbench report                                   # 为最近一次运行生成 runs/<run-id>/report.md
 ```
 
-被测对象、并发、超时与重复次数在 `seekbench.config.ts` 里配置；`pnpm seekbench --help` 列出全部参数。运行中断后用 `--resume <run-id>` 续跑。
+接入的搜索服务有博查、Brave、DeepSeek、Exa、Tavily，密钥从 `BOCHA_API_KEY` 等环境变量读取，也可以写在仓库根目录的 `.env` 里（不提交）。缺密钥的服务会被跳过。
+
+```bash
+# 直连并录制到 cassettes/, 再离线回放; 回放不需要密钥
+pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa,tavily --mode record
+pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa,tavily --mode replay
+```
+
+`--mode` 有三种：`live` 直连（默认，测时延用，可重复多次）、`record` 直连并写录制、`replay` 只读录制。`record` 默认跳过已录过的请求，只补录新增的用例或被测对象；要整体刷新快照时加 `--refresh`。录制只保存在本机，不提交；质量对比用回放保证可复现，时延用直连多次重复。
+
+被测对象、并发、超时与重复次数在 `seekbench.config.ts` 里配置，各家适配器的参数、计费与限速见 [docs/adapters/](docs/adapters/README.md)；`pnpm seekbench --help` 列出全部参数。运行中断后用 `--resume <run-id>` 续跑。
 
 ## 结果
 
@@ -37,7 +47,7 @@ pnpm seekbench report                                   # 为最近一次运行�
 
 ## 状态
 
-已有：数据模型、URL 规范化、按标注的规则打分、质量指标与置信区间、带全局并发上限与限速的 Runner（超时、续跑）、`run` 与 `report` 命令，以及用于流程自检的假被测对象。尚未接入真实搜索服务、录制回放与 LLM 裁判。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
+已有：数据模型、URL 规范化、按标注的规则打分、质量指标与置信区间、带全局并发上限与限速的 Runner（超时、续跑）、`run` 与 `report` 命令；博查、Brave、DeepSeek、Exa、Tavily 五家适配器与录制回放；中英文官网导航场景（`nav-zh`、`nav-en`）的人工标注题库。尚未接入 LLM 裁判与其余场景。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ## 许可证
 
@@ -74,7 +84,17 @@ pnpm seekbench run --scenarios smoke --subjects mock   # pipeline self-check wit
 pnpm seekbench report                                   # writes runs/<run-id>/report.md for the latest run
 ```
 
-Subjects, concurrency, timeouts and repetitions are configured in `seekbench.config.ts`; `pnpm seekbench --help` lists every option. Resume an interrupted run with `--resume <run-id>`.
+Supported providers are Bocha, Brave, DeepSeek, Exa and Tavily. API keys are read from environment variables such as `BOCHA_API_KEY`, or from a `.env` file in the repository root (never committed). Providers without a key are skipped.
+
+```bash
+# call providers and record to cassettes/, then replay offline; replay needs no keys
+pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa,tavily --mode record
+pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa,tavily --mode replay
+```
+
+`--mode` is `live` (default; for latency, repeatable), `record` (live plus recording) or `replay` (recordings only). `record` skips requests that are already recorded and only fills in new cases or subjects; add `--refresh` to re-record everything. Recordings stay on the local machine and are not committed; quality comparisons use replay for reproducibility, latency uses repeated live runs.
+
+Subjects, concurrency, timeouts and repetitions are configured in `seekbench.config.ts`; adapter options, pricing and rate limits are in [docs/adapters/](docs/adapters/README.md) (Chinese). `pnpm seekbench --help` lists every option. Resume an interrupted run with `--resume <run-id>`.
 
 **Results**
 
@@ -82,7 +102,7 @@ Published runs live in `results/`, each with summary metrics and a report.
 
 **Status**
 
-Available: data model, URL normalization, rule-based grading from labels, quality metrics with confidence intervals, a runner with a global concurrency cap and per-subject rate limits (timeouts, resume), the `run` and `report` commands, and a mock subject for pipeline self-checks. Real search providers, record and replay, and the LLM judge are not in yet. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
+Available: data model, URL normalization, rule-based grading from labels, quality metrics with confidence intervals, a runner with a global concurrency cap and per-subject rate limits (timeouts, resume), the `run` and `report` commands; adapters for Bocha, Brave, DeepSeek, Exa and Tavily with record and replay; hand-labeled datasets for Chinese and English site navigation (`nav-zh`, `nav-en`). The LLM judge and the remaining scenarios are not in yet. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
 
 **License**
 

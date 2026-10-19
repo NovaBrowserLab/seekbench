@@ -1,0 +1,48 @@
+{"id":"copilot-pricing","query":"github copilot pricing","tier":"A","source":"handwritten","note":"GitHub Copilot plans and pricing page","gold":{"targets":["github.com/features/copilot"]}}
+{"id":"stripe-dashboard","query":"stripe dashboard login","tier":"A","source":"handwritten","note":"Stripe dashboard sign-in","gold":{"targets":["dashboard.stripe.com"]}}
+{"id":"aws-console","query":"aws console login","tier":"A","source":"handwritten","note":"AWS Management Console sign-in","gold":{"targets":["console.aws.amazon.com","signin.aws.amazon.com","aws.amazon.com/console"]}}
+{"id":"azure-portal","query":"azure portal","tier":"A","source":"handwritten","note":"Azure portal","gold":{"targets":["portal.azure.com"]}}
+{"id":"gmail","query":"gmail","tier":"A","source":"handwritten","note":"Gmail inbox or sign-in","gold":{"targets":["mail.google.com","gmail.com"]}}
+{"id":"outlook","query":"outlook login","tier":"A","source":"handwritten","note":"Outlook web sign-in","gold":{"targets":["outlook.live.com","outlook.office.com","login.live.com"]}}
+{"id":"netflix","query":"netflix","tier":"A","source":"handwritten","note":"Netflix home page","gold":{"targets":["netflix.com"]}}
+{"id":"irs-refund","query":"irs where's my refund","tier":"A","source":"handwritten","note":"IRS refund status tool","gold":{"targets":["irs.gov/wheres-my-refund","irs.gov/refunds","sa.www4.irs.gov/irfof"]}}
+{"id":"usps-tracking","query":"usps tracking","tier":"A","source":"handwritten","note":"USPS package tracking","gold":{"targets":["tools.usps.com","usps.com"]}}
+{"id":"nodejs-download","query":"node.js download","tier":"A","source":"handwritten","note":"Node.js official download page","gold":{"targets":["nodejs.org"]}}
+{"id":"python-docs","query":"python documentation","tier":"A","source":"handwritten","note":"Official Python documentation","gold":{"targets":["docs.python.org"]}}
+{"id":"react-docs","query":"react docs","tier":"A","source":"handwritten","note":"React official documentation","gold":{"targets":["react.dev"]}}
+{"id":"mdn-fetch","query":"mdn fetch api","tier":"A","source":"handwritten","note":"MDN reference for the Fetch API","gold":{"targets":["developer.mozilla.org/en-US/docs/Web/API/Fetch_API","developer.mozilla.org/en-US/docs/Web/API/Window/fetch"]}}
+{"id":"ts-handbook","query":"typescript handbook","tier":"A","source":"handwritten","note":"The TypeScript Handbook","gold":{"targets":["typescriptlang.org/docs/handbook"]}}
+{"id":"rust-book","query":"the rust programming language book","tier":"A","source":"handwritten","note":"The Rust Book","gold":{"targets":["doc.rust-lang.org/book"]}}
+{"id":"k8s-docs","query":"kubernetes documentation","tier":"A","source":"handwritten","note":"Kubernetes official docs","gold":{"targets":["kubernetes.io/docs"]}}
+{"id":"docker-hub","query":"docker hub","tier":"A","source":"handwritten","note":"Docker Hub","gold":{"targets":["hub.docker.com"]}}
+{"id":"pnpm","query":"pnpm","tier":"A","source":"handwritten","note":"pnpm official site","gold":{"targets":["pnpm.io"]}}
+{"id":"vscode-download","query":"vs code download","tier":"A","source":"handwritten","note":"Visual Studio Code download page","gold":{"targets":["code.visualstudio.com"],"badDomains":["softonic.com","filehippo.com","uptodown.com","filehorse.com","download.cnet.com"]}}
+{"id":"chrome-web-store","query":"chrome web store","tier":"A","source":"handwritten","note":"Chrome Web Store","gold":{"targets":["chromewebstore.google.com","chrome.google.com/webstore"]}}
+{"id":"openai-pricing","query":"openai api pricing","tier":"A","source":"handwritten","note":"OpenAI API pricing page","gold":{"targets":["openai.com/api/pricing","platform.openai.com/docs/pricing"]}}
+{"id":"huggingface","query":"hugging face","tier":"A","source":"handwritten","note":"Hugging Face home page","gold":{"targets":["huggingface.co"]}}
+{"id":"arxiv","query":"arxiv","tier":"A","source":"handwritten","note":"arXiv home page","gold":{"targets":["arxiv.org"]}}
+{"id":"scholar","query":"google scholar","tier":"A","source":"handwritten","note":"Google Scholar","gold":{"targets":["scholar.google.com"]}}
+{"id":"wikipedia","query":"wikipedia","tier":"A","source":"handwritten","note":"English Wikipedia","gold":{"targets":["en.wikipedia.org","wikipedia.org"]}}
+{"id":"linkedin","query":"linkedin login","tier":"A","source":"handwritten","note":"LinkedIn sign-in","gold":{"targets":["linkedin.com"]}}
+{"id":"paypal","query":"paypal login","tier":"A","source":"handwritten","note":"PayPal sign-in","gold":{"targets":["paypal.com"]}}
+{"id":"chase","query":"chase online banking","tier":"A","source":"handwritten","note":"Chase online banking sign-in","gold":{"targets":["chase.com"]}}
+{"id":"bofa","query":"bank of america login","tier":"A","source":"handwritten","note":"Bank of America online banking sign-in","gold":{"targets":["bankofamerica.com"]}}
+{"id":"prime-video","query":"amazon prime video","tier":"A","source":"handwritten","note":"Prime Video home page","gold":{"targets":["primevideo.com","amazon.com/gp/video","amazon.com/Amazon-Video"]}}
+{"id":"spotify-web","query":"spotify web player","tier":"A","source":"handwritten","note":"Spotify web player","gold":{"targets":["open.spotify.com"]}}
+{"id":"zoom-download","query":"zoom download","tier":"A","source":"handwritten","note":"Zoom client download page","gold":{"targets":["zoom.us/download","zoom.us/support/download","zoom.com/download"],"badDomains":["softonic.com","filehippo.com","uptodown.com","filehorse.com","download.cnet.com"]}}
+{"id":"slack-signin","query":"slack sign in","tier":"A","source":"handwritten","note":"Slack workspace sign-in","gold":{"targets":["slack.com/signin","slack.com/workspace-signin","app.slack.com"]}}
+{"id":"notion","query":"notion","tier":"A","source":"handwritten","note":"Notion home page","gold":{"targets":["notion.so","notion.com"]}}
+{"id":"figma","query":"figma","tier":"A","source":"handwritten","note":"Figma home page","gold":{"targets":["figma.com"]}}
+{"id":"canva","query":"canva","tier":"A","source":"handwritten","note":"Canva home page","gold":{"targets":["canva.com"]}}
+{"id":"ca-dmv","query":"california dmv appointment","tier":"A","source":"handwritten","note":"California DMV appointment page","gold":{"targets":["dmv.ca.gov"]}}
+{"id":"uscis-status","query":"uscis case status","tier":"A","source":"handwritten","note":"USCIS case status online","gold":{"targets":["egov.uscis.gov","my.uscis.gov","uscis.gov/casestatus"]}}
+{"id":"ssa-login","query":"my social security login","tier":"A","source":"handwritten","note":"my Social Security account sign-in","gold":{"targets":["ssa.gov/myaccount","secure.ssa.gov"]}}
+{"id":"vlc-en","query":"vlc download","tier":"A","source":"handwritten","note":"VideoLAN official download page","gold":{"targets":["videolan.org"],"badDomains":["softonic.com","filehippo.com","uptodown.com","filehorse.com","download.cnet.com"]}}
+{"id":"7zip-en","query":"7-zip download","tier":"A","source":"handwritten","note":"7-Zip official download page; 7zip.com is not the official site","gold":{"targets":["7-zip.org"],"badDomains":["softonic.com","filehippo.com","uptodown.com","filehorse.com","download.cnet.com","7zip.com"]}}
+{"id":"obs","query":"obs studio download","tier":"A","source":"handwritten","note":"OBS Studio official download page","gold":{"targets":["obsproject.com"],"badDomains":["softonic.com","filehippo.com","uptodown.com","filehorse.com","download.cnet.com"]}}
+{"id":"blender","query":"blender download","tier":"A","source":"handwritten","note":"Blender official download page","gold":{"targets":["blender.org"],"badDomains":["softonic.com","filehippo.com","uptodown.com","filehorse.com","download.cnet.com"]}}
+{"id":"gimp","query":"gimp download","tier":"A","source":"handwritten","note":"GIMP official download page","gold":{"targets":["gimp.org"],"badDomains":["softonic.com","filehippo.com","uptodown.com","filehorse.com","download.cnet.com"]}}
+{"id":"audacity","query":"audacity download","tier":"A","source":"handwritten","note":"Audacity official download page","gold":{"targets":["audacityteam.org"],"badDomains":["softonic.com","filehippo.com","uptodown.com","filehorse.com","download.cnet.com"]}}
+{"id":"postgres-docs","query":"postgresql documentation","tier":"A","source":"handwritten","note":"PostgreSQL official docs","gold":{"targets":["postgresql.org/docs"]}}
+{"id":"tailwind-docs","query":"tailwind css docs","tier":"A","source":"handwritten","note":"Tailwind CSS docs","gold":{"targets":["tailwindcss.com/docs"]}}
+{"id":"stackoverflow","query":"stack overflow","tier":"A","source":"handwritten","note":"Stack Overflow home page","gold":{"targets":["stackoverflow.com"]}}
