@@ -43,6 +43,7 @@ run 选项:
   --scenarios <ids>     场景 id, 逗号分隔
   --subjects <ids>      被测对象 id, 逗号分隔; 省略时为配置里的全部
   --mode <mode>         live 直连 (默认) / record 直连并录制 / replay 只读录制, 不需要密钥
+  --refresh             record 时重新请求已录制的条目; 默认复用, 只补录缺的
   --reps <n>            每条用例对每个被测对象的重复次数, 只用于 live
   --concurrency <n>     全局在途请求上限
   --timeout <ms>        单次调用超时
@@ -168,6 +169,7 @@ async function runCommand(args: string[]): Promise<number> {
 			source: { type: "string" },
 			limit: { type: "string" },
 			mode: { type: "string" },
+			refresh: { type: "boolean" },
 			"cassettes-dir": { type: "string" },
 			region: { type: "string" },
 			resume: { type: "string" },
@@ -238,6 +240,8 @@ async function runCommand(args: string[]): Promise<number> {
 			: "live";
 		if (mode !== "live" && values.reps !== undefined)
 			throw new UsageError("录制与回放每条只跑一次, 不能指定 --reps");
+		if (mode !== "record" && values.refresh)
+			throw new UsageError("--refresh 只用于 record 模式");
 		const settings = {
 			reps:
 				mode !== "live"
@@ -292,6 +296,7 @@ async function runCommand(args: string[]): Promise<number> {
 		startedAt = new Date().toISOString();
 		plan = {
 			mode,
+			...(values.refresh && { refresh: true }),
 			...(values.region ? { region: values.region } : {}),
 			settings,
 			scenarios: scenarios.map(({ scenario, cases, casesHash }) => ({
@@ -334,6 +339,11 @@ async function runCommand(args: string[]): Promise<number> {
 		},
 	}).finally(() => process.off("SIGINT", onInterrupt));
 	printer.end(last);
+	if (result.reused > 0) {
+		process.stderr.write(
+			`复用已有录制 ${result.reused} 条, 未发请求; 加 --refresh 可全部重录\n`,
+		);
+	}
 	if (result.configMismatch.length > 0) {
 		process.stderr.write(
 			`注意: ${result.configMismatch.join(", ")} 的录制所用配置与当前配置不同, 回放结果按录制时的请求得出\n`,

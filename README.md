@@ -37,7 +37,7 @@ pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa
 pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa,tavily --mode replay
 ```
 
-`--mode` 有三种：`live` 直连（默认，测时延用，可重复多次）、`record` 直连并写录制、`replay` 只读录制。录制只保存在本机，不提交；质量对比用回放保证可复现，时延用直连多次重复。
+`--mode` 有三种：`live` 直连（默认，测时延用，可重复多次）、`record` 直连并写录制、`replay` 只读录制。`record` 默认跳过已录过的请求，只补录新增的用例或被测对象；要整体刷新快照时加 `--refresh`。录制只保存在本机，不提交；质量对比用回放保证可复现，时延用直连多次重复。
 
 被测对象、并发、超时与重复次数在 `seekbench.config.ts` 里配置，各家适配器的参数、计费与限速见 [docs/adapters/](docs/adapters/README.md)；`pnpm seekbench --help` 列出全部参数。运行中断后用 `--resume <run-id>` 续跑。
 
@@ -92,7 +92,7 @@ pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa
 pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa,tavily --mode replay
 ```
 
-`--mode` is `live` (default; for latency, repeatable), `record` (live plus recording) or `replay` (recordings only). Recordings stay on the local machine and are not committed; quality comparisons use replay for reproducibility, latency uses repeated live runs.
+`--mode` is `live` (default; for latency, repeatable), `record` (live plus recording) or `replay` (recordings only). `record` skips requests that are already recorded and only fills in new cases or subjects; add `--refresh` to re-record everything. Recordings stay on the local machine and are not committed; quality comparisons use replay for reproducibility, latency uses repeated live runs.
 
 Subjects, concurrency, timeouts and repetitions are configured in `seekbench.config.ts`; adapter options, pricing and rate limits are in [docs/adapters/](docs/adapters/README.md) (Chinese). `pnpm seekbench --help` lists every option. Resume an interrupted run with `--resume <run-id>`.
 

@@ -117,9 +117,10 @@ function scenario(): LoadedScenario {
 	};
 }
 
-function plan(mode: RunMode, configHash = "cfg"): RunPlan {
+function plan(mode: RunMode, configHash = "cfg", refresh = false): RunPlan {
 	return {
 		mode,
+		...(refresh && { refresh }),
 		settings: { reps: 1, timeoutMs: 1000, concurrency: 4, filters: {} },
 		scenarios: [],
 		subjects: [{ id: "m", kind: "provider", configHash, config: {} }],
@@ -131,12 +132,13 @@ async function runWith(
 	subject: SearchSubject,
 	cassettes: CassetteStore,
 	configHash?: string,
+	refresh?: boolean,
 ) {
 	return executeRun({
 		runId: "t",
 		runDir: join(await mkdtemp(join(tmpdir(), "seekbench-")), "run"),
 		startedAt: new Date().toISOString(),
-		plan: plan(mode, configHash),
+		plan: plan(mode, configHash, refresh),
 		scenarios: [scenario()],
 		subjects: new Map([
 			["m", { subject, limiter: new TokenBucket({ perSecond: 10_000 }) }],
@@ -232,5 +234,46 @@ describe("录制与回放", () => {
 		);
 		expect(replayed.records[0]?.hits[0]?.url).toBe("https://a.com/fixed");
 		expect(replayed.configMismatch).toEqual(["m"]);
+	});
+
+	it("record 默认复用同配置的已有录制, 只补录缺的; 配置变化或 --refresh 时重新请求", async () => {
+		const dir = await mkdtemp(join(tmpdir(), "seekbench-cassette-"));
+		const calls: string[] = [];
+		const failing = new Set(["q1"]);
+		const inner = createMockSubject("m", { hits });
+		const counting: SearchSubject = {
+			...inner,
+			search: async (query, options) => {
+				calls.push(query);
+				if (failing.has(query)) throw new Error("暂时失败");
+				return inner.search(query, options);
+			},
+		};
+		const first = await runWith("record", counting, new CassetteStore(dir));
+		expect(calls).toEqual(["q0", "q1"]);
+		expect(first.reused).toBe(0);
+
+		calls.length = 0;
+		failing.clear();
+		const second = await runWith("record", counting, new CassetteStore(dir));
+		expect(calls).toEqual(["q1"]);
+		expect(second.reused).toBe(1);
+		expect(second.records[0]?.recordedAt).toBe(first.records[0]?.recordedAt);
+		expect(second.records[0]?.hits[0]?.grade).toBe(3);
+
+		calls.length = 0;
+		await runWith("record", counting, new CassetteStore(dir), "changed");
+		expect(calls).toEqual(["q0", "q1"]);
+
+		calls.length = 0;
+		const refreshed = await runWith(
+			"record",
+			counting,
+			new CassetteStore(dir),
+			"changed",
+			true,
+		);
+		expect(calls).toEqual(["q0", "q1"]);
+		expect(refreshed.reused).toBe(0);
 	});
 });

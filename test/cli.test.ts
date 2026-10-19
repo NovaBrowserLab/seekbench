@@ -187,7 +187,7 @@ describe("CLI", () => {
 		expect(stderr).toContain("没有可运行的被测对象");
 	});
 
-	it("录制与回放不接受 --reps", async () => {
+	it("录制与回放不接受 --reps, --refresh 只用于 record", async () => {
 		await expect(
 			seekbench([
 				"run",
@@ -197,6 +197,16 @@ describe("CLI", () => {
 				"replay",
 				"--reps",
 				"2",
+			]),
+		).rejects.toMatchObject({ code: 2 });
+		await expect(
+			seekbench([
+				"run",
+				"--scenarios",
+				"smoke",
+				"--mode",
+				"replay",
+				"--refresh",
 			]),
 		).rejects.toMatchObject({ code: 2 });
 	});

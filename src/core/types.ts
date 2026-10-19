@@ -346,6 +346,8 @@ export const RunSubject = z.object({
 /** 一次运行的计划快照, 写入 progress.json, 续跑时不依赖当前配置文件. */
 export const RunPlan = z.object({
 	mode: RunMode,
+	/** record 模式下重新请求已有录制的条目. 默认复用, 只补录缺的. */
+	refresh: z.boolean().optional(),
 	region: z.string().optional(),
 	settings: RunSettings,
 	scenarios: z.array(RunScenario.extend({ casesHash: z.string() })),

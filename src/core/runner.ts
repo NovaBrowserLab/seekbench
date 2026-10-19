@@ -69,6 +69,8 @@ export interface ExecuteResult {
 	interrupted: boolean;
 	/** 回放时录制所用配置与当前配置不同的被测对象. */
 	configMismatch: string[];
+	/** record 模式下复用已有录制、没有发请求的条数. */
+	reused: number;
 }
 
 interface WorkItem {
@@ -437,13 +439,27 @@ export async function executeRun(
 	const writer = createWriteStream(casesPath, { flags: "a" });
 	let fatal: unknown = null;
 
-	const execute = async (item: WorkItem) => {
+	let reused = 0;
+	/** record 模式下已有同配置录制的请求直接复用, 除非计划要求刷新. */
+	const recorded = async (item: WorkItem): Promise<boolean> => {
+		if (!recorder || plan.refresh) return false;
 		const subjectId = item.runner.subject.id;
-		const outcome = player
-			? await replayItem(item, player, configHashes.get(subjectId), mismatch)
+		const entry = await recorder.get(
+			shardOf(item),
+			cassetteKey(subjectId, item.kase.query, cassetteRequest(item)),
+		);
+		return entry !== null && entry.configHash === configHashes.get(subjectId);
+	};
+
+	const execute = async (item: WorkItem, reuse: boolean) => {
+		const subjectId = item.runner.subject.id;
+		const source = player ?? (reuse ? recorder : undefined);
+		const outcome = source
+			? await replayItem(item, source, configHashes.get(subjectId), mismatch)
 			: await liveItem(item, plan.settings.timeoutMs, runSignal);
 		if (outcome === null) return;
-		if (recorder && outcome.response !== null) {
+		if (reuse) reused++;
+		else if (recorder && outcome.response !== null) {
 			outcome.recordedAt = new Date().toISOString();
 			const request = cassetteRequest(item);
 			await recorder.put(shardOf(item), {
@@ -469,13 +485,15 @@ export async function executeRun(
 	await Promise.all(
 		[...queues.values()].map(async (items) => {
 			for (const item of items) {
+				let reuse: boolean;
 				try {
-					if (!player) await item.runner.limiter.take(runSignal);
+					reuse = await recorded(item);
+					if (!player && !reuse) await item.runner.limiter.take(runSignal);
 					await slots.acquire(runSignal);
 				} catch {
 					return;
 				}
-				const task: Promise<void> = execute(item)
+				const task: Promise<void> = execute(item, reuse)
 					.catch((error: unknown) => {
 						fatal ??= error;
 						internal.abort();
@@ -508,7 +526,12 @@ export async function executeRun(
 		await rm(casesPath);
 	}
 	await progress.finish(interrupted ? "interrupted" : "finished");
-	return { records, interrupted, configMismatch: [...mismatch].sort() };
+	return {
+		records,
+		interrupted,
+		configMismatch: [...mismatch].sort(),
+		reused,
+	};
 }
 
 export async function readProgress(runDir: string): Promise<Progress> {
