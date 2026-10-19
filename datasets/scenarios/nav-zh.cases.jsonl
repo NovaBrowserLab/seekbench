@@ -1,0 +1,50 @@
+{"id":"steam","query":"Steam 官网","tier":"A","source":"handwritten","note":"Steam 游戏商店官网; 国内的蒸汽平台也算官方","gold":{"targets":["steampowered.com","steamchina.com"]}}
+{"id":"12306","query":"12306","tier":"A","source":"handwritten","note":"中国铁路购票官网","gold":{"targets":["12306.cn"]}}
+{"id":"taobao","query":"淘宝","tier":"A","source":"handwritten","note":"淘宝网首页","gold":{"targets":["taobao.com"]}}
+{"id":"jd","query":"京东","tier":"A","source":"handwritten","note":"京东商城首页","gold":{"targets":["jd.com"]}}
+{"id":"alipay","query":"支付宝","tier":"A","source":"handwritten","note":"支付宝官网","gold":{"targets":["alipay.com"]}}
+{"id":"wechat-web","query":"微信网页版","tier":"A","source":"handwritten","note":"微信网页版登录页","gold":{"targets":["wx.qq.com","weixin.qq.com"]}}
+{"id":"wechat-pc","query":"微信电脑版下载","tier":"A","source":"handwritten","note":"微信 Windows / macOS 客户端的官方下载页","gold":{"targets":["weixin.qq.com","pc.weixin.qq.com"],"badDomains":["pc6.com","onlinedown.net","xiazaiba.com","crsky.com","downza.cn","cr173.com","duote.com","skycn.com"]}}
+{"id":"qqmail","query":"QQ 邮箱","tier":"A","source":"handwritten","note":"QQ 邮箱登录页","gold":{"targets":["mail.qq.com"]}}
+{"id":"163mail","query":"163 邮箱登录","tier":"A","source":"handwritten","note":"网易 163 免费邮箱","gold":{"targets":["mail.163.com","email.163.com"]}}
+{"id":"bilibili","query":"哔哩哔哩","tier":"A","source":"handwritten","note":"B 站首页","gold":{"targets":["bilibili.com"]}}
+{"id":"zhihu","query":"知乎","tier":"A","source":"handwritten","note":"知乎首页","gold":{"targets":["zhihu.com"]}}
+{"id":"weibo","query":"微博","tier":"A","source":"handwritten","note":"新浪微博首页","gold":{"targets":["weibo.com"]}}
+{"id":"baidu-pan","query":"百度网盘","tier":"A","source":"handwritten","note":"百度网盘网页版","gold":{"targets":["pan.baidu.com"]}}
+{"id":"cnki","query":"中国知网","tier":"A","source":"handwritten","note":"知网首页","gold":{"targets":["cnki.net"]}}
+{"id":"chinatax","query":"国家税务总局","tier":"A","source":"handwritten","note":"国家税务总局官网","gold":{"targets":["chinatax.gov.cn"]}}
+{"id":"chsi","query":"学信网","tier":"A","source":"handwritten","note":"中国高等教育学生信息网","gold":{"targets":["chsi.com.cn"]}}
+{"id":"10086","query":"中国移动网上营业厅","tier":"A","source":"handwritten","note":"中国移动官网","gold":{"targets":["10086.cn"]}}
+{"id":"ctrip","query":"携程旅行","tier":"A","source":"handwritten","note":"携程官网","gold":{"targets":["ctrip.com"]}}
+{"id":"amap","query":"高德地图","tier":"A","source":"handwritten","note":"高德地图网页版或官网","gold":{"targets":["amap.com"]}}
+{"id":"163music","query":"网易云音乐","tier":"A","source":"handwritten","note":"网易云音乐网页版","gold":{"targets":["music.163.com"]}}
+{"id":"xiaohongshu","query":"小红书网页版","tier":"A","source":"handwritten","note":"小红书网页版","gold":{"targets":["xiaohongshu.com"]}}
+{"id":"douyin","query":"抖音网页版","tier":"A","source":"handwritten","note":"抖音网页版","gold":{"targets":["douyin.com"]}}
+{"id":"pinduoduo","query":"拼多多","tier":"A","source":"handwritten","note":"拼多多官网","gold":{"targets":["pinduoduo.com","yangkeduo.com"]}}
+{"id":"meituan","query":"美团","tier":"A","source":"handwritten","note":"美团官网","gold":{"targets":["meituan.com"]}}
+{"id":"tencent-meeting","query":"腾讯会议下载","tier":"A","source":"handwritten","note":"腾讯会议客户端的官方下载页","gold":{"targets":["meeting.tencent.com"],"badDomains":["pc6.com","onlinedown.net","xiazaiba.com","crsky.com","downza.cn","cr173.com","duote.com","skycn.com"]}}
+{"id":"dingtalk","query":"钉钉下载","tier":"A","source":"handwritten","note":"钉钉客户端的官方下载页","gold":{"targets":["dingtalk.com"],"badDomains":["pc6.com","onlinedown.net","xiazaiba.com","crsky.com","downza.cn","cr173.com","duote.com","skycn.com"]}}
+{"id":"feishu","query":"飞书","tier":"A","source":"handwritten","note":"飞书官网","gold":{"targets":["feishu.cn"]}}
+{"id":"chrome-zh","query":"Chrome 浏览器下载","tier":"A","source":"handwritten","note":"Google Chrome 官方下载页","gold":{"targets":["google.cn/chrome","google.cn/intl/zh-CN/chrome","google.com/chrome","google.com/intl/zh-CN/chrome"],"badDomains":["pc6.com","onlinedown.net","xiazaiba.com","crsky.com","downza.cn","cr173.com","duote.com","skycn.com"]}}
+{"id":"wps","query":"WPS 官网","tier":"A","source":"handwritten","note":"WPS Office 官网","gold":{"targets":["wps.cn","wps.com"],"badDomains":["pc6.com","onlinedown.net","xiazaiba.com","crsky.com","downza.cn","cr173.com","duote.com","skycn.com"]}}
+{"id":"sogou-ime","query":"搜狗输入法下载","tier":"A","source":"handwritten","note":"搜狗输入法官方下载页","gold":{"targets":["pinyin.sogou.com","shurufa.sogou.com"],"badDomains":["pc6.com","onlinedown.net","xiazaiba.com","crsky.com","downza.cn","cr173.com","duote.com","skycn.com"]}}
+{"id":"python-zh","query":"Python 官网","tier":"A","source":"handwritten","note":"Python 官网","gold":{"targets":["python.org"]}}
+{"id":"runoob","query":"菜鸟教程","tier":"A","source":"handwritten","note":"菜鸟教程首页","gold":{"targets":["runoob.com"]}}
+{"id":"csdn","query":"CSDN","tier":"A","source":"handwritten","note":"CSDN 首页","gold":{"targets":["csdn.net"]}}
+{"id":"juejin","query":"掘金","tier":"A","source":"handwritten","note":"稀土掘金首页","gold":{"targets":["juejin.cn"]}}
+{"id":"gitee","query":"Gitee","tier":"A","source":"handwritten","note":"Gitee 首页","gold":{"targets":["gitee.com"]}}
+{"id":"aliyun","query":"阿里云官网","tier":"A","source":"handwritten","note":"阿里云官网","gold":{"targets":["aliyun.com"]}}
+{"id":"vmall","query":"华为商城","tier":"A","source":"handwritten","note":"华为官方商城","gold":{"targets":["vmall.com"]}}
+{"id":"mi","query":"小米官网","tier":"A","source":"handwritten","note":"小米官网与小米商城","gold":{"targets":["mi.com"]}}
+{"id":"boc","query":"中国银行网上银行","tier":"A","source":"handwritten","note":"中国银行官网或个人网银登录页","gold":{"targets":["boc.cn"]}}
+{"id":"cmb","query":"招商银行","tier":"A","source":"handwritten","note":"招商银行官网","gold":{"targets":["cmbchina.com"]}}
+{"id":"wenshu","query":"中国裁判文书网","tier":"A","source":"handwritten","note":"中国裁判文书网","gold":{"targets":["wenshu.court.gov.cn"]}}
+{"id":"gsxt","query":"国家企业信用信息公示系统","tier":"A","source":"handwritten","note":"企业信用信息公示系统","gold":{"targets":["gsxt.gov.cn"]}}
+{"id":"douban-movie","query":"豆瓣电影","tier":"A","source":"handwritten","note":"豆瓣电影首页","gold":{"targets":["movie.douban.com"]}}
+{"id":"qidian","query":"起点中文网","tier":"A","source":"handwritten","note":"起点中文网首页","gold":{"targets":["qidian.com"]}}
+{"id":"122","query":"交管 12123","tier":"A","source":"handwritten","note":"交通安全综合服务管理平台","gold":{"targets":["122.gov.cn"]}}
+{"id":"icourse","query":"中国大学 MOOC","tier":"A","source":"handwritten","note":"中国大学 MOOC 首页","gold":{"targets":["icourse163.org"]}}
+{"id":"iqiyi","query":"爱奇艺","tier":"A","source":"handwritten","note":"爱奇艺首页","gold":{"targets":["iqiyi.com"]}}
+{"id":"tencent-video","query":"腾讯视频","tier":"A","source":"handwritten","note":"腾讯视频首页","gold":{"targets":["v.qq.com"]}}
+{"id":"7zip-zh","query":"7-Zip 下载","tier":"A","source":"handwritten","note":"7-Zip 官网下载页; 7zip.com 不是官方站点","gold":{"targets":["7-zip.org"],"badDomains":["pc6.com","onlinedown.net","xiazaiba.com","crsky.com","downza.cn","cr173.com","duote.com","skycn.com","7zip.com"]}}
+{"id":"vlc-zh","query":"VLC 播放器下载","tier":"A","source":"handwritten","note":"VideoLAN 官方下载页","gold":{"targets":["videolan.org"],"badDomains":["pc6.com","onlinedown.net","xiazaiba.com","crsky.com","downza.cn","cr173.com","duote.com","skycn.com"]}}

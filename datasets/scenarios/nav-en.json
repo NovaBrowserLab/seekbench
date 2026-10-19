@@ -1,0 +1,10 @@
+{
+	"id": "nav-en",
+	"version": "1",
+	"lang": "en",
+	"intent": "navigational",
+	"description": "英文官网导航: 用户想直接到达某个站点、登录页或官方下载页. 对应普通搜索里的官网置顶与风险提示, 第三方下载站与仿冒站点计入风险.",
+	"rubric": "The target site itself (official home, sign-in or download page) is 3; another official page or official app-store listing is 2; encyclopedia, news or directory pages about the site are 1; unrelated results, third-party download mirrors, impostor sites and ads are 0. When unsure, pick the lower grade.",
+	"k": 10,
+	"casesFile": "nav-en.cases.jsonl"
+}
