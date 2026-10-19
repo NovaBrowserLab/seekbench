@@ -1,0 +1,27 @@
+{
+	"id": "howto-en",
+	"version": "1",
+	"lang": "en",
+	"intent": "informational",
+	"description": "英文教程与文档查找: 用户想学会或查清楚某项技术或实际操作, 要找官方文档、权威教程或高质量的分步指南. 对应增强搜索里带方向拆解的信息查找.",
+	"rubric": "A result that directly teaches or answers the task is 3 when it is official documentation or a well-known authoritative tutorial; a correct, usable third-party tutorial, blog post or Q&A answer is 2; a page covering only part of the task, an index or listing page, or a tutorial for a clearly outdated version is 1; unrelated pages, content farms, scraped copies and ads are 0. When unsure, pick the lower grade.",
+	"k": 10,
+	"casesFile": "howto-en.cases.jsonl",
+	"synth": [
+		{
+			"id": "programming",
+			"instruction": "Queries from developers looking for tutorials, official documentation or step-by-step guides on programming languages, frameworks, libraries and developer tools. Mix popular and less common stacks, beginner and intermediate topics, and both short keyword queries (2 to 4 words) and longer task descriptions (up to about 10 words). Do not name a specific website.",
+			"count": 80
+		},
+		{
+			"id": "ops",
+			"instruction": "Queries about system administration, cloud services, DevOps, databases and networking tasks: installing and configuring servers, CI pipelines, containers, backups, DNS, certificates, monitoring. Mostly short keyword style.",
+			"count": 50
+		},
+		{
+			"id": "everyday",
+			"instruction": "Practical non-technical how-to queries: cooking techniques, home repair, gardening, personal finance basics, health and first aid, government paperwork, using common apps and devices. Mix 'how to ...' questions and keyword style.",
+			"count": 50
+		}
+	]
+}

@@ -1,0 +1,222 @@
+{"id":"rust-async-book","query":"rust async book","tier":"A","source":"handwritten","note":"The official Rust book on asynchronous programming","gold":{"targets":["rust-lang.github.io/async-book"],"mustDomains":["rust-lang.github.io"]}}
+{"id":"python-tutorial","query":"python official tutorial","tier":"A","source":"handwritten","note":"The tutorial in the official Python documentation","gold":{"targets":["docs.python.org/3/tutorial"],"mustDomains":["docs.python.org"]}}
+{"id":"react-hooks","query":"react hooks tutorial","tier":"A","source":"handwritten","note":"Learn React hooks such as useState and useEffect","gold":{"mustDomains":["react.dev"]}}
+{"id":"ts-generics","query":"typescript generics","tier":"A","source":"handwritten","note":"How generics work in TypeScript","gold":{"targets":["typescriptlang.org/docs/handbook/2/generics.html"],"mustDomains":["typescriptlang.org"]}}
+{"id":"git-rebase-interactive","query":"git rebase interactive","tier":"A","source":"handwritten","note":"How to squash, reorder or edit commits with git rebase -i","gold":{"mustDomains":["git-scm.com"]}}
+{"id":"docker-compose-start","query":"docker compose getting started","tier":"A","source":"handwritten","note":"First steps with Docker Compose: write a compose file and run services","gold":{"mustDomains":["docs.docker.com"]}}
+{"id":"k8s-deployment","query":"kubernetes deployment tutorial","tier":"A","source":"handwritten","note":"Create and update a Deployment in Kubernetes","gold":{"mustDomains":["kubernetes.io"]}}
+{"id":"pg-index-concurrently","query":"postgresql create index concurrently","tier":"A","source":"handwritten","note":"How CREATE INDEX CONCURRENTLY works and its caveats","gold":{"mustDomains":["postgresql.org"]}}
+{"id":"nginx-reverse-proxy","query":"nginx reverse proxy config","tier":"A","source":"handwritten","note":"Configure nginx as a reverse proxy with proxy_pass","gold":{"mustDomains":["nginx.org"]}}
+{"id":"css-grid","query":"css grid layout guide","tier":"A","source":"handwritten","note":"Learn CSS grid layout","gold":{"mustDomains":["developer.mozilla.org"]}}
+{"id":"js-promises","query":"javascript promises explained","tier":"A","source":"handwritten","note":"How promises, then chains and async/await work in JavaScript","gold":{"mustDomains":["developer.mozilla.org"]}}
+{"id":"go-tour-concurrency","query":"go tour concurrency","tier":"A","source":"handwritten","note":"The concurrency section of the official Tour of Go","gold":{"targets":["go.dev/tour"],"mustDomains":["go.dev"]}}
+{"id":"java-virtual-threads","query":"java 21 virtual threads tutorial","tier":"A","source":"handwritten","note":"How to use virtual threads introduced in Java 21","gold":{"mustDomains":["oracle.com","openjdk.org"]}}
+{"id":"swiftui-tutorial","query":"swiftui tutorial","tier":"A","source":"handwritten","note":"Apple's official SwiftUI tutorials","gold":{"targets":["developer.apple.com/tutorials/swiftui"],"mustDomains":["developer.apple.com"]}}
+{"id":"compose-basics","query":"jetpack compose basics","tier":"A","source":"handwritten","note":"Getting started with Jetpack Compose on Android","gold":{"mustDomains":["developer.android.com"]}}
+{"id":"pandas-groupby","query":"pandas groupby multiple columns","tier":"A","source":"handwritten","note":"Group a DataFrame by several columns and aggregate","gold":{"mustDomains":["pandas.pydata.org"]}}
+{"id":"numpy-broadcasting","query":"numpy broadcasting rules","tier":"A","source":"handwritten","note":"The rules NumPy uses to broadcast arrays of different shapes","gold":{"mustDomains":["numpy.org"]}}
+{"id":"pytorch-dataloader","query":"pytorch custom dataset dataloader","tier":"A","source":"handwritten","note":"Write a custom Dataset and load it with DataLoader in PyTorch","gold":{"mustDomains":["pytorch.org"]}}
+{"id":"github-ssh-key","query":"add ssh key to github","tier":"A","source":"handwritten","note":"Generate an SSH key and add it to a GitHub account","gold":{"targets":["docs.github.com/en/authentication/connecting-to-github-with-ssh"],"mustDomains":["docs.github.com"]}}
+{"id":"actions-cache","query":"github actions cache node modules","tier":"A","source":"handwritten","note":"Cache npm or pnpm dependencies in GitHub Actions","gold":{"mustDomains":["docs.github.com"]}}
+{"id":"vscode-debug-node","query":"debug node.js in vs code","tier":"A","source":"handwritten","note":"Set up breakpoints and launch configurations for Node.js in VS Code","gold":{"mustDomains":["code.visualstudio.com"]}}
+{"id":"s3-presigned-upload","query":"s3 presigned url upload","tier":"A","source":"handwritten","note":"Upload a file to S3 with a presigned URL","gold":{"mustDomains":["docs.aws.amazon.com"]}}
+{"id":"terraform-modules","query":"terraform modules tutorial","tier":"A","source":"handwritten","note":"Write and use Terraform modules","gold":{"mustDomains":["developer.hashicorp.com"]}}
+{"id":"regex-lookaround","query":"regex lookahead lookbehind","tier":"A","source":"handwritten","note":"How lookahead and lookbehind assertions work in regular expressions","gold":{"mustDomains":["regular-expressions.info"]}}
+{"id":"cron-every-5-minutes","query":"crontab every 5 minutes","tier":"A","source":"handwritten","note":"The cron expression that runs a job every five minutes","gold":{"mustDomains":["crontab.guru"]}}
+{"id":"bash-loop-files","query":"bash loop over files in directory","tier":"A","source":"handwritten","note":"Iterate over files in a directory safely in a bash script","gold":{"mustDomains":["stackoverflow.com"]}}
+{"id":"sql-window-functions","query":"sql window functions tutorial","tier":"A","source":"handwritten","note":"Learn window functions such as ROW_NUMBER and running totals","gold":{"mustDomains":["postgresql.org"]}}
+{"id":"tailwind-dark-mode","query":"tailwind dark mode","tier":"A","source":"handwritten","note":"How to enable and style dark mode in Tailwind CSS","gold":{"targets":["tailwindcss.com/docs/dark-mode"],"mustDomains":["tailwindcss.com"]}}
+{"id":"nextjs-data-fetching","query":"next.js app router data fetching","tier":"A","source":"handwritten","note":"Fetch data in Server Components with the Next.js App Router","gold":{"mustDomains":["nextjs.org"]}}
+{"id":"vue-composition-api","query":"vue composition api guide","tier":"A","source":"handwritten","note":"The Composition API guide in the Vue documentation","gold":{"mustDomains":["vuejs.org"]}}
+{"id":"django-custom-user","query":"django custom user model","tier":"A","source":"handwritten","note":"Replace or extend the default user model in Django","gold":{"mustDomains":["docs.djangoproject.com"]}}
+{"id":"fastapi-dependencies","query":"fastapi dependency injection","tier":"A","source":"handwritten","note":"How dependencies with Depends work in FastAPI","gold":{"mustDomains":["fastapi.tiangolo.com"]}}
+{"id":"redis-pubsub","query":"redis pub sub example","tier":"A","source":"handwritten","note":"Publish and subscribe to channels in Redis","gold":{"mustDomains":["redis.io"]}}
+{"id":"kafka-quickstart","query":"apache kafka quickstart","tier":"A","source":"handwritten","note":"The official Kafka quickstart: start a broker, produce and consume","gold":{"targets":["kafka.apache.org/quickstart"],"mustDomains":["kafka.apache.org"]}}
+{"id":"excel-xlookup","query":"how to use xlookup in excel","tier":"A","source":"handwritten","note":"Syntax and examples of the XLOOKUP function","gold":{"mustDomains":["support.microsoft.com"]}}
+{"id":"iphone-screen-record","query":"how to screen record on iphone","tier":"A","source":"handwritten","note":"Record the screen on an iPhone with Control Center","gold":{"mustDomains":["support.apple.com"]}}
+{"id":"sourdough-starter","query":"how to make a sourdough starter","tier":"A","source":"handwritten","note":"Step-by-step instructions to create and feed a sourdough starter","gold":{"mustDomains":["kingarthurbaking.com"]}}
+{"id":"renew-us-passport","query":"how to renew us passport","tier":"A","source":"handwritten","note":"Steps and forms to renew a US passport","gold":{"mustDomains":["travel.state.gov"]}}
+{"id":"fill-w4","query":"how to fill out w-4","tier":"A","source":"handwritten","note":"Instructions for completing IRS Form W-4","gold":{"mustDomains":["irs.gov"]}}
+{"id":"cpr-steps","query":"how to perform cpr","tier":"A","source":"handwritten","note":"Steps of CPR for adults from a recognized first-aid organization","gold":{"mustDomains":["redcross.org","heart.org"]}}
+{"id":"latex-tables","query":"latex table tutorial","tier":"A","source":"handwritten","note":"Create and format tables in LaTeX","gold":{"mustDomains":["overleaf.com"]}}
+{"id":"ffmpeg-mp4-gif","query":"ffmpeg convert mp4 to gif","tier":"A","source":"handwritten","note":"Convert a video to a good-quality GIF with ffmpeg","gold":{"mustDomains":["ffmpeg.org"]}}
+{"id":"programming-001","query":"python asyncio gather","tier":"B","source":"synth:programming","note":"Run several coroutines concurrently and collect their results with asyncio.gather."}
+{"id":"programming-002","query":"django signals post_save","tier":"B","source":"synth:programming","note":"Hook a function into a model's post-save signal, including how to avoid recursion."}
+{"id":"programming-003","query":"spring boot jwt authentication","tier":"B","source":"synth:programming","note":"Secure REST endpoints with a JWT filter and token validation in Spring Boot."}
+{"id":"programming-004","query":"kotlin coroutines flow","tier":"B","source":"synth:programming","note":"Create, collect and transform asynchronous streams using Kotlin Flow."}
+{"id":"programming-005","query":"graphql schema stitching","tier":"B","source":"synth:programming","note":"Merge multiple GraphQL schemas into one gateway or unified schema."}
+{"id":"programming-006","query":"prisma migrate dev","tier":"B","source":"synth:programming","note":"Generate and apply database migrations during local Prisma development."}
+{"id":"programming-007","query":"vite env variables","tier":"B","source":"synth:programming","note":"Load .env files and access variables through import.meta.env in Vite."}
+{"id":"programming-008","query":"eslint flat config","tier":"B","source":"synth:programming","note":"Set up or migrate to the eslint.config.js flat configuration format."}
+{"id":"programming-009","query":"how to mock axios in jest","tier":"B","source":"synth:programming","note":"Replace axios calls with mocks in Jest unit tests and assert on requests."}
+{"id":"programming-010","query":"playwright wait for selector","tier":"B","source":"synth:programming","note":"Wait for an element to appear or become actionable before interacting in Playwright."}
+{"id":"programming-011","query":"supabase auth email password","tier":"B","source":"synth:programming","note":"Implement email/password sign-up, sign-in and session handling with Supabase Auth."}
+{"id":"programming-012","query":"mongodb aggregation lookup","tier":"B","source":"synth:programming","note":"Join documents from another collection using the $lookup aggregation stage."}
+{"id":"programming-013","query":"elasticsearch match query","tier":"B","source":"synth:programming","note":"Use match queries correctly and understand analysis and scoring behavior."}
+{"id":"programming-014","query":"rabbitmq dead letter queue","tier":"B","source":"synth:programming","note":"Configure a dead letter exchange and queue for rejected or expired messages."}
+{"id":"programming-015","query":"grpc protobuf python","tier":"B","source":"synth:programming","note":"Define a .proto service and generate Python client and server stubs."}
+{"id":"programming-016","query":"rust ownership and borrowing","tier":"B","source":"synth:programming","note":"Understand ownership, references and borrow checker rules with examples."}
+{"id":"programming-017","query":"c++ smart pointers","tier":"B","source":"synth:programming","note":"Choose between unique_ptr, shared_ptr and weak_ptr and avoid common pitfalls."}
+{"id":"programming-018","query":"laravel queue worker","tier":"B","source":"synth:programming","note":"Run, supervise and restart Laravel queue workers in development and production."}
+{"id":"programming-019","query":"rails generate migration","tier":"B","source":"synth:programming","note":"Create a Rails migration and add or change columns with the generator."}
+{"id":"programming-020","query":"svelte writable stores","tier":"B","source":"synth:programming","note":"Share reactive state across Svelte components using writable stores."}
+{"id":"programming-021","query":"react server components","tier":"B","source":"synth:programming","note":"Understand what React Server Components are and when to use them in an app."}
+{"id":"programming-022","query":"astro islands architecture","tier":"B","source":"synth:programming","note":"Render static pages and selectively hydrate interactive components as islands."}
+{"id":"programming-023","query":"deno permissions","tier":"B","source":"synth:programming","note":"Run Deno scripts with the right allow flags for file, network and environment access."}
+{"id":"programming-024","query":"docker multi stage build","tier":"B","source":"synth:programming","note":"Write a multi-stage Dockerfile to keep runtime images small."}
+{"id":"programming-025","query":"kubernetes ingress tls","tier":"B","source":"synth:programming","note":"Expose a Kubernetes service through Ingress with a TLS certificate."}
+{"id":"programming-026","query":"git rebase interactive squash commits","tier":"B","source":"synth:programming","note":"Steps to combine several commits into one and resolve conflicts during an interactive rebase"}
+{"id":"programming-027","query":"python dataclass default_factory","tier":"B","source":"synth:programming","note":"How to use field(default_factory=...) for mutable defaults in a dataclass"}
+{"id":"programming-028","query":"pytest parametrize with fixtures","tier":"B","source":"synth:programming","note":"Examples of combining parametrize with fixtures and readable test ids"}
+{"id":"programming-029","query":"github actions matrix strategy multiple node versions","tier":"B","source":"synth:programming","note":"Define a build matrix across OS and language versions in a workflow"}
+{"id":"programming-030","query":"ansible playbook first steps","tier":"B","source":"synth:programming","note":"Write and run a basic playbook with tasks, handlers and an inventory"}
+{"id":"programming-031","query":"helm chart values template","tier":"B","source":"synth:programming","note":"Override chart values and use templating inside a Helm chart"}
+{"id":"programming-032","query":"prometheus rate query examples","tier":"B","source":"synth:programming","note":"Use rate() with counters and choose an appropriate time range"}
+{"id":"programming-033","query":"go embed static files","tier":"B","source":"synth:programming","note":"Embed static assets into a Go binary with //go:embed"}
+{"id":"programming-034","query":"rust serde derive json","tier":"B","source":"synth:programming","note":"Derive Serialize/Deserialize and handle JSON with serde_json"}
+{"id":"programming-035","query":"kotlin sealed class when","tier":"B","source":"synth:programming","note":"Exhaustive when expressions over sealed class subclasses"}
+{"id":"programming-036","query":"swift async await tutorial","tier":"B","source":"synth:programming","note":"Use async/await and Task for concurrency in Swift"}
+{"id":"programming-037","query":"flutter provider state management","tier":"B","source":"synth:programming","note":"Set up Provider and notify listeners when state changes"}
+{"id":"programming-038","query":"react native stack navigator params","tier":"B","source":"synth:programming","note":"Configure a stack navigator and pass typed params between screens"}
+{"id":"programming-039","query":"android room database kotlin","tier":"B","source":"synth:programming","note":"Define entities, DAO and database with Room in Kotlin"}
+{"id":"programming-040","query":"electron ipc main renderer","tier":"B","source":"synth:programming","note":"Send messages between renderer and main process with ipcMain and ipcRenderer"}
+{"id":"programming-041","query":"d3 bar chart tutorial","tier":"B","source":"synth:programming","note":"Build a simple bar chart with scales and axes in D3"}
+{"id":"programming-042","query":"matplotlib subplots sharex","tier":"B","source":"synth:programming","note":"Create multiple subplots and share the x-axis between them"}
+{"id":"programming-043","query":"numpy reshape -1","tier":"B","source":"synth:programming","note":"Understand reshape(-1) and how NumPy infers the missing dimension"}
+{"id":"programming-044","query":"mysql explain analyze","tier":"B","source":"synth:programming","note":"Read EXPLAIN ANALYZE output to diagnose query performance"}
+{"id":"programming-045","query":"sqlite upsert on conflict","tier":"B","source":"synth:programming","note":"Use INSERT ... ON CONFLICT DO UPDATE in SQLite"}
+{"id":"programming-046","query":"redis expire key command","tier":"B","source":"synth:programming","note":"Set and check TTL on keys with EXPIRE and TTL"}
+{"id":"programming-047","query":"grpc python server streaming","tier":"B","source":"synth:programming","note":"Implement a server-streaming RPC in Python"}
+{"id":"programming-048","query":"websocket handshake headers","tier":"B","source":"synth:programming","note":"Inspect the HTTP Upgrade request and response headers for a WebSocket connection"}
+{"id":"programming-049","query":"ssh local port forwarding","tier":"B","source":"synth:programming","note":"Forward a local port to a remote service with ssh -L"}
+{"id":"programming-050","query":"systemd service restart on failure","tier":"B","source":"synth:programming","note":"Write a unit file with ExecStart and Restart, then enable it"}
+{"id":"programming-051","query":"go context timeout cancel","tier":"B","source":"synth:programming","note":"Use context.WithTimeout and cancel to stop long-running work"}
+{"id":"programming-052","query":"typescript utility types partial pick","tier":"B","source":"synth:programming","note":"Use Partial, Pick, Omit and other built-in utility types"}
+{"id":"programming-053","query":"how to use ref and reactive in vue 3","tier":"B","source":"synth:programming","note":"Difference between ref and reactive in Vue 3 Composition API"}
+{"id":"programming-054","query":"angular reactive forms validation errors","tier":"B","source":"synth:programming","note":"Add validators and display errors in Angular reactive forms"}
+{"id":"programming-055","query":"sveltekit load function fetch data","tier":"B","source":"synth:programming","note":"Fetch data in +page.js/ts load functions"}
+{"id":"programming-056","query":"django rest framework serializer example","tier":"B","source":"synth:programming","note":"Define serializers and validate data in DRF"}
+{"id":"programming-057","query":"flask blueprints organize routes","tier":"B","source":"synth:programming","note":"Organize routes with Blueprints in Flask"}
+{"id":"programming-058","query":"how to enable spring boot actuator health","tier":"B","source":"synth:programming","note":"Expose health and metrics with Actuator"}
+{"id":"programming-059","query":"redis pubsub publish subscribe example","tier":"B","source":"synth:programming","note":"Publish and subscribe to channels in Redis"}
+{"id":"programming-060","query":"kafka consumer group rebalance handling","tier":"B","source":"synth:programming","note":"Understand and handle consumer group rebalances"}
+{"id":"programming-061","query":"docker multi stage build smaller image","tier":"B","source":"synth:programming","note":"Use multi-stage Dockerfiles to shrink images"}
+{"id":"programming-062","query":"kubernetes liveness probe http get","tier":"B","source":"synth:programming","note":"Configure liveness and readiness probes"}
+{"id":"programming-063","query":"terraform state lock force unlock","tier":"B","source":"synth:programming","note":"Handle state locking and force-unlock"}
+{"id":"programming-064","query":"ansible handlers notify example","tier":"B","source":"synth:programming","note":"Trigger handlers with notify in playbooks"}
+{"id":"programming-065","query":"how to cherry pick a commit in git","tier":"B","source":"synth:programming","note":"Apply a specific commit onto another branch"}
+{"id":"programming-066","query":"bash parameter expansion default value","tier":"B","source":"synth:programming","note":"Use ${var:-default} and other expansions"}
+{"id":"programming-067","query":"vim search and replace whole file","tier":"B","source":"synth:programming","note":"Replace text across a file with :s commands"}
+{"id":"programming-068","query":"nginx location regex match","tier":"B","source":"synth:programming","note":"Match request paths with regex in location blocks"}
+{"id":"programming-069","query":"ssh keygen ed25519 add to agent","tier":"B","source":"synth:programming","note":"Generate an Ed25519 SSH key pair and add to agent"}
+{"id":"programming-070","query":"how to post json with curl","tier":"B","source":"synth:programming","note":"Send a JSON body with curl -X POST -d"}
+{"id":"programming-071","query":"jq filter array of objects","tier":"B","source":"synth:programming","note":"Filter and map arrays with jq"}
+{"id":"programming-072","query":"postgres recursive cte example","tier":"B","source":"synth:programming","note":"Write recursive common table expressions"}
+{"id":"programming-073","query":"sveltekit form actions","tier":"B","source":"synth:programming","note":"官方 SvelteKit 文档介绍如何通过 actions 处理表单提交，包括渐进增强的示例"}
+{"id":"programming-074","query":"django nested serializer example","tier":"B","source":"synth:programming","note":"如何定义一个带有嵌套关系的 DRF 序列化器，并给出可运行代码"}
+{"id":"programming-075","query":"how to set up pre commit hooks python","tier":"B","source":"synth:programming","note":"在 Python 项目中安装并配置 pre-commit（搭配 black、flake8 等钩子）的分步指南"}
+{"id":"programming-076","query":"bun test runner","tier":"B","source":"synth:programming","note":"如何使用 Bun 内置测试运行器：编写测试、断言、覆盖率、watch 模式"}
+{"id":"programming-077","query":"opentelemetry node.js tracing setup","tier":"B","source":"synth:programming","note":"为 Express 或 Node 应用接入 OpenTelemetry SDK，并把 trace 导出到后端的配置方法"}
+{"id":"programming-078","query":"cargo workspace multiple crates","tier":"B","source":"synth:programming","note":"Cargo 官方文档中关于定义包含多个成员 crate 并共享依赖的 workspace 的说明"}
+{"id":"programming-079","query":"how to profile memory chrome devtools","tier":"B","source":"synth:programming","note":"使用 Chrome DevTools 的 Memory 面板，通过堆快照定位内存泄漏"}
+{"id":"programming-080","query":"nix flake dev shell","tier":"B","source":"synth:programming","note":"如何编写 flake.nix 中的 devShells，配置可复现的开发环境"}
+{"id":"ops-001","query":"ansible playbook example","tier":"B","source":"synth:ops","note":"A basic Ansible playbook example showing tasks, hosts and modules, ideally official docs"}
+{"id":"ops-002","query":"certbot renew letsencrypt","tier":"B","source":"synth:ops","note":"How to renew Let's Encrypt certificates with certbot, including cron or systemd timer setup"}
+{"id":"ops-003","query":"mysqldump backup all databases","tier":"B","source":"synth:ops","note":"Command to dump all MySQL databases and restore them later"}
+{"id":"ops-004","query":"gitlab ci pipeline yaml example","tier":"B","source":"synth:ops","note":"A .gitlab-ci.yml example with stages and jobs to start a CI pipeline"}
+{"id":"ops-005","query":"kubernetes persistent volume claim","tier":"B","source":"synth:ops","note":"How PVCs bind to PVs and how to mount one in a pod"}
+{"id":"ops-006","query":"haproxy config load balancing","tier":"B","source":"synth:ops","note":"Basic HAProxy configuration for load balancing backend servers"}
+{"id":"ops-007","query":"cloudflare dns setup","tier":"B","source":"synth:ops","note":"Adding a domain to Cloudflare and pointing DNS records to a server"}
+{"id":"ops-008","query":"aws iam policy example","tier":"B","source":"synth:ops","note":"An example IAM policy JSON granting access to a specific S3 bucket"}
+{"id":"ops-009","query":"pg_dump restore database","tier":"B","source":"synth:ops","note":"Using pg_dump and pg_restore to back up and restore a PostgreSQL database"}
+{"id":"ops-010","query":"prometheus alertmanager rules","tier":"B","source":"synth:ops","note":"How to write alerting rules and wire them to Alertmanager"}
+{"id":"ops-011","query":"linux mdadm raid 1 setup","tier":"B","source":"synth:ops","note":"Steps to create a RAID 1 array with mdadm on Linux"}
+{"id":"ops-012","query":"aws vpc peering setup","tier":"B","source":"synth:ops","note":"How to create a VPC peering connection and update route tables"}
+{"id":"ops-013","query":"azure devops pipeline yaml","tier":"B","source":"synth:ops","note":"YAML pipeline syntax for Azure DevOps with build and deploy stages"}
+{"id":"ops-014","query":"docker compose healthcheck","tier":"B","source":"synth:ops","note":"Adding a healthcheck to a service in docker-compose.yml"}
+{"id":"ops-015","query":"kubernetes liveness readiness probe","tier":"B","source":"synth:ops","note":"Difference between liveness and readiness probes and how to configure them"}
+{"id":"ops-016","query":"tcpdump capture packets on port","tier":"B","source":"synth:ops","note":"Using tcpdump to capture traffic on a specific interface and port"}
+{"id":"ops-017","query":"nginx ssl certificate letsencrypt","tier":"B","source":"synth:ops","note":"Configuring nginx with a Let's Encrypt certificate and redirecting to HTTPS"}
+{"id":"ops-018","query":"grafana prometheus dashboard setup","tier":"B","source":"synth:ops","note":"Adding Prometheus as a data source in Grafana and building a dashboard"}
+{"id":"ops-019","query":"github actions workflow syntax","tier":"B","source":"synth:ops","note":"Workflow YAML syntax for GitHub Actions with triggers and steps"}
+{"id":"ops-020","query":"ufw firewall allow port","tier":"B","source":"synth:ops","note":"Using ufw to open a port and enable the firewall on Ubuntu"}
+{"id":"ops-021","query":"mongodb replica set setup","tier":"B","source":"synth:ops","note":"Steps to initialize a MongoDB replica set across multiple nodes"}
+{"id":"ops-022","query":"dns a record vs cname","tier":"B","source":"synth:ops","note":"The difference between A and CNAME records and when to use each"}
+{"id":"ops-023","query":"ssh key based auth disable password","tier":"B","source":"synth:ops","note":"Setting up SSH key login and disabling password authentication on a server"}
+{"id":"ops-024","query":"ansible copy file to remote","tier":"B","source":"synth:ops","note":"How to use the Ansible copy module to push files to managed hosts, with examples of owner/mode settings."}
+{"id":"ops-025","query":"aws ec2 instance profile iam role","tier":"B","source":"synth:ops","note":"Attach an IAM role to an EC2 instance so the AWS CLI and SDKs get credentials without keys."}
+{"id":"ops-026","query":"import grafana dashboard json","tier":"B","source":"synth:ops","note":"Steps to import a dashboard JSON file or ID into Grafana."}
+{"id":"ops-027","query":"helm override values file","tier":"B","source":"synth:ops","note":"Pass custom values with -f when installing or upgrading a Helm chart."}
+{"id":"ops-028","query":"kubernetes configmap from file","tier":"B","source":"synth:ops","note":"Create a ConfigMap from a file or directory with kubectl and mount it into a pod."}
+{"id":"ops-029","query":"mysql slow query log enable","tier":"B","source":"synth:ops","note":"Turn on the slow query log and read the logged statements."}
+{"id":"ops-030","query":"rsync exclude folder","tier":"B","source":"synth:ops","note":"Exclude directories or patterns when syncing with rsync."}
+{"id":"ops-031","query":"iptables redirect port 80 to 8080","tier":"B","source":"synth:ops","note":"NAT rules to redirect incoming traffic from one port to another with iptables."}
+{"id":"ops-032","query":"nginx limit requests per second","tier":"B","source":"synth:ops","note":"Configure limit_req and the limit_req_zone to throttle traffic in nginx."}
+{"id":"ops-033","query":"aws vpc peering connection setup","tier":"B","source":"synth:ops","note":"Create a VPC peering connection and update route tables on both sides."}
+{"id":"ops-034","query":"terraform remote state s3 backend","tier":"B","source":"synth:ops","note":"Configure an S3 backend with DynamoDB locking for Terraform remote state."}
+{"id":"ops-035","query":"jenkins declarative pipeline syntax","tier":"B","source":"synth:ops","note":"Structure of a Jenkinsfile with stages, agents and post blocks in declarative syntax."}
+{"id":"ops-036","query":"gitlab runner register docker","tier":"B","source":"synth:ops","note":"Register a GitLab CI runner using the docker executor."}
+{"id":"ops-037","query":"kubernetes hpa custom metrics","tier":"B","source":"synth:ops","note":"Scale pods on custom or external metrics with the HorizontalPodAutoscaler."}
+{"id":"ops-038","query":"linux find files larger than 100mb","tier":"B","source":"synth:ops","note":"Use find with -size to locate large files on disk."}
+{"id":"ops-039","query":"increase swap file size ubuntu","tier":"B","source":"synth:ops","note":"Create or enlarge a swapfile and enable it on Ubuntu."}
+{"id":"ops-040","query":"gcs signed url upload","tier":"B","source":"synth:ops","note":"Generate a signed URL to upload an object to Google Cloud Storage."}
+{"id":"ops-041","query":"wireguard vpn server setup","tier":"B","source":"synth:ops","note":"Set up a WireGuard server and client configs on Linux."}
+{"id":"ops-042","query":"systemd service unit file example","tier":"B","source":"synth:ops","note":"How to write a systemd .service unit to run a custom daemon and enable it with systemctl"}
+{"id":"ops-043","query":"nginx client_max_body_size 413","tier":"B","source":"synth:ops","note":"Fixing 413 Request Entity Too Large by raising the upload size limit in nginx"}
+{"id":"ops-044","query":"aws s3 bucket policy public read","tier":"B","source":"synth:ops","note":"Example bucket policy JSON that allows anonymous read access to objects in an S3 bucket"}
+{"id":"ops-045","query":"rsync exclude node_modules","tier":"B","source":"synth:ops","note":"Using --exclude patterns or --exclude-from to skip directories like node_modules during rsync"}
+{"id":"ops-046","query":"docker prune unused images containers volumes","tier":"B","source":"synth:ops","note":"Which docker prune commands remove dangling images, stopped containers and unused volumes safely"}
+{"id":"ops-047","query":"terraform s3 backend state locking","tier":"B","source":"synth:ops","note":"Configuring an S3 remote backend with DynamoDB table for state locking in Terraform"}
+{"id":"ops-048","query":"aws acm certificate nginx setup","tier":"B","source":"synth:ops","note":"用户想给 Nginx 配置 AWS Certificate Manager 签发的证书，或者搞清楚如何把 ACM 证书用到 Nginx/EC2 上；需要能照着做的配置步骤和常见坑。"}
+{"id":"ops-049","query":"prometheus alertmanager email alerts config","tier":"B","source":"synth:ops","note":"用户想配置 Alertmanager 通过邮件发送告警，需要 alertmanager.yml 的 receiver 与 smtp 写法以及验证方式。"}
+{"id":"everyday-001","query":"how long to boil eggs","tier":"B","source":"synth:everyday","note":"Timing for soft, medium, and hard boiled eggs, plus tips for easy peeling."}
+{"id":"everyday-002","query":"season cast iron skillet","tier":"B","source":"synth:everyday","note":"How to season and maintain a cast iron pan so it becomes nonstick."}
+{"id":"everyday-003","query":"fix running toilet","tier":"B","source":"synth:everyday","note":"Diagnose and replace a faulty flapper or fill valve in a constantly running toilet."}
+{"id":"everyday-004","query":"patch drywall hole","tier":"B","source":"synth:everyday","note":"Step-by-step repair for small and medium holes in interior drywall."}
+{"id":"everyday-005","query":"unclog bathroom sink","tier":"B","source":"synth:everyday","note":"Remove hair and soap clogs from a bathroom sink drain without calling a plumber."}
+{"id":"everyday-006","query":"when to plant tomatoes","tier":"B","source":"synth:everyday","note":"Best time of year and soil temperature for transplanting tomatoes outdoors."}
+{"id":"everyday-007","query":"prune rose bushes","tier":"B","source":"synth:everyday","note":"Correct pruning technique and timing to keep roses blooming."}
+{"id":"everyday-008","query":"50 30 20 budget rule","tier":"B","source":"synth:everyday","note":"How the 50/30/20 budgeting split works and how to apply it to monthly income."}
+{"id":"everyday-009","query":"how to build credit","tier":"B","source":"synth:everyday","note":"Practical steps to establish a credit history starting from no score."}
+{"id":"everyday-010","query":"what is an index fund","tier":"B","source":"synth:everyday","note":"Beginner explanation of index funds, how they work, and why people invest in them."}
+{"id":"everyday-011","query":"dispute credit report error","tier":"B","source":"synth:everyday","note":"How to file a dispute with the credit bureaus online to fix a mistake."}
+{"id":"everyday-012","query":"treat a burn at home","tier":"B","source":"synth:everyday","note":"First aid for minor kitchen burns and when to seek medical help."}
+{"id":"everyday-013","query":"choking first aid adult","tier":"B","source":"synth:everyday","note":"Heimlich maneuver steps for a conscious adult who is choking."}
+{"id":"everyday-014","query":"stop nosebleed","tier":"B","source":"synth:everyday","note":"Proper way to stop a nosebleed at home and common mistakes to avoid."}
+{"id":"everyday-015","query":"sprained ankle treatment","tier":"B","source":"synth:everyday","note":"RICE method and recovery timeline for a sprained ankle."}
+{"id":"everyday-016","query":"renew passport","tier":"B","source":"synth:everyday","note":"Steps, forms, and documents needed to renew a US passport by mail."}
+{"id":"everyday-017","query":"dmv appointment","tier":"B","source":"synth:everyday","note":"How to schedule a DMV appointment online for license renewal or registration."}
+{"id":"everyday-018","query":"file taxes free","tier":"B","source":"synth:everyday","note":"Options for free federal tax filing for simple returns."}
+{"id":"everyday-019","query":"replace social security card","tier":"B","source":"synth:everyday","note":"How to apply for a replacement Social Security card and what ID to bring."}
+{"id":"everyday-020","query":"screen record iphone","tier":"B","source":"synth:everyday","note":"Use the built-in screen recording feature on iPhone and where to find it."}
+{"id":"everyday-021","query":"transfer photos android to pc","tier":"B","source":"synth:everyday","note":"Move photos from an Android phone to a Windows PC via USB or cloud."}
+{"id":"everyday-022","query":"reset airpods","tier":"B","source":"synth:everyday","note":"Reset AirPods to factory settings when they won't connect or charge."}
+{"id":"everyday-023","query":"block spam calls iphone","tier":"B","source":"synth:everyday","note":"Enable spam call filtering and silence unknown callers on iPhone."}
+{"id":"everyday-024","query":"google maps offline","tier":"B","source":"synth:everyday","note":"Download an offline map area in Google Maps before traveling."}
+{"id":"everyday-025","query":"pair bluetooth printer windows","tier":"B","source":"synth:everyday","note":"Add a Bluetooth printer in Windows settings and troubleshoot pairing."}
+{"id":"everyday-026","query":"how to sharpen kitchen knives with whetstone","tier":"B","source":"synth:everyday","note":"Step-by-step instructions on whetstone grit, sharpening angle, and strokes to restore a dull knife."}
+{"id":"everyday-027","query":"how to make homemade pasta without machine","tier":"B","source":"synth:everyday","note":"Pasta dough recipe and hand-rolling/cutting steps for fresh pasta without a pasta maker."}
+{"id":"everyday-028","query":"how to fix a running toilet","tier":"B","source":"synth:everyday","note":"Diagnose a constantly running toilet and replace the flapper or fill valve."}
+{"id":"everyday-029","query":"how to unclog a kitchen sink","tier":"B","source":"synth:everyday","note":"Safe ways to clear a clogged kitchen drain, from plunging to snaking."}
+{"id":"everyday-030","query":"how to grow tomatoes in containers","tier":"B","source":"synth:everyday","note":"Container size, soil, watering, and support tips for growing tomatoes on a patio."}
+{"id":"everyday-031","query":"when to plant tulip bulbs","tier":"B","source":"synth:everyday","note":"Best planting time, depth, and spacing for tulip bulbs by climate."}
+{"id":"everyday-032","query":"how to compost at home","tier":"B","source":"synth:everyday","note":"Build and maintain a backyard compost pile, including what to add and when to turn it."}
+{"id":"everyday-033","query":"how to make a budget spreadsheet","tier":"B","source":"synth:everyday","note":"Create a simple monthly budget in Excel or Google Sheets with income and expense categories."}
+{"id":"everyday-034","query":"credit score ranges","tier":"B","source":"synth:everyday","note":"Explain FICO score ranges and what counts as poor, fair, good, and excellent."}
+{"id":"everyday-035","query":"401k vs roth ira","tier":"B","source":"synth:everyday","note":"Compare contribution limits, tax treatment, and withdrawal rules for 401(k) and Roth IRA."}
+{"id":"everyday-036","query":"how to treat a minor burn","tier":"B","source":"synth:everyday","note":"First aid steps for small burns, including cooling, covering, and when to get help."}
+{"id":"everyday-037","query":"how to check blood pressure at home","tier":"B","source":"synth:everyday","note":"Correct positioning and technique for using a home blood pressure cuff."}
+{"id":"everyday-038","query":"sprained ankle recovery","tier":"B","source":"synth:everyday","note":"RICE steps and a timeline for returning to activity after an ankle sprain."}
+{"id":"everyday-039","query":"dmv address change","tier":"B","source":"synth:everyday","note":"How to update a driver's license and vehicle registration address with the DMV."}
+{"id":"everyday-040","query":"how to apply for a marriage license","tier":"B","source":"synth:everyday","note":"Requirements, fees, and appointment steps for getting a marriage license."}
+{"id":"everyday-041","query":"how to transfer photos from iphone to pc","tier":"B","source":"synth:everyday","note":"Move photos from an iPhone to a Windows PC using a cable, iCloud, or apps."}
+{"id":"everyday-042","query":"iphone screen time limits","tier":"B","source":"synth:everyday","note":"Set app limits and downtime in Screen Time, including for a child's device."}
+{"id":"everyday-043","query":"how to scan a document with phone","tier":"B","source":"synth:everyday","note":"Use a phone camera to scan paper documents into a clean PDF."}
+{"id":"everyday-044","query":"how to debone a chicken thigh","tier":"B","source":"synth:everyday","note":"Technique for removing the bone from a chicken thigh with a knife."}
+{"id":"everyday-045","query":"how to caulk a bathtub","tier":"B","source":"synth:everyday","note":"Remove old caulk and apply a new silicone bead around a tub."}
+{"id":"everyday-046","query":"how to sharpen kitchen knives","tier":"B","source":"synth:everyday","note":"Wants a reliable step-by-step method for honing and sharpening kitchen knives at home, ideally with angle guidance and tool recommendations."}
+{"id":"everyday-047","query":"when to prune hydrangeas","tier":"B","source":"synth:everyday","note":"Needs timing advice by hydrangea type and whether to cut back in fall or spring, with clear guidance to avoid losing blooms."}
+{"id":"everyday-048","query":"how to improve credit score","tier":"B","source":"synth:everyday","note":"Wants actionable, legitimate steps to raise a credit score, such as utilization, payment history, and disputing errors, from a reputable source."}
+{"id":"everyday-049","query":"apply for global entry","tier":"B","source":"synth:everyday","note":"Seeks official application steps, eligibility, fees, and interview/processing details for U.S. Global Entry."}
+{"id":"everyday-050","query":"how to jump start a car","tier":"B","source":"synth:everyday","note":"想找分步操作指南：搭电线的正确连接和拆卸顺序、正负极怎么接、需要哪些安全注意（避免短路或伤到电瓶），最好是图文或视频演示的可靠指南，而不是论坛里零散的问答。"}
+{"id":"ops-050","query":"certbot renew cron job","tier":"B","source":"synth:ops","note":"自动续期 Let's Encrypt 证书的配置方法, 包括 cron 任务或 systemd timer 的写法以及如何用 dry-run 验证。"}

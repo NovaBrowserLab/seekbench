@@ -15,7 +15,7 @@
 
 - **场景题库**：查询按场景组织，每个场景带打分说明。一部分由人工标注目标网页、权威域名与风险域名，其余由模型按场景合成、人工抽样复核。
 - **被测对象**：搜索服务的适配器，以及由适配器组合而成的策略。两者对评测器暴露同一个接口，任何能「给一个查询、返回一组排好序结果」的系统都能接入。
-- **打分**：先按标注做规则判断，其余交给 LLM 裁判给出 0 到 3 的相关性等级；裁判位置盲、来源盲，每次正式评测附人工抽样复核。
+- **打分**：先按标注做规则判断，其余交给 LLM 裁判给出 0 到 3 的相关性等级；裁判位置盲、来源盲；人工抽样复核可选，复核过的结果改用人工等级。
 - **指标**：质量（Hit@k、MRR、nDCG@k、覆盖率、风险率、时效率等，附置信区间）、时延（p50 / p90 / p99）、费用（每千次查询）。结论按场景给出，不做脱离场景的总排名。
 - **录制回放**：供应商响应可录制到本机，改打分逻辑后离线重跑不重复付费。
 
@@ -41,13 +41,15 @@ pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa
 
 被测对象、并发、超时与重复次数在 `seekbench.config.ts` 里配置，各家适配器的参数、计费与限速见 [docs/adapters/](docs/adapters/README.md)；`pnpm seekbench --help` 列出全部参数。运行中断后用 `--resume <run-id>` 续跑。
 
+跑完搜索后，`run` 用配置里的 `judge` 模型给规则判不了的结果打分（默认 DeepSeek，读 `DEEPSEEK_API_KEY`），裁判结果缓存在本机，回放重跑不再付费；`--no-judge` 只做规则打分。人工复核可选：`judge:sample` 抽样、人工填等级，`judge:audit` 算一致率并用人工等级覆盖对应结果；不复核时成绩只按裁判等级计算，流程见 [docs/judge.md](docs/judge.md)。题库的标注规范与 `dataset:*` 工具见 [docs/dataset.md](docs/dataset.md)。
+
 ## 结果
 
 公开的运行结果放在 `results/`，每次包含汇总指标与报告。
 
 ## 状态
 
-已有：数据模型、URL 规范化、按标注的规则打分、质量指标与置信区间、带全局并发上限与限速的 Runner（超时、续跑）、`run` 与 `report` 命令；博查、Brave、DeepSeek、Exa、Tavily 五家适配器与录制回放；中英文官网导航场景（`nav-zh`、`nav-en`）的人工标注题库。尚未接入 LLM 裁判与其余场景。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
+已有：数据模型、URL 规范化、按标注的规则打分、质量指标与置信区间、带全局并发上限与限速的 Runner（超时、续跑）、`run` 与 `report` 命令；博查、Brave、DeepSeek、Exa、Tavily 五家适配器与录制回放；LLM 裁判与缓存、校准、人工抽样复核；题库的合成、校验、统计与日志导入工具；导航（`nav-*`）、教程类信息查找（`howto-*`）与描述性查询（`descriptive-*`）的中英文人工标注题库。其余场景尚未加入。设计文档见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ## 许可证
 
@@ -70,7 +72,7 @@ A general-purpose benchmark for search scenarios, to help choose search provider
 
 - **Scenario datasets**: queries grouped by scenario, each scenario with its own grading guidance. Part of each set is hand-labeled with target pages, authoritative domains and risky domains; the rest is synthesized per scenario and spot-checked by people.
 - **Subjects**: provider adapters, and strategies composed from them. Both expose the same interface, so anything that takes a query and returns a ranked list can be benchmarked.
-- **Scoring**: rule-based judgments from the labels first, then an LLM judge assigns 0 to 3 relevance grades, blind to rank and provider; every formal run includes a human audit sample.
+- **Scoring**: rule-based judgments from the labels first, then an LLM judge assigns 0 to 3 relevance grades, blind to rank and provider; a human audit sample is optional, and audited results use the human grades.
 - **Metrics**: quality (Hit@k, MRR, nDCG@k, coverage, risk rate, freshness, with confidence intervals), latency (p50 / p90 / p99) and cost per thousand queries. Conclusions are reported per scenario; there is no overall leaderboard without scenario context.
 - **Record and replay**: provider responses can be recorded locally so scoring changes can be re-run offline without paying again.
 
@@ -96,13 +98,15 @@ pnpm seekbench run --scenarios nav-zh,nav-en --subjects bocha,brave,deepseek,exa
 
 Subjects, concurrency, timeouts and repetitions are configured in `seekbench.config.ts`; adapter options, pricing and rate limits are in [docs/adapters/](docs/adapters/README.md) (Chinese). `pnpm seekbench --help` lists every option. Resume an interrupted run with `--resume <run-id>`.
 
+After searching, `run` grades the results that rules cannot decide with the `judge` model from the config (DeepSeek by default, reading `DEEPSEEK_API_KEY`). Judgments are cached locally, so replays do not pay again; `--no-judge` keeps rule grading only. A human audit is optional: `judge:sample` draws a sample, people fill in grades, and `judge:audit` computes agreement and replaces the judge grades of those results with the human ones. Without an audit, scores use the judge grades only; see [docs/judge.md](docs/judge.md) (Chinese). Labeling guidelines and the `dataset:*` tools are in [docs/dataset.md](docs/dataset.md) (Chinese).
+
 **Results**
 
 Published runs live in `results/`, each with summary metrics and a report.
 
 **Status**
 
-Available: data model, URL normalization, rule-based grading from labels, quality metrics with confidence intervals, a runner with a global concurrency cap and per-subject rate limits (timeouts, resume), the `run` and `report` commands; adapters for Bocha, Brave, DeepSeek, Exa and Tavily with record and replay; hand-labeled datasets for Chinese and English site navigation (`nav-zh`, `nav-en`). The LLM judge and the remaining scenarios are not in yet. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
+Available: data model, URL normalization, rule-based grading from labels, quality metrics with confidence intervals, a runner with a global concurrency cap and per-subject rate limits (timeouts, resume), the `run` and `report` commands; adapters for Bocha, Brave, DeepSeek, Exa and Tavily with record and replay; the LLM judge with caching, calibration and human audit sampling; dataset tools for synthesis, validation, statistics and log import; hand-labeled Chinese and English datasets for navigation (`nav-*`), how-to lookups (`howto-*`) and descriptive queries (`descriptive-*`). The remaining scenarios are not in yet. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (Chinese).
 
 **License**
 

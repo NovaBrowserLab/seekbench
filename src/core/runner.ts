@@ -10,14 +10,14 @@ import {
 } from "node:fs/promises";
 import { join } from "node:path";
 import { promisify } from "node:util";
-import { gzip } from "node:zlib";
+import { gunzip, gzip } from "node:zlib";
 import { z } from "zod";
 import { SubjectError, type TokenBucket } from "../adapters/_shared.ts";
 import { type CassetteStore, cassetteKey } from "./cassette.ts";
 import { parseJsonl, toJsonl } from "./jsonl.ts";
 import { scoreHits } from "./metrics.ts";
 import { normalizeHits } from "./normalize.ts";
-import type { LoadedScenario } from "./scenarios.ts";
+import { type LoadedScenario, maxGradeOf } from "./scenarios.ts";
 import {
 	type Case,
 	CaseRecord,
@@ -31,6 +31,7 @@ import {
 } from "./types.ts";
 
 const gzipAsync = promisify(gzip);
+const gunzipAsync = promisify(gunzip);
 
 export const CASES_FILE = "cases.jsonl";
 export const CASES_ARCHIVE = "cases.jsonl.gz";
@@ -186,7 +187,12 @@ function toRecord(item: WorkItem, outcome: Outcome): CaseRecord {
 		rawCount: response?.hits.length ?? 0,
 		duplicates: normalized.duplicates,
 		invalid: normalized.invalid,
-		hits: scoreHits(normalized.hits, kase, outcome.startedAt),
+		hits: scoreHits(
+			normalized.hits,
+			kase,
+			outcome.startedAt,
+			maxGradeOf(scenario),
+		),
 		error: outcome.error,
 		...(outcome.recordedAt !== undefined && {
 			recordedAt: outcome.recordedAt,
@@ -519,10 +525,7 @@ export async function executeRun(
 	);
 	const interrupted = records.length < total;
 	if (!interrupted) {
-		await writeFile(
-			join(runDir, CASES_ARCHIVE),
-			await gzipAsync(toJsonl(records)),
-		);
+		await writeArchive(runDir, records);
 		await rm(casesPath);
 	}
 	await progress.finish(interrupted ? "interrupted" : "finished");
@@ -532,6 +535,22 @@ export async function executeRun(
 		configMismatch: [...mismatch].sort(),
 		reused,
 	};
+}
+
+/** 写入完成运行的明细归档 cases.jsonl.gz, 先写临时文件再改名. */
+export async function writeArchive(
+	runDir: string,
+	records: readonly CaseRecord[],
+): Promise<void> {
+	const path = join(runDir, CASES_ARCHIVE);
+	await writeFile(`${path}.tmp`, await gzipAsync(toJsonl(records)));
+	await rename(`${path}.tmp`, path);
+}
+
+export async function readArchive(runDir: string): Promise<CaseRecord[]> {
+	const path = join(runDir, CASES_ARCHIVE);
+	const text = (await gunzipAsync(await readFile(path))).toString("utf8");
+	return parseJsonl(text, CaseRecord, path);
 }
 
 export async function readProgress(runDir: string): Promise<Progress> {
